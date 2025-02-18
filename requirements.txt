@@ -1,0 +1,37 @@
+# MCP SDK
+mcp>=0.1.0
+# Server dependencies
+fastapi>=0.104.1
+uvicorn
+httpx>=0.25.1
+pydantic>=2.10.3
+websockets>=14.1
+flask>=3.1.0
+filelock>=3.12.0  # Add this line
+jsonrpcserver>=5.0.9  # Added for JSON-RPC support
+websocket-client>=1.7.0  # Added for WebSocket client support
+# Testing dependencies
+pytest>=8.3.4
+pytest-asyncio>=0.24.0
+pytest-cov>=6.0.0
+pytest-timeout>=2.2.0
+PyYAML>=6.0.2
+# Utility dependencies
+python-dotenv>=1.0.0
+psutil>=6.1.0
+asyncio>=3.4.3
+watchdog>=6.0.0
+# Security dependencies
+PyJWT>=2.8.0
+cryptography>=42.0.0  # Required for JWT encoding/decoding
+bcrypt>=4.2.1
+# Monitoring and metrics
+prometheus-client>=0.19.0
+# Database support
+aiosqlite>=0.19.0    # For async SQLite operations
+alembic>=1.12.0      # For database migrations
+# Additional utilities
+aiofiles>=23.2.1     # For async file operations
+cachetools>=5.3.2    # For session caching
+atomicwrites>=1.4.1
+dspy>=2.5.43
