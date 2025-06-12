@@ -393,7 +393,7 @@ A: Yes, to ensure fair usage:
 - 🎫 **Support Portal**: [promptoptimizer-blog.vercel.app/support](https://promptoptimizer-blog.vercel.app/support)
 - 🐛 **Report Issues**: [GitHub Issues](https://github.com/nivlewd1/prompt-optimizer/issues)
 - 💬 **Community**: [Discord Server](https://discord.gg/prompt-optimizer)
-- 📧 **Email**: support@promptoptimizer.com
+- 📧 **Email**: promptoptimizer.help@gmail.com
 
 **Priority Support** (Innovator tier): Get dedicated support with faster response times.
 
@@ -411,7 +411,7 @@ A: Yes, to ensure fair usage:
 
 Need higher quotas, custom deployment, or specialized features?
 
-- 📧 **Enterprise Sales**: enterprise@promptoptimizer.com
+- 📧 **Enterprise Sales**: enterprise@promptoptimizer.help
 - 📞 **Schedule Demo**: [Calendar Link](https://cal.com/prompt-optimizer/enterprise)
 - 💼 **Custom Solutions**: On-premise deployment available
 - 🔒 **Enhanced Security**: SSO, SAML, custom compliance requirements
