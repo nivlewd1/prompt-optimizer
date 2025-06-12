@@ -1,0 +1,63 @@
+COMMERCIAL SOFTWARE LICENSE
+
+Copyright (c) 2025 Prompt Optimizer Team
+
+TERMS AND CONDITIONS
+
+1. GRANT OF LICENSE
+   Subject to the terms of this license, the Licensor grants you a non-exclusive, 
+   non-transferable license to use this software in accordance with the terms below.
+
+2. PERMITTED USES
+   a) Personal Use: You may use this software for personal, non-commercial purposes
+   b) Educational Use: Educational institutions may use this software for teaching purposes
+   c) Evaluation: You may evaluate this software for up to 30 days for potential commercial use
+
+3. COMMERCIAL USE
+   Commercial use of this software requires a separate commercial license.
+   Contact support@promptoptimizer.com for commercial licensing terms.
+
+4. RESTRICTIONS
+   You may NOT:
+   a) Distribute, sublicense, or sell copies of this software
+   b) Create derivative works for commercial distribution
+   c) Use this software to provide competing services
+   d) Reverse engineer, decompile, or disassemble this software
+   e) Remove or modify any copyright notices
+
+5. INTELLECTUAL PROPERTY
+   a) Your Content: You retain all intellectual property rights in prompts, templates, 
+      and content you create using this software
+   b) Software: This software and its original code remain the property of the Licensor
+   c) Templates: Optimization templates you create remain your intellectual property
+
+6. DATA AND PRIVACY
+   a) Template Storage: Your optimization templates are stored securely and remain private
+   b) API Keys: Stored locally on your device and transmitted securely
+   c) Usage Data: Anonymous usage statistics may be collected for service improvement
+
+7. DISCLAIMER OF WARRANTIES
+   THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+   INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+   PURPOSE, AND NON-INFRINGEMENT.
+
+8. LIMITATION OF LIABILITY
+   IN NO EVENT SHALL THE LICENSOR BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY,
+   WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN
+   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+9. TERMINATION
+   This license is effective until terminated. Your rights under this license will
+   terminate automatically without notice if you fail to comply with any term of this license.
+
+10. UPDATES AND SUPPORT
+    Updates and support are provided through the official distribution channels.
+    Support is available at: https://promptoptimizer-blog.vercel.app/support
+
+For questions about this license or to obtain a commercial license, contact:
+Prompt Optimizer Team
+Email: support@promptoptimizer.com
+Website: https://promptoptimizer-blog.vercel.app
+
+This license governs the use of the MCP Prompt Optimizer client software.
+The backend API service is governed by separate terms of service.
