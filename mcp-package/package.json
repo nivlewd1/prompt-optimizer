@@ -1,0 +1,53 @@
+{
+  "name": "mcp-prompt-optimizer",
+  "version": "1.0.1",
+  "description": "Local MCP server for Prompt Optimizer API",
+  "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "mcp-prompt-optimizer": "./bin/start-server"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "setup": "node index.js --setup",
+    "test": "node test-package.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "prompt",
+    "optimization",
+    "claude",
+    "ai",
+    "anthropic",
+    "cursor",
+    "windsurf",
+    "api",
+    "northflank",
+    "fastapi"
+  ],
+  "author": "Prompt Optimizer Team <support@promptoptimizer.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nivlewd1/prompt-optimizer"
+  },
+  "homepage": "https://promptoptimizer-blog.vercel.app",
+  "bugs": {
+    "url": "https://github.com/nivlewd1/prompt-optimizer/issues"
+  },
+  "files": [
+    "index.js",
+    "lib/",
+    "bin/",
+    "docs/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ]
+}
