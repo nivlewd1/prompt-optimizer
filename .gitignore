@@ -1,3 +1,73 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# nyc test coverage
+.nyc_output
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# next.js build output
+.next
+
+# nuxt.js build output
+.nuxt
+
+# vuepress build directory
+.vuepress/dist
+
+# Serverless directories
+.serverless
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
 # Python
 __pycache__/
 *.py[cod]
@@ -10,7 +80,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -19,56 +88,33 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+PIPFILE.lock
 
-# Virtual Environment
-env/
+# Virtual environments
 venv/
-ENV/
-.env
-.venv
+env/
+.venv/
+.env/
 
-# IDE
-.idea/
+# IDE files
 .vscode/
+.idea/
 *.swp
 *.swo
-.vs/
-*.sublime-workspace
-*.sublime-project
-
-# Testing
-.coverage
-htmlcov/
-.tox/
-.nox/
-.pytest_cache/
-coverage.xml
-*.cover
-.hypothesis/
-
-# Project specific
-*.log
-logs/
-*.db
-*.sqlite3
-sessions.db
-prompt_optimizer.log
-config.local.json
-
-# Windows
-*.exe
-*.dll
-*.bat
-Thumbs.db
-Desktop.ini
-
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# Temporary files
-*.tmp
-*.bak
-*.swp
 *~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Proprietary code protection
+# DO NOT include optimization algorithms
+**/prompt_optimizer.py
+**/optimization_engine.py
+**/core_algorithms.py
+**/proprietary_logic.py
