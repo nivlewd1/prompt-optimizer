@@ -200,7 +200,7 @@ Transform your prompts with these expert techniques:
 
 ## 💰 Subscription Plans
 
-### **Explorer** - $5.99/month
+### **Explorer** - $2.99/month
 *Perfect for individual developers*
 
 - ✅ **5,000 optimizations/month** - Generous quota for personal projects
@@ -210,7 +210,7 @@ Transform your prompts with these expert techniques:
 - ✅ **Template history** - Save and review optimizations
 - ✅ **Core optimization goals** - Essential techniques available
 
-### **Creator** - $12.99/month
+### **Creator** - $25.99/month
 *Most popular for teams and creators*
 
 - ✅ **18,000 optimizations/month** - Perfect for active development
@@ -221,7 +221,7 @@ Transform your prompts with these expert techniques:
 - ✅ **Template analytics** - Track optimization patterns
 - ✅ **Priority processing** - Faster response times
 
-### **Innovator** - $24.99/month
+### **Innovator** - $69.99/month
 *Enterprise-grade for large teams*
 
 - ✅ **75,000 optimizations/month** - Enterprise-level capacity
