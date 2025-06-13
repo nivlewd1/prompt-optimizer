@@ -1,14 +1,22 @@
 # Prompt Optimizer
 
-A comprehensive prompt optimization platform offering both MCP (Model Context Protocol) integration and a REST API service for improving AI prompts across various optimization goals.
+**Revolutionary MCP-Native Prompt Engineering Solution**
 
-## 🚀 Components
+Bridge the prompt engineering gap with professional optimization tools designed specifically for MCP environments. Transform your AI development workflow with seamless integration, cloud-powered intelligence, and enterprise-grade capabilities.
 
-This repository contains documentation and resources for:
+[![NPM Version](https://img.shields.io/npm/v/mcp-prompt-optimizer)](https://www.npmjs.com/package/mcp-prompt-optimizer) [![API Status](https://img.shields.io/badge/API-Production-green)](https://p01--project-optimizer--fvrdk8m9k9j.code.run/health) [![License](https://img.shields.io/badge/License-Commercial-blue)](./LICENSE)
 
-1. **[MCP Server Package](#mcp-server-package)** - NPM package for Claude Desktop, Cursor, Windsurf integration
-2. **[REST API Service](#rest-api-service)** - FastAPI backend for direct integration
-3. **[Web Dashboard](#web-dashboard)** - Browser-based interface and management
+---
+
+## 🚀 Complete Solution Architecture
+
+This platform provides a comprehensive prompt engineering solution with dual components working in harmony:
+
+### 🔧 **MCP Server Integration**
+Local NPM package providing seamless workflow integration with Claude Desktop, Cursor, Windsurf, and 17+ MCP-compatible clients.
+
+### ☁️ **Backend Optimizer Engine**  
+Cloud-powered optimization service delivering professional prompt engineering techniques, team collaboration, and advanced analytics.
 
 ---
 
@@ -16,7 +24,17 @@ This repository contains documentation and resources for:
 
 **Published on NPM**: [`mcp-prompt-optimizer`](https://www.npmjs.com/package/mcp-prompt-optimizer)
 
-### Quick Start
+### 🎯 Key Capabilities
+
+- **🔄 Universal MCP Compatibility** - Native integration with Claude Desktop, Cursor, Windsurf, and 17+ MCP clients
+- **⚡ 30-Second Setup** - Simple installation with immediate functionality
+- **🔐 Secure Authentication** - Personal API key system for secure access
+- **🔄 Seamless Workflow** - Optimize prompts without leaving your development environment
+- **📊 Real-time Tracking** - Live quota monitoring and usage analytics
+- **💾 Automatic Persistence** - All optimizations saved with rich metadata
+- **🛡️ Privacy-First Design** - Local processing with secure cloud optimization
+
+### Quick Installation
 
 ```bash
 # Install globally
@@ -26,20 +44,9 @@ npm install -g mcp-prompt-optimizer
 mcp-prompt-optimizer --setup
 ```
 
-### Features
-
-- 🤖 **Universal MCP Support** - Works with Claude Desktop, Cursor, Windsurf, and any MCP-compatible client
-- 🔐 **Secure API Key Authentication** - Uses your personal API key for secure access
-- 🎯 **Advanced Optimization Goals** - Support for clarity, conciseness, technical accuracy, and more
-- 📊 **Real-time Quota Tracking** - See your usage and remaining quota
-- 💾 **Automatic Template Saving** - All optimizations saved with rich metadata for future reference
-- 🚀 **Easy Setup** - Simple configuration process
-- ⚡ **Production Backend** - Powered by enterprise-grade FastAPI deployment
-
 ### MCP Client Configuration
 
 #### Claude Desktop
-
 Add to `~/.claude/claude_desktop_config.json`:
 
 ```json
@@ -54,7 +61,6 @@ Add to `~/.claude/claude_desktop_config.json`:
 ```
 
 #### Cursor
-
 Add to `~/.cursor/mcp.json`:
 
 ```json
@@ -69,8 +75,7 @@ Add to `~/.cursor/mcp.json`:
 ```
 
 #### Windsurf
-
-Add via Windsurf settings:
+Configure via Windsurf settings:
 
 ```json
 {
@@ -85,16 +90,14 @@ Add via Windsurf settings:
 
 ### Usage Example
 
-Once configured, use the `optimize_prompt` tool in your MCP client:
-
 ```
-Please optimize this prompt using the optimize_prompt tool:
+Optimize this prompt using the optimize_prompt tool:
 "Write me some code for a login system"
 
-Use goals: ["clarity", "specificity", "technical_accuracy"]
+Goals: ["clarity", "specificity", "technical_accuracy"]
 ```
 
-Result:
+**Enhanced Result:**
 ```
 Create a secure user authentication system with the following specifications:
 
@@ -112,25 +115,34 @@ Create a secure user authentication system with the following specifications:
 - Database schema for user accounts
 - Security best practices implementation
 
-Confidence Score: 0.87
-Quota Remaining: 4,850/5,000
+Confidence Score: 0.87 | Quota Remaining: 4,850/5,000
 ```
 
 ---
 
-## 🔗 REST API Service
+## ☁️ Backend Optimizer Engine
 
 **Production Endpoint**: `https://p01--project-optimizer--fvrdk8m9k9j.code.run`
 
+### 🎯 Advanced Capabilities
+
+- **🧠 AI-Powered Optimization** - Advanced algorithms for intelligent prompt enhancement
+- **👥 Team Collaboration** - Multi-user subscriptions with shared templates and analytics
+- **📊 Professional Analytics** - Usage tracking, confidence scoring, and optimization insights
+- **🎯 10+ Optimization Goals** - Professional techniques including clarity, specificity, technical accuracy
+- **🔄 Template Management** - Automatic saving with comprehensive metadata
+- **⚡ High Performance** - Sub-second response times with enterprise infrastructure
+- **🔒 Enterprise Security** - SOC 2 Type II compliance standards
+
 ### API Authentication
 
-All API requests require an API key in the header:
+All requests require an API key in the header:
 
 ```bash
 X-API-Key: sk-opt-your-api-key-here
 ```
 
-### Core Endpoint
+### Core Optimization Endpoint
 
 **POST** `/api/v1/optimize`
 
@@ -162,76 +174,64 @@ curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimi
 - `GET /health` - Service health check
 - `POST /api/v1/validate-key` - Validate API key
 - `POST /api/v1/optimize` - Optimize prompt
-- `GET /api/v1/quota` - Check usage quota
+- `GET /api/v1/quota` - Check usage quota  
 - `GET /api/v1/templates` - List saved templates
 
 ---
 
-## 🎯 Optimization Goals
+## 🎯 Professional Optimization Goals
 
-Choose from these optimization strategies:
+Transform your prompts with these expert techniques:
 
-- **clarity** - Make the prompt clearer and more understandable
-- **conciseness** - Remove unnecessary words while preserving meaning
-- **technical_accuracy** - Improve technical precision and correctness
-- **contextual_relevance** - Better alignment with context and purpose
-- **specificity** - Add specific details and reduce ambiguity
-- **actionability** - Make the prompt more actionable and directive
-- **structure** - Improve organization and logical flow
-- **technical_precision** - Enhance exactness of technical terms
-- **linguistic_precision** - Refine language for exact meaning
-- **holistic_effectiveness** - Overall optimization for best results
+| Goal | Description | Use Case |
+|------|-------------|----------|
+| **clarity** | Make prompts clearer and more understandable | General communication improvement |
+| **conciseness** | Remove unnecessary words while preserving meaning | Token optimization, cleaner requests |
+| **technical_accuracy** | Improve technical precision and correctness | Development, engineering prompts |
+| **contextual_relevance** | Better alignment with context and purpose | Domain-specific optimization |
+| **specificity** | Add specific details and reduce ambiguity | Detailed task requirements |
+| **actionability** | Make prompts more actionable and directive | Task-oriented instructions |
+| **structure** | Improve organization and logical flow | Complex, multi-step requests |
+| **technical_precision** | Enhance exactness of technical terms | API docs, technical specifications |
+| **linguistic_precision** | Refine language for exact meaning | Legal, academic, formal writing |
+| **holistic_effectiveness** | Overall optimization for best results | Comprehensive improvement |
 
 ---
 
-## 💰 Subscription Tiers
+## 💰 Subscription Plans
 
 ### **Explorer** - $5.99/month
-- ✅ **5,000 optimizations/month** - Perfect for individual use
+*Perfect for individual developers*
+
+- ✅ **5,000 optimizations/month** - Generous quota for personal projects
 - ✅ **1 API key** - Individual access
-- ✅ **Rules-based MCP access** - Basic MCP integration
+- ✅ **Full MCP integration** - All MCP clients supported
 - ✅ **Web UI access** - Browser-based optimization
-- ✅ **Template history** - Save and review your optimizations
-- ✅ **Basic optimization goals** - Core optimization features
+- ✅ **Template history** - Save and review optimizations
+- ✅ **Core optimization goals** - Essential techniques available
 
-### **Creator** - $12.99/month ⭐ Most Popular
-- ✅ **18,000 optimizations/month** - Generous quota for creators
-- ✅ **Up to 3 API keys** - Team collaboration
-- ✅ **2 team members** - Share access with your team
-- ✅ **Full MCP access** - Advanced MCP features
-- ✅ **Advanced optimization goals** - All optimization strategies
-- ✅ **Custom rules** - Tailor optimization to your needs
+### **Creator** - $12.99/month
+*Most popular for teams and creators*
+
+- ✅ **18,000 optimizations/month** - Perfect for active development
+- ✅ **Up to 3 API keys** - Team collaboration support
+- ✅ **2 team members** - Share access with collaborators
+- ✅ **Advanced optimization goals** - All professional techniques
+- ✅ **Custom optimization rules** - Tailor to your specific needs
 - ✅ **Template analytics** - Track optimization patterns
-- ✅ **Priority processing** - Faster optimization responses
+- ✅ **Priority processing** - Faster response times
 
-### **Innovator** - $24.99/month 🚀 Best Value
-- ✅ **75,000 optimizations/month** - Enterprise-level quota
-- ✅ **Up to 10 API keys** - Large team support
+### **Innovator** - $24.99/month
+*Enterprise-grade for large teams*
+
+- ✅ **75,000 optimizations/month** - Enterprise-level capacity
+- ✅ **Up to 10 API keys** - Large team management
 - ✅ **5 team members** - Full team collaboration
-- ✅ **Enterprise MCP access** - All MCP features unlocked
-- ✅ **Advanced analytics** - Comprehensive usage insights
+- ✅ **Advanced analytics dashboard** - Comprehensive insights
 - ✅ **Priority support** - Dedicated support channel
-- ✅ **Custom models** - Access to specialized optimization models
+- ✅ **Custom optimization models** - Specialized domain models
 - ✅ **Advanced team management** - Role-based permissions
-
----
-
-## 📊 Tier Comparison
-
-| Feature | Explorer | Creator | Innovator |
-|---------|----------|---------|----------|
-| **Monthly Quota** | 5,000 | 18,000 | 75,000 |
-| **API Keys** | 1 | 3 | 10 |
-| **Team Members** | 1 | 2 | 5 |
-| **MCP Access** | Rules | Full | Enterprise |
-| **Web UI** | ✅ | ✅ | ✅ |
-| **Template History** | ✅ | ✅ | ✅ |
-| **Basic Goals** | ✅ | ✅ | ✅ |
-| **Advanced Goals** | ❌ | ✅ | ✅ |
-| **Custom Rules** | ❌ | ✅ | ✅ |
-| **Analytics** | Basic | ✅ | Advanced |
-| **Priority Support** | ❌ | ❌ | ✅ |
-| **Custom Models** | ❌ | ❌ | ✅ |
+- ✅ **Enhanced security features** - Enterprise compliance
 
 ---
 
@@ -239,203 +239,245 @@ Choose from these optimization strategies:
 
 **Access**: [https://promptoptimizer-blog.vercel.app/dashboard](https://promptoptimizer-blog.vercel.app/dashboard)
 
-### Features
+### Dashboard Features
 
-- 🔑 **API Key Management** - Generate and manage your API keys
-- 📊 **Usage Analytics** - Track your optimization usage and quotas
-- 📝 **Template History** - View and export your optimization history
-- 💳 **Subscription Management** - Manage your plan and billing
-- 📈 **Performance Insights** - Analyze optimization patterns and effectiveness
-- 👥 **Team Management** - Invite team members and manage permissions (Creator/Innovator)
-- 🎯 **Custom Rules** - Create optimization rules tailored to your needs (Creator/Innovator)
+- 🔑 **API Key Management** - Generate and manage access credentials
+- 📊 **Usage Analytics** - Track optimization usage and patterns
+- 📝 **Template Library** - Browse and manage saved optimizations
+- 💳 **Subscription Management** - Handle billing and plan changes
+- 📈 **Performance Insights** - Analyze optimization effectiveness
+- 👥 **Team Management** - Invite members and manage permissions
+- 🎯 **Custom Rules** - Create domain-specific optimization rules
+- 📋 **Audit Trails** - Complete API usage history
 
 ---
 
-## 🏗️ Backend Infrastructure
+## 🏗️ Technical Infrastructure
 
-### Technology Stack
+### Architecture Highlights
 
-- **FastAPI Backend** - High-performance Python API server with async processing
-- **Northflank Hosting** - Enterprise cloud deployment platform with 99.9% uptime
-- **Supabase Database** - PostgreSQL database with real-time features and automatic backups
-- **Stripe Integration** - Secure payment processing and subscription management
-- **Template Storage System** - Automatic optimization history with rich metadata
-- **Advanced Analytics** - Usage tracking, performance monitoring, and optimization insights
-
-### Architecture Features
-
-- **Real-time Quota Tracking** - Live usage monitoring and limits
-- **Template Persistence** - Automatic saving with comprehensive metadata
-- **Rate Limiting** - Intelligent throttling to prevent abuse
-- **Security Monitoring** - Advanced threat detection and prevention
-- **Performance Optimization** - Sub-second response times for most requests
-- **Scalable Design** - Microservices architecture for horizontal scaling
+- **🚀 FastAPI Backend** - High-performance async processing
+- **☁️ Northflank Hosting** - Enterprise cloud with 99.9% uptime
+- **🗄️ Supabase Database** - PostgreSQL with real-time features
+- **💳 Stripe Integration** - Secure payment processing
+- **🔒 Advanced Security** - End-to-end encryption and monitoring
+- **📊 Analytics Engine** - Real-time usage tracking and insights
+- **⚡ High Performance** - Optimized for sub-second responses
+- **🔄 Scalable Design** - Microservices architecture
 
 ### Security & Compliance
 
-- 🔒 **API Key Authentication** - Secure `sk-opt-` format keys
-- 🌐 **HTTPS Encryption** - All communication encrypted in transit
-- 🗄️ **Data Encryption** - Template data encrypted at rest
-- 📋 **Audit Trails** - Complete history of API usage
-- 🛡️ **Enterprise Security** - SOC 2 Type II compliance standards
-- 🔐 **Privacy Protection** - Your prompts remain your intellectual property
+- 🔒 **API Key Authentication** - Secure `sk-opt-` format tokens
+- 🌐 **HTTPS Encryption** - All communications encrypted
+- 🗄️ **Data Encryption** - Template data protected at rest
+- 📋 **Complete Audit Trails** - Full API usage logging
+- 🛡️ **SOC 2 Type II Standards** - Enterprise compliance
+- 🔐 **IP Protection** - Your prompts remain your property
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Getting Started Guide
 
-### 1. Choose Your Integration Method
+### Option 1: MCP Integration (Recommended)
 
-**For MCP Clients (Claude Desktop, Cursor, Windsurf)**:
+**For Claude Desktop, Cursor, Windsurf users:**
+
 ```bash
+# Install the MCP package
 npm install -g mcp-prompt-optimizer
+
+# Configure with your API key
 mcp-prompt-optimizer --setup
+
+# Configure your MCP client (see configuration examples above)
+
+# Test integration
+# Ask your MCP client: "Please optimize this prompt: 'help me code'"
 ```
 
-**For Direct API Integration**:
-1. Visit [Dashboard](https://promptoptimizer-blog.vercel.app/dashboard)
-2. Subscribe to a plan
-3. Generate an API key
-4. Start making API calls
+### Option 2: Direct API Integration
 
-**For Web Interface**:
-1. Visit [Prompt Optimizer](https://promptoptimizer-blog.vercel.app)
-2. Create an account
-3. Start optimizing prompts in your browser
+**For custom applications:**
 
-### 2. Test Your Setup
-
-**MCP Test**:
-```
-ask Claude: "Please optimize this prompt: 'help me code'"
-```
-
-**API Test**:
 ```bash
+# Test API connectivity
+curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/health"
+
+# Validate your API key
+curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/validate-key" \
+  -H "X-API-Key: your-api-key"
+
+# Make your first optimization
 curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimize" \
-  -H "X-API-Key: your-key" \
   -H "Content-Type: application/json" \
-  -d '{"prompt": "help me code", "goals": ["clarity"]}'
+  -H "X-API-Key: your-api-key" \
+  -d '{"prompt": "help me code", "goals": ["clarity", "specificity"]}'
+```
+
+### Option 3: Web Interface
+
+**For browser-based optimization:**
+
+1. Visit [Prompt Optimizer Dashboard](https://promptoptimizer-blog.vercel.app)
+2. Create an account and subscribe to a plan
+3. Generate your API key
+4. Start optimizing prompts in the web interface
+
+---
+
+## 🔧 Advanced Configuration
+
+### Rate Limits by Plan
+
+- **Explorer**: 10 requests/minute
+- **Creator**: 20 requests/minute  
+- **Innovator**: 50 requests/minute
+
+### Quota Management
+
+- Quotas reset monthly on your billing date
+- Team plans share quota across all members
+- Real-time usage tracking available in dashboard
+- Automatic notifications before quota limits
+
+### Custom Optimization Rules
+
+**Available in Creator and Innovator plans:**
+
+```json
+{
+  "rule_name": "API Documentation",
+  "goals": ["technical_precision", "structure", "clarity"],
+  "domain_context": "software development",
+  "custom_instructions": "Focus on REST API best practices"
+}
 ```
 
 ---
 
-## ❓ Frequently Asked Questions
+## 📚 Documentation & Resources
 
-### **Q: How does the quota system work?**
-A: Quotas reset monthly on your billing date. Team plans share quota across all team members.
+### For Developers
 
-### **Q: Can I upgrade or downgrade my plan?**
-A: Yes! You can change plans anytime through your dashboard. Changes take effect immediately.
+- 📖 [MCP Package Documentation](https://www.npmjs.com/package/mcp-prompt-optimizer)
+- 🔧 [API Reference](API_DOCUMENTATION.md)
+- 💡 [Integration Examples](https://promptoptimizer-blog.vercel.app/docs/examples)
+- 🛠️ [Client SDK Documentation](https://promptoptimizer-blog.vercel.app/docs/sdk)
 
-### **Q: What happens if I exceed my quota?**
-A: Optimization requests will be temporarily paused until your quota resets or you upgrade your plan.
+### For Users
 
-### **Q: Can I invite team members?**
-A: Creator plans support 2 members, Innovator plans support 5 members. The subscription owner manages invitations.
-
-### **Q: Are there rate limits?**
-A: Yes, to ensure fair usage:
-- Explorer: 10 requests/minute
-- Creator: 20 requests/minute  
-- Innovator: 50 requests/minute
+- 🚀 [Getting Started Guide](https://promptoptimizer-blog.vercel.app/docs/getting-started)
+- ✨ [Optimization Best Practices](https://promptoptimizer-blog.vercel.app/docs/best-practices)
+- 📝 [Template Management](https://promptoptimizer-blog.vercel.app/docs/templates)
+- 🔍 [Troubleshooting Guide](https://promptoptimizer-blog.vercel.app/docs/troubleshooting)
 
 ---
 
 ## 🔧 Troubleshooting
 
-### Common Issues
+### Common Setup Issues
 
-**MCP Connection Issues**:
-1. Verify Node.js is installed: `node --version`
-2. Check package installation: `npm list -g mcp-prompt-optimizer`
-3. Restart your MCP client after configuration
-4. Verify config file syntax
+**MCP Connection Problems:**
+```bash
+# Verify Node.js installation
+node --version
 
-**API Authentication Issues**:
-1. Check API key format: Should start with `sk-opt-`
-2. Verify subscription is active in dashboard
-3. Test key validation: `curl -X POST .../validate-key -H "X-API-Key: your-key"`
+# Check package installation
+npm list -g mcp-prompt-optimizer
 
-**Quota Issues**:
-1. Check usage in dashboard: [View Usage](https://promptoptimizer-blog.vercel.app/dashboard)
-2. Quota resets monthly on your billing date
-3. Consider upgrading for higher limits
+# Restart MCP client after configuration changes
+```
 
-**Backend Connectivity**:
-1. Test backend health: `curl https://p01--project-optimizer--fvrdk8m9k9j.code.run/health`
-2. Check internet connectivity
-3. Verify no firewall blocking HTTPS requests
+**API Authentication Issues:**
+```bash
+# Verify API key format (should start with sk-opt-)
+# Check subscription status in dashboard
+# Test key validation endpoint
+curl -X POST .../validate-key -H "X-API-Key: your-key"
+```
 
----
+**Performance Optimization:**
+```bash
+# Check backend health
+curl https://p01--project-optimizer--fvrdk8m9k9j.code.run/health
 
-## 📚 Documentation
-
-### For Developers
-
-- [MCP Package Documentation](https://www.npmjs.com/package/mcp-prompt-optimizer)
-- [API Reference](API_DOCUMENTATION.md)
-- [Integration Examples](https://promptoptimizer-blog.vercel.app/docs/examples)
-- [Client SDK Documentation](https://promptoptimizer-blog.vercel.app/docs/sdk)
-
-### For Users
-
-- [Getting Started Guide](https://promptoptimizer-blog.vercel.app/docs/getting-started)
-- [Optimization Best Practices](https://promptoptimizer-blog.vercel.app/docs/best-practices)
-- [Template Management](https://promptoptimizer-blog.vercel.app/docs/templates)
-- [Troubleshooting Guide](https://promptoptimizer-blog.vercel.app/docs/troubleshooting)
+# Monitor quota usage
+curl -H "X-API-Key: your-key" .../api/v1/quota
+```
 
 ---
 
-## 📞 Support
+## 🏢 Enterprise Solutions
+
+**Need custom deployment or specialized features?**
+
+### Enterprise Offerings
+
+- 📊 **Custom Analytics** - Tailored reporting and insights
+- 🔒 **Enhanced Security** - SSO, SAML, custom compliance
+- 🎯 **Domain-Specific Models** - Specialized optimization for your industry
+- 🏗️ **On-Premise Deployment** - Complete control over infrastructure
+- 📞 **Dedicated Support** - Priority assistance with SLA guarantees
+- 🔧 **Custom Integration** - Tailored API endpoints and workflows
+
+### Contact Enterprise Sales
+
+- 📧 **Email**: enterprise@promptoptimizer.help
+- 📞 **Schedule Demo**: [Enterprise Demo](https://cal.com/prompt-optimizer/enterprise)
+- 💼 **Custom Solutions**: On-premise and hybrid deployments available
+
+---
+
+## 📞 Support & Community
+
+### Support Channels
 
 - 📚 **Documentation**: [promptoptimizer-blog.vercel.app/docs](https://promptoptimizer-blog.vercel.app/docs)
 - 🎫 **Support Portal**: [promptoptimizer-blog.vercel.app/support](https://promptoptimizer-blog.vercel.app/support)
-- 🐛 **Report Issues**: [GitHub Issues](https://github.com/nivlewd1/prompt-optimizer/issues)
-- 💬 **Community**: [Discord Server](https://discord.gg/prompt-optimizer)
-- 📧 **Email**: promptoptimizer.help@gmail.com
+- 🐛 **GitHub Issues**: [Report bugs and feature requests](https://github.com/nivlewd1/prompt-optimizer/issues)
+- 💬 **Discord Community**: [Join our community](https://discord.gg/prompt-optimizer)
+- 📧 **Email Support**: promptoptimizer.help@gmail.com
 
-**Priority Support** (Innovator tier): Get dedicated support with faster response times.
+### Support Response Times
 
----
-
-## 📄 License
-
-**Commercial License** - This software is licensed for commercial use. See [LICENSE](./LICENSE) file for details.
-
-**Your Content**: You retain full intellectual property rights over all prompts, templates, and content you create using this service.
+- **Explorer**: Community support (24-48 hours)
+- **Creator**: Standard support (12-24 hours)  
+- **Innovator**: Priority support (2-6 hours)
+- **Enterprise**: Dedicated support with SLA
 
 ---
 
-## 🏢 Enterprise
+## 🎯 Start Optimizing Today
 
-Need higher quotas, custom deployment, or specialized features?
+**Transform your AI development workflow in minutes:**
 
-- 📧 **Enterprise Sales**: enterprise@promptoptimizer.help
-- 📞 **Schedule Demo**: [Calendar Link](https://cal.com/prompt-optimizer/enterprise)
-- 💼 **Custom Solutions**: On-premise deployment available
-- 🔒 **Enhanced Security**: SSO, SAML, custom compliance requirements
-- 📊 **Custom Analytics**: Tailored reporting and insights
-- 🎯 **Custom Models**: Specialized optimization models for your domain
+### 🚀 Quick Start Options
+
+1. **[Subscribe to a Plan](https://promptoptimizer-blog.vercel.app/pricing)** → Choose the right tier for your needs
+2. **[Install MCP Package](https://www.npmjs.com/package/mcp-prompt-optimizer)** → `npm install -g mcp-prompt-optimizer`  
+3. **[Configure Your Client](https://promptoptimizer-blog.vercel.app/docs/setup)** → Add to Claude Desktop, Cursor, or Windsurf
+4. **[Generate API Key](https://promptoptimizer-blog.vercel.app/dashboard)** → Set up authentication
+5. **✨ Start Optimizing** → Transform prompts instantly
+
+---
+
+## 📄 License & Legal
+
+**Commercial License** - This software is licensed for commercial use. See [LICENSE](./LICENSE) for details.
+
+**Intellectual Property**: You retain full rights over all prompts, templates, and content created using this service.
+
+**Privacy**: Your prompts and data are never used to train models or shared with third parties.
 
 ---
 
 **Made with ❤️ by the Prompt Optimizer Team**  
-*Empowering better AI interactions through optimized prompts*
-
-[![NPM Version](https://img.shields.io/npm/v/mcp-prompt-optimizer)](https://www.npmjs.com/package/mcp-prompt-optimizer)
-[![API Status](https://img.shields.io/badge/API-Production-green)](https://p01--project-optimizer--fvrdk8m9k9j.code.run/health)
-[![License](https://img.shields.io/badge/License-Commercial-blue)](./LICENSE)
+*Empowering better AI interactions through professional prompt engineering*
 
 ---
 
-## 🎯 Start Optimizing Today!
+### 🌟 Join the Revolution
 
-**Ready to transform your prompts?**
+*Transform your prompts. Elevate your AI interactions. Experience the future of prompt engineering.*
 
-1. 🚀 **[Subscribe Now](https://promptoptimizer-blog.vercel.app/pricing)** - Choose your plan
-2. 📦 **[Install MCP Package](https://www.npmjs.com/package/mcp-prompt-optimizer)** - `npm install -g mcp-prompt-optimizer`
-3. 🔧 **[Setup API Key](https://promptoptimizer-blog.vercel.app/dashboard)** - Generate your key
-4. ✨ **Start Optimizing** - Transform your prompts instantly!
-
-*Join thousands of developers and creators who've already improved their AI interactions with Prompt Optimizer.*
+**Ready to get started?** [Choose your plan](https://promptoptimizer-blog.vercel.app/pricing) and begin optimizing in under 2 minutes.
