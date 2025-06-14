@@ -1,21 +1,34 @@
-MIT License
+Commercial License
 
 Copyright (c) 2024 nivlewd1
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+All rights reserved.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This software and associated documentation files (the "Software") are proprietary and confidential. The Software is licensed, not sold.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+RESTRICTIONS:
+- You may not copy, modify, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell any information, software, products or services obtained from the Software.
+- You may not reverse engineer, decompile, or disassemble the Software.
+- You may not use the Software for any competitive analysis or to develop competing products or services.
+- You may not remove or alter any proprietary notices or labels on the Software.
+
+PERMITTED USE:
+- Personal and commercial use is permitted solely through the official subscription service and API endpoints.
+- Integration with MCP-compatible clients is permitted using the official NPM package.
+- Development of applications that integrate with the official API is permitted.
+
+INTELLECTUAL PROPERTY:
+- All prompt templates, optimization algorithms, and proprietary techniques remain the exclusive property of the copyright holder.
+- Users retain ownership of their input prompts and generated optimizations.
+- The Software's optimization methodologies and implementation details are trade secrets.
+
+TERMINATION:
+This license automatically terminates if you breach any of these terms. Upon termination, you must cease all use and destroy all copies of the Software.
+
+WARRANTY DISCLAIMER:
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+
+LIMITATION OF LIABILITY:
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+For licensing inquiries, please contact: promptoptimizer.help@gmail.com
