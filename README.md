@@ -1,54 +1,393 @@
 # Prompt Optimizer
 
-**Revolutionary MCP-Native Prompt Engineering Solution**
+**Enterprise-Grade MCP-Native Prompt Engineering Platform**
 
-Bridge the prompt engineering gap with professional optimization tools designed specifically for MCP environments. Transform your AI development workflow with seamless integration, cloud-powered intelligence, and production-grade security.
+Transform your AI development workflow with our comprehensive platform featuring cloud-powered optimization, local privacy-first processing, web dashboard, team collaboration, and 50+ professional optimization goals.
 
-[![NPM Version](https://img.shields.io/npm/v/mcp-prompt-optimizer)](https://www.npmjs.com/package/mcp-prompt-optimizer) [![API Status](https://img.shields.io/badge/API-Production-green)](https://p01--project-optimizer--fvrdk8m9k9j.code.run/health) [![License](https://img.shields.io/badge/License-Commercial-blue)](./LICENSE)
-
----
-
-## 🚀 Complete Solution Architecture
-
-This platform provides a comprehensive prompt engineering solution with dual components working in harmony:
-
-### 🔧 **MCP Server Integration**
-Local NPM package providing seamless workflow integration with Claude Desktop, Cursor, Windsurf, and 17+ MCP-compatible clients.
-
-### ☁️ **Backend Optimizer Engine**  
-Cloud-powered optimization service delivering professional prompt engineering techniques, team collaboration, and advanced analytics.
+[![NPM Cloud](https://img.shields.io/npm/v/mcp-prompt-optimizer)](https://www.npmjs.com/package/mcp-prompt-optimizer) [![NPM Local](https://img.shields.io/npm/v/mcp-prompt-optimizer-local)](https://www.npmjs.com/package/mcp-prompt-optimizer-local) [![API Status](https://img.shields.io/badge/API-Production-green)](https://p01--project-optimizer--fvrdk8m9k9j.code.run/health) [![Dashboard](https://img.shields.io/badge/Dashboard-Live-blue)](https://promptoptimizer-blog.vercel.app)
 
 ---
 
-## 📦 MCP Server Package
+## 🏗️ **Complete Platform Architecture**
 
-**Published on NPM**: [`mcp-prompt-optimizer`](https://www.npmjs.com/package/mcp-prompt-optimizer)
+Our sophisticated platform consists of four integrated components working in harmony:
 
-### 🎯 Key Capabilities
+### 🏢 **Backend Engine** - Production FastAPI System
+- **10+ API Routers**: optimize, subscriptions, team, templates, api_key, user_settings, mcp, dashboard, local_license, admin
+- **Dual Licensing Systems**: Cloud subscriptions + Local licenses
+- **Complete User Management**: Profiles, API keys, teams, subscription management
+- **Stripe Integration**: Recurring subscriptions + one-time payments
+- **Admin System**: Override capabilities and system management
+- **Template System**: Save, search, analytics, reuse functionality
+- **Health Monitoring**: Circuit breakers, metrics, component health tracking
 
-- **🔄 Universal MCP Compatibility** - Native integration with Claude Desktop, Cursor, Windsurf, and 17+ MCP clients
-- **⚡ 30-Second Setup** - Simple installation with immediate functionality
-- **🔐 Secure Authentication** - Personal API key system for secure access
-- **🔄 Seamless Workflow** - Optimize prompts without leaving your development environment
-- **📊 Real-time Tracking** - Live quota monitoring and usage analytics
-- **💾 Automatic Persistence** - All optimizations saved with rich metadata
-- **🛡️ Privacy-First Design** - Local processing with secure cloud optimization
+### 🌐 **Frontend Dashboard** - Next.js Web Platform
+- **User Dashboard**: Metrics, recent optimizations, template management
+- **Team Management**: Collaborative features for Creator/Innovator tiers
+- **Local License Portal**: Free/Pro license generation with Stripe checkout
+- **Payment Integration**: Subscription management and one-time purchases
+- **API Key Management**: Both cloud and local key management
+- **Template Browser**: View, search, and reuse saved templates
 
-### Quick Installation
+### ☁️ **Cloud MCP Package** - [`mcp-prompt-optimizer`](https://www.npmjs.com/package/mcp-prompt-optimizer)
+- **Universal MCP Compatibility**: Claude Desktop, Cursor, Windsurf, and 17+ clients
+- **Cloud-Powered Optimization**: Advanced algorithms with team collaboration
+- **Subscription-Based**: Explorer/Creator/Innovator tiers
+- **Template Sharing**: Team-wide template management
+- **Real-time Analytics**: Usage tracking and insights
+
+### 🔒 **Local MCP Package** - [`mcp-prompt-optimizer-local`](https://www.npmjs.com/package/mcp-prompt-optimizer-local)
+- **Privacy-First Design**: No data transmission during optimization
+- **Binary Distribution**: Platform-specific compiled optimizers
+- **Local Licensing**: Basic (free, 5 daily) / Pro ($19.99 one-time, unlimited)
+- **Python Fallback**: When binary unavailable
+- **License Caching**: 24-48h offline operation
+- **Complete Privacy**: Local processing only
+
+---
+
+## 🚀 **Quick Start Guide**
+
+### Option 1: Cloud-Powered (Recommended for Teams)
+
+```bash
+# Install cloud MCP package
+npm install -g mcp-prompt-optimizer
+
+# Configure with subscription API key
+mcp-prompt-optimizer --setup
+
+# Add to your MCP client configuration
+```
+
+**MCP Configuration for Cloud Package:**
+```json
+{
+  "mcpServers": {
+    "prompt-optimizer": {
+      "command": "npx",
+      "args": ["mcp-prompt-optimizer"]
+    }
+  }
+}
+```
+
+### Option 2: Local Privacy-First
+
+```bash
+# Install local MCP package
+npm install -g mcp-prompt-optimizer-local
+
+# Generate local license (Basic free, Pro $19.99)
+mcp-prompt-optimizer-local --license
+
+# Configure local settings
+```
+
+**MCP Configuration for Local Package:**
+```json
+{
+  "mcpServers": {
+    "prompt-optimizer-local": {
+      "command": "npx",
+      "args": ["mcp-prompt-optimizer-local"]
+    }
+  }
+}
+```
+
+---
+
+## 🎯 **50+ Professional Optimization Goals**
+
+Transform your prompts with our comprehensive optimization techniques:
+
+### **Core Enhancement**
+- `clarity` - Crystal-clear communication and understanding
+- `conciseness` - Efficient token usage while preserving meaning
+- `specificity` - Detailed requirements and reduced ambiguity
+- `actionability` - Direct, executable instructions
+- `structure` - Logical organization and flow
+
+### **Technical Precision**
+- `technical_accuracy` - Precise technical terminology and correctness
+- `technical_precision` - Exact technical specifications
+- `code_optimization` - Programming-specific enhancements
+- `api_documentation` - REST/GraphQL API specifications
+- `database_optimization` - SQL and database query enhancement
+
+### **AI Model Compatibility**
+- `ai_model_compatibility` - Optimized for specific AI models
+- `parameter_preservation` - Maintain critical prompt parameters
+- `token_efficiency` - Maximize information per token
+- `context_window_optimization` - Efficient use of context limits
+- `model_specific_formatting` - Tailored for GPT/Claude/other models
+
+### **Domain-Specific Enhancement**
+- `business_communication` - Professional business language
+- `academic_writing` - Scholarly and research-focused
+- `creative_writing` - Enhanced creativity and storytelling
+- `legal_precision` - Legal terminology and accuracy
+- `medical_accuracy` - Healthcare and medical precision
+
+### **Advanced Techniques**
+- `contextual_relevance` - Perfect context alignment
+- `linguistic_precision` - Exact language refinement
+- `holistic_effectiveness` - Comprehensive optimization
+- `goal_synergy` - Intelligent combination of multiple goals
+- `workflow_optimization` - Enhanced for development workflows
+
+### **Emerging Capabilities**
+- `multimodal_enhancement` - Image + text optimization
+- `cross_platform_compatibility` - Universal MCP client support
+- `real_time_adaptation` - Dynamic optimization based on usage
+- `collaborative_enhancement` - Team-optimized prompts
+- `enterprise_compliance` - Regulatory and compliance alignment
+
+*...and 25+ additional specialized optimization goals available in Creator and Innovator tiers*
+
+---
+
+## 💰 **Licensing & Subscription Plans**
+
+### **Local Licensing (Privacy-First)**
+
+#### **Basic License** - FREE
+- ✅ **5 optimizations/day** - Perfect for trying the platform
+- ✅ **Complete privacy** - No data transmission
+- ✅ **Core optimization goals** - Essential techniques
+- ✅ **Local processing** - Runs entirely on your machine
+- ✅ **No subscription required** - One-time setup
+
+#### **Pro License** - $19.99 One-Time
+- ✅ **Unlimited optimizations** - No daily limits
+- ✅ **All 50+ optimization goals** - Complete technique library
+- ✅ **Advanced algorithms** - Enhanced optimization engine
+- ✅ **Priority binary updates** - Latest optimization improvements
+- ✅ **Extended offline operation** - 48h license caching
+
+### **Cloud Subscriptions (Team Collaboration)**
+
+#### **Explorer** - $2.99/month
+*Perfect for individual developers*
+- ✅ **5,000 optimizations/month** - Generous personal quota
+- ✅ **1 API key** - Individual access
+- ✅ **Web dashboard access** - Browser-based optimization
+- ✅ **Template history** - Save and review optimizations
+- ✅ **Core optimization goals** - Essential techniques
+
+#### **Creator** - $25.99/month
+*Most popular for teams and creators*
+- ✅ **18,000 optimizations/month** - Team-level capacity
+- ✅ **Up to 3 API keys** - Team collaboration
+- ✅ **2 team members** - Shared access and templates
+- ✅ **Advanced optimization goals** - All professional techniques
+- ✅ **Template analytics** - Usage patterns and insights
+- ✅ **Priority processing** - Faster response times
+
+#### **Innovator** - $69.99/month
+*Enterprise-grade for large teams*
+- ✅ **75,000 optimizations/month** - Enterprise capacity
+- ✅ **Up to 10 API keys** - Large team management
+- ✅ **5 team members** - Full collaboration features
+- ✅ **Advanced analytics dashboard** - Comprehensive insights
+- ✅ **Priority support** - Dedicated support channel
+- ✅ **Custom optimization models** - Domain-specific algorithms
+- ✅ **Advanced team management** - Role-based permissions
+
+---
+
+## 🔧 **MCP Tools Available**
+
+### **Cloud Package Tools** (`mcp-prompt-optimizer`)
+
+#### `optimize_prompt`
+Cloud-powered optimization with team collaboration features.
+
+```json
+{
+  "prompt": "Your prompt to optimize",
+  "goals": ["clarity", "technical_accuracy", "specificity"],
+  "ai_context": "code_generation",
+  "stream": false
+}
+```
+
+#### `list_saved_templates`
+Browse team-shared optimization templates.
+
+#### `search_templates`
+Find relevant templates by keywords or goals.
+
+#### `get_template`
+Retrieve specific template details and metadata.
+
+#### `get_template_stats`
+Analytics for template usage and effectiveness.
+
+#### `use_template_as_base`
+Start optimization from a proven template.
+
+### **Local Package Tools** (`mcp-prompt-optimizer-local`)
+
+#### `optimize_prompt`
+Privacy-first local optimization with binary processing.
+
+```json
+{
+  "prompt": "Your prompt to optimize",
+  "goals": ["clarity", "technical_accuracy"],
+  "local_only": true
+}
+```
+
+#### `check_license`
+Verify local license status and quota.
+
+#### `upgrade_license`
+Upgrade from Basic to Pro license.
+
+---
+
+## 🌐 **Web Dashboard Features**
+
+**Access**: [https://promptoptimizer-blog.vercel.app/dashboard](https://promptoptimizer-blog.vercel.app/dashboard)
+
+### **User Management**
+- 🔑 **API Key Generation** - Cloud and local key management
+- 📊 **Usage Analytics** - Real-time optimization tracking
+- 💳 **Subscription Management** - Plan upgrades and billing
+- 📋 **Audit Trails** - Complete API usage history
+
+### **Team Collaboration** (Creator/Innovator)
+- 👥 **Team Member Management** - Invite and manage team access
+- 🔗 **Shared API Keys** - Team-level authentication
+- 📝 **Collaborative Templates** - Shared optimization patterns
+- 📈 **Team Analytics** - Usage insights across team members
+
+### **Template Management**
+- 📚 **Template Library** - Browse and manage saved optimizations
+- 🔍 **Advanced Search** - Find templates by goals, keywords, or metadata
+- 📊 **Template Analytics** - Usage patterns and effectiveness metrics
+- 🎯 **Goal Recommendations** - Suggested optimization goals based on usage
+
+### **Local License Portal**
+- 🆓 **Basic License Generation** - Free daily quota setup
+- 💎 **Pro License Purchase** - One-time $19.99 upgrade via Stripe
+- 📱 **License Management** - View status and transfer licenses
+- 🔄 **Automatic Updates** - Binary distribution management
+
+---
+
+## 🏗️ **Technical Architecture**
+
+### **Backend Infrastructure**
+- **🚀 FastAPI Framework** - High-performance async processing
+- **☁️ Northflank Hosting** - Production Kubernetes infrastructure
+- **🗄️ Supabase Database** - PostgreSQL with real-time features
+- **💳 Stripe Integration** - Secure payment processing for both models
+- **🔒 Production Security** - Multi-layered security with monitoring
+- **📊 Analytics Engine** - Real-time usage tracking and insights
+
+### **Frontend Technology**
+- **⚛️ Next.js Framework** - Server-side rendered React application
+- **🎨 Tailwind CSS** - Responsive design system
+- **📊 Chart.js Integration** - Analytics and usage visualization
+- **💳 Stripe Elements** - Secure payment forms
+- **🔐 JWT Authentication** - Secure session management
+
+### **NPM Package Architecture**
+- **📦 Dual Package System** - Cloud and local variants
+- **🔧 Binary Distribution** - Platform-specific optimizers
+- **🐍 Python Fallback** - Universal compatibility
+- **🔐 License Validation** - Secure local licensing system
+- **📡 MCP Protocol** - Native Model Context Protocol integration
+
+### **MCP Server Engine**
+- **🎯 50+ Optimization Goals** - Comprehensive technique library
+- **📊 Template Management** - Automatic saving with rich metadata
+- **🔄 Streaming Support** - Real-time optimization responses
+- **🧠 Context Detection** - Automatic AI context routing
+- **⚡ Performance Optimization** - Sub-second response times
+
+---
+
+## 🔒 **Security & Privacy**
+
+### **Cloud Security**
+- 🔒 **API Key Authentication** - Secure `sk-opt-` format tokens
+- 🌐 **HTTPS Encryption** - All communications encrypted in transit
+- 🗄️ **Data Encryption** - Template data protected at rest
+- 📋 **Complete Audit Trails** - Full API usage logging
+- 🛡️ **Multi-tenant Security** - Secure workload isolation
+- 🚨 **Real-time Monitoring** - Security event detection
+
+### **Local Privacy**
+- 🏠 **No Data Transmission** - Complete local processing
+- 🔐 **Local License Validation** - Secure offline operation
+- 💾 **Local Storage Only** - No cloud data storage
+- 🔒 **Encrypted Configuration** - Secure local settings
+- 🛡️ **Binary Security** - Signed and verified executables
+
+---
+
+## 🛠️ **Installation & Configuration**
+
+### **System Requirements**
+- **Node.js**: 16.0.0 or higher
+- **npm**: 8.0.0 or higher
+- **Operating System**: Windows, macOS, Linux
+- **Memory**: 512MB RAM (local package)
+- **Storage**: 100MB for binaries
+
+### **Cloud Package Setup**
 
 ```bash
 # Install globally
 npm install -g mcp-prompt-optimizer
 
-# Setup your API key
+# Configure API key
 mcp-prompt-optimizer --setup
+
+# Test connection
+mcp-prompt-optimizer --test
 ```
 
-### MCP Client Configuration
+### **Local Package Setup**
 
-#### Claude Desktop
-Add to `~/.claude/claude_desktop_config.json`:
+```bash
+# Install globally
+npm install -g mcp-prompt-optimizer-local
 
+# Generate Basic license (free)
+mcp-prompt-optimizer-local --license
+
+# Upgrade to Pro ($19.99)
+mcp-prompt-optimizer-local --upgrade
+
+# Test local optimization
+mcp-prompt-optimizer-local --test
+```
+
+### **MCP Client Configuration Examples**
+
+#### **Claude Desktop**
+```json
+{
+  "mcpServers": {
+    "prompt-optimizer": {
+      "command": "npx",
+      "args": ["mcp-prompt-optimizer"]
+    },
+    "prompt-optimizer-local": {
+      "command": "npx", 
+      "args": ["mcp-prompt-optimizer-local"]
+    }
+  }
+}
+```
+
+#### **Cursor**
 ```json
 {
   "mcpServers": {
@@ -60,41 +399,28 @@ Add to `~/.claude/claude_desktop_config.json`:
 }
 ```
 
-#### Cursor
-Add to `~/.cursor/mcp.json`:
-
+#### **Windsurf**
 ```json
 {
   "mcpServers": {
-    "prompt-optimizer": {
+    "prompt-optimizer-local": {
       "command": "npx",
-      "args": ["mcp-prompt-optimizer"]
+      "args": ["mcp-prompt-optimizer-local"]
     }
   }
 }
 ```
 
-#### Windsurf
-Configure via Windsurf settings:
+---
 
-```json
-{
-  "mcpServers": {
-    "prompt-optimizer": {
-      "command": "npx",
-      "args": ["mcp-prompt-optimizer"]
-    }
-  }
-}
+## 📊 **Usage Examples**
+
+### **Basic Optimization**
 ```
-
-### Usage Example
-
-```
-Optimize this prompt using the optimize_prompt tool:
+Use the optimize_prompt tool to improve this:
 "Write me some code for a login system"
 
-Goals: ["clarity", "specificity", "technical_accuracy"]
+Goals: ["clarity", "technical_accuracy", "specificity"]
 ```
 
 **Enhanced Result:**
@@ -103,396 +429,345 @@ Create a secure user authentication system with the following specifications:
 
 ## Requirements:
 - Implement login functionality with username/email and password
-- Include proper input validation and sanitization  
+- Include proper input validation and sanitization
 - Add password hashing using bcrypt or similar
-- Implement session management
+- Implement session management with JWT tokens
 - Include error handling for invalid credentials
 - Add rate limiting to prevent brute force attacks
 
+## Technical Stack:
+- Backend: Node.js/Express or Python/FastAPI
+- Database: PostgreSQL or MongoDB
+- Frontend: React/Vue/Angular
+- Security: bcrypt, JWT, express-rate-limit
+
 ## Deliverables:
-- Backend authentication logic
-- Frontend login form
+- User registration and login endpoints
+- Frontend authentication forms
 - Database schema for user accounts
-- Security best practices implementation
+- Security middleware implementation
+- Unit tests for authentication flows
 
-Confidence Score: 0.87 | Quota Remaining: 4,850/5,000
+Confidence Score: 0.89 | Quota: 4,850/5,000 | Template Saved: ✓
+```
+
+### **Advanced Team Template Usage**
+```
+Use template "API Development Best Practices" as base for:
+"Create endpoints for user management"
+
+Additional goals: ["api_documentation", "code_optimization"]
+```
+
+### **Local Privacy-First Optimization**
+```
+Optimize locally without cloud transmission:
+"Help me write a database query"
+
+Goals: ["database_optimization", "technical_precision"]
+Local only: true
 ```
 
 ---
 
-## ☁️ Backend Optimizer Engine
+## 🔧 **Advanced Configuration**
 
-**Production Endpoint**: `https://p01--project-optimizer--fvrdk8m9k9j.code.run`
+### **Environment Variables**
 
-### 🎯 Advanced Capabilities
-
-- **🧠 AI-Powered Optimization** - Advanced algorithms for intelligent prompt enhancement
-- **👥 Team Collaboration** - Multi-user subscriptions with shared templates and analytics
-- **📊 Professional Analytics** - Usage tracking, confidence scoring, and optimization insights
-- **🎯 10+ Optimization Goals** - Professional techniques including clarity, specificity, technical accuracy
-- **🔄 Template Management** - Automatic saving with comprehensive metadata
-- **⚡ High Performance** - Sub-second response times with production infrastructure
-- **🔒 Production-Grade Security** - HTTPS encryption, secure API authentication, and encrypted data storage
-
-### API Authentication
-
-All requests require an API key in the header:
-
+#### **Cloud Package**
 ```bash
-X-API-Key: sk-opt-your-api-key-here
+PROMPT_OPTIMIZER_API_KEY=sk-opt-your-key
+PROMPT_OPTIMIZER_BACKEND_URL=https://p01--project-optimizer--fvrdk8m9k9j.code.run
+PROMPT_OPTIMIZER_TEAM_ID=team_123
 ```
 
-### Core Optimization Endpoint
-
-**POST** `/api/v1/optimize`
-
+#### **Local Package**
 ```bash
-curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimize" \
-  -H "Content-Type: application/json" \
-  -H "X-API-Key: sk-opt-your-api-key" \
-  -d '{
-    "prompt": "Write me some code",
-    "goals": ["clarity", "specificity"]
-  }'
+PROMPT_OPTIMIZER_LOCAL_LICENSE=sk-local-pro-your-key
+PROMPT_OPTIMIZER_LOCAL_BINARY_PATH=/custom/path/to/binaries
+PROMPT_OPTIMIZER_LOCAL_OFFLINE_MODE=true
 ```
 
-### Response Format
+### **Custom Configuration Files**
 
+#### **Cloud Configuration** (`~/.prompt-optimizer/config.json`)
 ```json
 {
-  "optimized_prompt": "Create a well-documented code solution with the following specifications...",
-  "confidence_score": 0.87,
-  "optimization_applied": ["clarity", "specificity"],
-  "quota_remaining": 4850,
-  "template_saved": true,
-  "request_id": "req_abc123"
+  "apiKey": "sk-opt-your-key",
+  "backendUrl": "https://p01--project-optimizer--fvrdk8m9k9j.code.run",
+  "teamId": "team_123",
+  "defaultGoals": ["clarity", "technical_accuracy"],
+  "streamingEnabled": true,
+  "templateAutoSave": true
 }
 ```
 
-### Available Endpoints
+#### **Local Configuration** (`~/.prompt-optimizer-local/config.json`)
+```json
+{
+  "licenseKey": "sk-local-pro-your-key",
+  "binaryPath": "/path/to/binaries",
+  "offlineMode": false,
+  "maxDailyQuota": "unlimited",
+  "defaultGoals": ["clarity", "privacy_enhancement"],
+  "encryptionEnabled": true
+}
+```
 
-- `GET /health` - Service health check
-- `POST /api/v1/validate-key` - Validate API key
-- `POST /api/v1/optimize` - Optimize prompt
-- `GET /api/v1/quota` - Check usage quota  
+---
+
+## 📚 **Complete API Documentation**
+
+### **Cloud API Endpoints**
+
+#### **Optimization Engine**
+- `POST /api/v1/optimize` - Optimize prompts with cloud intelligence
+- `GET /api/v1/optimize/stream` - Stream optimization results
+- `POST /api/v1/optimize/batch` - Bulk optimization processing
+
+#### **Template Management**
 - `GET /api/v1/templates` - List saved templates
+- `POST /api/v1/templates/search` - Search templates by criteria
+- `GET /api/v1/templates/{id}` - Get specific template
+- `PUT /api/v1/templates/{id}` - Update template
+- `DELETE /api/v1/templates/{id}` - Delete template
+- `GET /api/v1/templates/{id}/stats` - Template analytics
+
+#### **Team Management**
+- `GET /api/v1/teams` - List team information
+- `POST /api/v1/teams/invite` - Invite team members
+- `DELETE /api/v1/teams/members/{id}` - Remove team member
+- `GET /api/v1/teams/usage` - Team usage analytics
+
+#### **User Management**
+- `GET /api/v1/user/profile` - User profile information
+- `PUT /api/v1/user/profile` - Update user profile
+- `GET /api/v1/user/quota` - Current usage quota
+- `GET /api/v1/user/api-keys` - List API keys
+- `POST /api/v1/user/api-keys` - Generate new API key
+
+#### **Subscription Management**
+- `GET /api/v1/subscriptions` - Current subscription details
+- `POST /api/v1/subscriptions/upgrade` - Upgrade subscription
+- `GET /api/v1/subscriptions/invoices` - Billing history
+
+### **Local API Endpoints**
+
+#### **Local Optimization**
+- `POST /local/v1/optimize` - Local prompt optimization
+- `GET /local/v1/license` - License status and quota
+- `POST /local/v1/license/upgrade` - Upgrade to Pro license
+
+#### **Local Management**
+- `GET /local/v1/health` - Local service health
+- `GET /local/v1/binaries` - Available binary versions
+- `POST /local/v1/binaries/update` - Update optimization binaries
 
 ---
 
-## 🎯 Professional Optimization Goals
+## 🚨 **Troubleshooting Guide**
 
-Transform your prompts with these expert techniques:
+### **Common Installation Issues**
 
-| Goal | Description | Use Case |
-|------|-------------|----------|
-| **clarity** | Make prompts clearer and more understandable | General communication improvement |
-| **conciseness** | Remove unnecessary words while preserving meaning | Token optimization, cleaner requests |
-| **technical_accuracy** | Improve technical precision and correctness | Development, engineering prompts |
-| **contextual_relevance** | Better alignment with context and purpose | Domain-specific optimization |
-| **specificity** | Add specific details and reduce ambiguity | Detailed task requirements |
-| **actionability** | Make prompts more actionable and directive | Task-oriented instructions |
-| **structure** | Improve organization and logical flow | Complex, multi-step requests |
-| **technical_precision** | Enhance exactness of technical terms | API docs, technical specifications |
-| **linguistic_precision** | Refine language for exact meaning | Legal, academic, formal writing |
-| **holistic_effectiveness** | Overall optimization for best results | Comprehensive improvement |
-
----
-
-## 💰 Subscription Plans
-
-### **Explorer** - $2.99/month
-*Perfect for individual developers*
-
-- ✅ **5,000 optimizations/month** - Generous quota for personal projects
-- ✅ **1 API key** - Individual access
-- ✅ **Full MCP integration** - All MCP clients supported
-- ✅ **Web UI access** - Browser-based optimization
-- ✅ **Template history** - Save and review optimizations
-- ✅ **Core optimization goals** - Essential techniques available
-
-### **Creator** - $25.99/month
-*Most popular for teams and creators*
-
-- ✅ **18,000 optimizations/month** - Perfect for active development
-- ✅ **Up to 3 API keys** - Team collaboration support
-- ✅ **2 team members** - Share access with collaborators
-- ✅ **Advanced optimization goals** - All professional techniques
-- ✅ **Custom optimization rules** - Tailor to your specific needs
-- ✅ **Template analytics** - Track optimization patterns
-- ✅ **Priority processing** - Faster response times
-
-### **Innovator** - $69.99/month
-*Enterprise-grade for large teams*
-
-- ✅ **75,000 optimizations/month** - Enterprise-level capacity
-- ✅ **Up to 10 API keys** - Large team management
-- ✅ **5 team members** - Full team collaboration
-- ✅ **Advanced analytics dashboard** - Comprehensive insights
-- ✅ **Priority support** - Dedicated support channel
-- ✅ **Custom optimization models** - Specialized domain models
-- ✅ **Advanced team management** - Role-based permissions
-- ✅ **Enhanced security features** - Advanced monitoring and controls
-
----
-
-## 🌐 Web Dashboard
-
-**Access**: [https://promptoptimizer-blog.vercel.app/dashboard](https://promptoptimizer-blog.vercel.app/dashboard)
-
-### Dashboard Features
-
-- 🔑 **API Key Management** - Generate and manage access credentials
-- 📊 **Usage Analytics** - Track optimization usage and patterns
-- 📝 **Template Library** - Browse and manage saved optimizations
-- 💳 **Subscription Management** - Handle billing and plan changes
-- 📈 **Performance Insights** - Analyze optimization effectiveness
-- 👥 **Team Management** - Invite members and manage permissions
-- 🎯 **Custom Rules** - Create domain-specific optimization rules
-- 📋 **Audit Trails** - Complete API usage history
-
----
-
-## 🏗️ Technical Infrastructure
-
-### Architecture Highlights
-
-- **🚀 FastAPI Backend** - High-performance async processing
-- **☁️ Northflank Hosting** - Production cloud infrastructure with high availability
-- **🗄️ Supabase Database** - PostgreSQL with real-time features
-- **💳 Stripe Integration** - Secure payment processing
-- **🔒 Production Security** - Multi-layered security with monitoring
-- **📊 Analytics Engine** - Real-time usage tracking and insights
-- **⚡ High Performance** - Optimized for sub-second responses
-- **🔄 Scalable Design** - Microservices architecture for growth
-
-### Security Implementation
-
-- 🔒 **API Key Authentication** - Secure `sk-opt-` format tokens with validation
-- 🌐 **HTTPS Encryption** - All communications encrypted in transit
-- 🗄️ **Data Encryption** - Template data protected at rest using Northflank security features
-- 📋 **Complete Audit Trails** - Full API usage logging and monitoring
-- 🛡️ **Multi-tenant Security** - Secure isolation in Kubernetes environment
-- 🔐 **IP Protection** - Your prompts remain your intellectual property
-- ⚡ **Rate Limiting** - Intelligent throttling to prevent abuse
-- 🚨 **Monitoring & Alerting** - Real-time security monitoring
-
-### Security Implementation Notes
-
-- All communications encrypted via HTTPS
-- API keys use secure `sk-opt-` format with server-side validation
-- Data encrypted at rest using Northflank's security features
-- Hosted on Northflank's production Kubernetes infrastructure
-- Rate limiting and abuse monitoring in place
-- Regular security monitoring and logging
-- Multi-tenant architecture with secure workload isolation
-
----
-
-## 🚀 Getting Started Guide
-
-### Option 1: MCP Integration (Recommended)
-
-**For Claude Desktop, Cursor, Windsurf users:**
-
+#### **NPM Package Conflicts**
 ```bash
-# Install the MCP package
-npm install -g mcp-prompt-optimizer
+# Clear npm cache
+npm cache clean --force
 
-# Configure with your API key
-mcp-prompt-optimizer --setup
+# Reinstall packages
+npm uninstall -g mcp-prompt-optimizer mcp-prompt-optimizer-local
+npm install -g mcp-prompt-optimizer mcp-prompt-optimizer-local
 
-# Configure your MCP client (see configuration examples above)
-
-# Test integration
-# Ask your MCP client: "Please optimize this prompt: 'help me code'"
+# Verify installations
+npm list -g | grep mcp-prompt-optimizer
 ```
 
-### Option 2: Direct API Integration
-
-**For custom applications:**
-
+#### **MCP Configuration Problems**
 ```bash
+# Validate JSON syntax
+node -e "console.log(JSON.parse(require('fs').readFileSync('~/.claude/claude_desktop_config.json')))"
+
+# Test MCP connectivity
+npx mcp-prompt-optimizer --test-mcp
+npx mcp-prompt-optimizer-local --test-mcp
+```
+
+### **API and License Issues**
+
+#### **Cloud API Authentication**
+```bash
+# Verify API key format
+echo $PROMPT_OPTIMIZER_API_KEY | grep "^sk-opt-"
+
 # Test API connectivity
-curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/health"
+curl -H "X-API-Key: $PROMPT_OPTIMIZER_API_KEY" \
+     https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/user/quota
 
-# Validate your API key
-curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/validate-key" \
-  -H "X-API-Key: your-api-key"
-
-# Make your first optimization
-curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimize" \
-  -H "Content-Type: application/json" \
-  -H "X-API-Key: your-api-key" \
-  -d '{"prompt": "help me code", "goals": ["clarity", "specificity"]}'
+# Reconfigure API key
+mcp-prompt-optimizer --setup
 ```
 
-### Option 3: Web Interface
-
-**For browser-based optimization:**
-
-1. Visit [Prompt Optimizer Dashboard](https://promptoptimizer-blog.vercel.app)
-2. Create an account and subscribe to a plan
-3. Generate your API key
-4. Start optimizing prompts in the web interface
-
----
-
-## 🔧 Advanced Configuration
-
-### Rate Limits by Plan
-
-- **Explorer**: 10 requests/minute
-- **Creator**: 20 requests/minute  
-- **Innovator**: 50 requests/minute
-
-### Quota Management
-
-- Quotas reset monthly on your billing date
-- Team plans share quota across all members
-- Real-time usage tracking available in dashboard
-- Automatic notifications before quota limits
-
-### Custom Optimization Rules
-
-**Available in Creator and Innovator plans:**
-
-```json
-{
-  "rule_name": "API Documentation",
-  "goals": ["technical_precision", "structure", "clarity"],
-  "domain_context": "software development",
-  "custom_instructions": "Focus on REST API best practices"
-}
-```
-
----
-
-## 📚 Documentation & Resources
-
-### For Developers
-
-- 📖 [MCP Package Documentation](https://www.npmjs.com/package/mcp-prompt-optimizer)
-- 🔧 [API Reference](API_DOCUMENTATION.md)
-- 💡 [Integration Examples](https://promptoptimizer-blog.vercel.app/docs/examples)
-- 🛠️ [Client SDK Documentation](https://promptoptimizer-blog.vercel.app/docs/sdk)
-
-### For Users
-
-- 🚀 [Getting Started Guide](https://promptoptimizer-blog.vercel.app/docs/getting-started)
-- ✨ [Optimization Best Practices](https://promptoptimizer-blog.vercel.app/docs/best-practices)
-- 📝 [Template Management](https://promptoptimizer-blog.vercel.app/docs/templates)
-- 🔍 [Troubleshooting Guide](https://promptoptimizer-blog.vercel.app/docs/troubleshooting)
-
----
-
-## 🔧 Troubleshooting
-
-### Common Setup Issues
-
-**MCP Connection Problems:**
+#### **Local License Validation**
 ```bash
-# Verify Node.js installation
-node --version
+# Check license status
+mcp-prompt-optimizer-local --license-status
 
-# Check package installation
-npm list -g mcp-prompt-optimizer
+# Verify license format
+echo $PROMPT_OPTIMIZER_LOCAL_LICENSE | grep "^sk-local-"
 
-# Restart MCP client after configuration changes
+# Regenerate license
+mcp-prompt-optimizer-local --license --force
 ```
 
-**API Authentication Issues:**
+### **Performance Optimization**
+
+#### **Binary Updates**
 ```bash
-# Verify API key format (should start with sk-opt-)
-# Check subscription status in dashboard
-# Test key validation endpoint
-curl -X POST .../validate-key -H "X-API-Key: your-key"
+# Update local binaries
+mcp-prompt-optimizer-local --update-binaries
+
+# Force binary reinstall
+mcp-prompt-optimizer-local --reinstall-binaries
+
+# Check binary compatibility
+mcp-prompt-optimizer-local --check-platform
 ```
 
-**Performance Optimization:**
+#### **Network Configuration**
 ```bash
-# Check backend health
-curl https://p01--project-optimizer--fvrdk8m9k9j.code.run/health
+# Test backend connectivity
+curl -o /dev/null -s -w "%{http_code}\n" \
+     https://p01--project-optimizer--fvrdk8m9k9j.code.run/health
 
-# Monitor quota usage
-curl -H "X-API-Key: your-key" .../api/v1/quota
+# Configure proxy if needed
+npm config set proxy http://proxy.company.com:8080
+npm config set https-proxy http://proxy.company.com:8080
 ```
 
 ---
 
-## 🏢 Enterprise Solutions
+## 🎯 **Best Practices**
 
-**Need custom deployment or specialized features?**
+### **Optimization Goal Selection**
+- **Start Simple**: Begin with core goals like `clarity` and `specificity`
+- **Layer Complexity**: Add technical goals like `technical_accuracy` for development tasks
+- **Domain-Specific**: Use specialized goals for specific industries or use cases
+- **Goal Synergy**: Combine complementary goals for enhanced results
 
-### Enterprise Offerings
+### **Template Management**
+- **Consistent Naming**: Use descriptive names for saved templates
+- **Regular Review**: Periodically audit and update template library
+- **Team Sharing**: Leverage collaborative templates for consistency
+- **Analytics-Driven**: Use template analytics to identify top performers
 
-- 📊 **Custom Analytics** - Tailored reporting and insights
-- 🔒 **Enhanced Security** - Additional security layers, monitoring, and compliance assistance
-- 🎯 **Domain-Specific Models** - Specialized optimization for your industry
-- 🏗️ **Custom Deployment** - Dedicated infrastructure options
-- 📞 **Dedicated Support** - Priority assistance with SLA guarantees
-- 🔧 **Custom Integration** - Tailored API endpoints and workflows
-- 🛡️ **Security Consulting** - Assistance with compliance and security audits
+### **Security Best Practices**
+- **Key Rotation**: Regularly rotate API keys for enhanced security
+- **Access Control**: Use team features to control access appropriately
+- **Audit Monitoring**: Review audit trails for unusual activity
+- **Local vs Cloud**: Choose appropriate package based on privacy requirements
 
-### Contact Enterprise Sales
+---
 
+## 🏢 **Enterprise Solutions**
+
+### **Custom Deployment Options**
+- 🏗️ **On-Premise Installation** - Complete platform deployment in your infrastructure
+- ☁️ **Private Cloud** - Dedicated cloud instance with enhanced security
+- 🔗 **Hybrid Architecture** - Combination of local and cloud processing
+- 🛡️ **Air-Gapped Deployment** - Completely isolated environment support
+
+### **Advanced Enterprise Features**
+- 📊 **Custom Analytics** - Tailored reporting and compliance dashboards
+- 🔒 **Enhanced Security** - SOC2, HIPAA, and custom compliance support
+- 🎯 **Domain-Specific Models** - Industry-specific optimization algorithms
+- 👥 **Enterprise Team Management** - Advanced role-based access control
+- 📞 **24/7 Support** - Dedicated support with SLA guarantees
+
+### **Contact Enterprise Sales**
 - 📧 **Email**: enterprise@promptoptimizer.help
-- 📞 **Schedule Demo**: [Enterprise Demo](https://cal.com/prompt-optimizer/enterprise)
-- 💼 **Custom Solutions**: Dedicated deployments and hybrid architectures available
+- 📞 **Demo**: [Schedule Enterprise Demo](https://cal.com/prompt-optimizer/enterprise)
+- 💼 **Custom Solutions**: Tailored deployments and integrations
 
 ---
 
-## 📞 Support & Community
+## 📞 **Support & Community**
 
-### Support Channels
-
+### **Support Channels**
 - 📚 **Documentation**: [promptoptimizer-blog.vercel.app/docs](https://promptoptimizer-blog.vercel.app/docs)
 - 🎫 **Support Portal**: [promptoptimizer-blog.vercel.app/support](https://promptoptimizer-blog.vercel.app/support)
 - 🐛 **GitHub Issues**: [Report bugs and feature requests](https://github.com/nivlewd1/prompt-optimizer/issues)
 - 💬 **Discord Community**: [Join our community](https://discord.gg/prompt-optimizer)
 - 📧 **Email Support**: promptoptimizer.help@gmail.com
 
-### Support Response Times
-
-- **Explorer**: Community support (24-48 hours)
-- **Creator**: Standard support (12-24 hours)  
-- **Innovator**: Priority support (2-6 hours)
-- **Enterprise**: Dedicated support with SLA
-
----
-
-## 🎯 Start Optimizing Today
-
-**Transform your AI development workflow in minutes:**
-
-### 🚀 Quick Start Checklist
-
-1. **[Subscribe to a Plan](https://promptoptimizer-blog.vercel.app/pricing)** → Choose the right tier for your needs
-2. **[Install MCP Package](https://www.npmjs.com/package/mcp-prompt-optimizer)** → `npm install -g mcp-prompt-optimizer`  
-3. **[Configure Your Client](https://promptoptimizer-blog.vercel.app/docs/setup)** → Add to Claude Desktop, Cursor, or Windsurf
-4. **[Generate API Key](https://promptoptimizer-blog.vercel.app/dashboard)** → Set up authentication
-5. **✨ Start Optimizing** → Transform prompts instantly
+### **Response Time SLA**
+- **Basic/Local License**: Community support (24-48 hours)
+- **Explorer**: Standard support (12-24 hours)
+- **Creator**: Priority support (6-12 hours)
+- **Innovator**: Premium support (2-6 hours)
+- **Enterprise**: Dedicated support with custom SLA
 
 ---
 
-## 📄 License & Legal
+## 🚀 **Start Optimizing Today**
 
-**Commercial License** - This software is licensed for commercial use. See [LICENSE](./LICENSE) for details.
+### **Quick Decision Matrix**
 
-**Intellectual Property**: You retain full rights over all prompts, templates, and content created using this service.
+| Use Case | Recommended Package | Plan |
+|----------|-------------------|------|
+| **Individual Developer** | `mcp-prompt-optimizer-local` | Pro License ($19.99) |
+| **Privacy-Critical Work** | `mcp-prompt-optimizer-local` | Pro License ($19.99) |
+| **Small Team (2-3)** | `mcp-prompt-optimizer` | Creator ($25.99/month) |
+| **Large Team (5+)** | `mcp-prompt-optimizer` | Innovator ($69.99/month) |
+| **Enterprise** | Hybrid deployment | Custom Enterprise |
 
-**Privacy**: Your prompts and data are never used to train models or shared with third parties.
+### **Setup Checklist**
 
-**Security**: We implement industry-standard security practices. For compliance requirements, please contact our enterprise team.
+#### **For Cloud Package:**
+1. ✅ [Subscribe to a Plan](https://promptoptimizer-blog.vercel.app/pricing)
+2. ✅ [Generate API Key](https://promptoptimizer-blog.vercel.app/dashboard)
+3. ✅ Install: `npm install -g mcp-prompt-optimizer`
+4. ✅ Configure: `mcp-prompt-optimizer --setup`
+5. ✅ Add MCP configuration to your client
+6. ✅ Test: Ask your MCP client to optimize a prompt
+
+#### **For Local Package:**
+1. ✅ Install: `npm install -g mcp-prompt-optimizer-local`
+2. ✅ Generate license: `mcp-prompt-optimizer-local --license`
+3. ✅ [Upgrade to Pro](https://promptoptimizer-blog.vercel.app/local-license) (optional)
+4. ✅ Add MCP configuration to your client
+5. ✅ Test: Optimize prompts locally
+
+---
+
+## 📄 **License & Legal**
+
+### **Software Licensing**
+- **Cloud Package**: Commercial subscription license
+- **Local Package**: Freemium model with Pro upgrade
+- **Platform Code**: Proprietary - optimization algorithms not included
+- **MCP Integration**: Open-source MCP protocol implementation
+
+### **Data Rights**
+- **Intellectual Property**: You retain full rights to all prompts and content
+- **Template Ownership**: All saved templates belong to you and your team
+- **Privacy Guarantee**: Local package never transmits data externally
+- **Data Portability**: Export all templates and data at any time
+
+### **Compliance & Security**
+- **SOC 2 Type II**: Enterprise compliance available
+- **GDPR Compliant**: Full data protection compliance
+- **HIPAA Compatible**: Healthcare industry deployment options
+- **Privacy Shield**: International data transfer protections
 
 ---
 
 **Made with ❤️ by the Prompt Optimizer Team**  
-*Empowering better AI interactions through professional prompt engineering*
+*Transforming AI interactions through professional prompt engineering*
 
 ---
 
-### 🌟 Join the Revolution
+### 🌟 **Transform Your AI Workflow Today**
 
-*Transform your prompts. Elevate your AI interactions. Experience the future of prompt engineering.*
+*Choose your optimization approach. Experience the difference. Elevate your AI interactions.*
 
-**Ready to get started?** [Choose your plan](https://promptoptimizer-blog.vercel.app/pricing) and begin optimizing in under 2 minutes.
+**Ready to start?** [Choose your plan](https://promptoptimizer-blog.vercel.app/pricing) or [try local for free](https://www.npmjs.com/package/mcp-prompt-optimizer-local)
