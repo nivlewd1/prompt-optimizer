@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Prompt Optimizer REST API provides direct access to prompt optimization services through HTTP endpoints. This API powers both the MCP package and web dashboard interfaces.
+The Prompt Optimizer REST API provides direct access to our comprehensive prompt optimization platform through HTTP endpoints. This API powers both the MCP packages and web dashboard interfaces, offering 50+ professional optimization goals and enterprise-grade capabilities.
 
 **Production Endpoint**: `https://p01--project-optimizer--fvrdk8m9k9j.code.run`
 
@@ -17,7 +17,7 @@ X-API-Key: sk-opt-your-api-key-here
 ### Getting an API Key
 
 1. Visit [Prompt Optimizer Dashboard](https://promptoptimizer-blog.vercel.app/dashboard)
-2. Subscribe to Creator ($12.99/month) or Innovator ($24.99/month) plan
+2. Subscribe to Explorer ($2.99/month), Creator ($25.99/month), or Innovator ($69.99/month) plan
 3. Generate your API key from the dashboard
 4. API keys follow the format: `sk-opt-xxxxxxxxxxxxxxxxxxxxxxxx`
 
@@ -27,13 +27,13 @@ X-API-Key: sk-opt-your-api-key-here
 https://p01--project-optimizer--fvrdk8m9k9j.code.run
 ```
 
-## Endpoints
+## Core Endpoints
 
 ### Health Check
 
 **GET** `/health`
 
-Check the service health status.
+Check the service health status and version.
 
 ```bash
 curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/health"
@@ -43,8 +43,13 @@ curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/health"
 ```json
 {
   "status": "healthy",
-  "version": "0.2.2",
-  "timestamp": "2025-06-05T12:00:00.000Z"
+  "version": "0.3.1",
+  "timestamp": "2025-07-11T12:00:00.000Z",
+  "components": {
+    "database": "healthy",
+    "stripe": "healthy",
+    "optimization_engine": "healthy"
+  }
 }
 ```
 
@@ -52,7 +57,7 @@ curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/health"
 
 **POST** `/api/v1/validate-key`
 
-Validate an API key and check associated subscription.
+Validate an API key and check associated subscription details.
 
 ```bash
 curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/validate-key" \
@@ -66,9 +71,12 @@ curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/valida
   "valid": true,
   "user_id": "user_abc123",
   "subscription_tier": "creator",
-  "quota_limit": 200,
-  "quota_used": 5,
-  "quota_remaining": 195
+  "quota_limit": 18000,
+  "quota_used": 150,
+  "quota_remaining": 17850,
+  "team_id": "team_xyz789",
+  "api_keys_count": 2,
+  "api_keys_limit": 3
 }
 ```
 
@@ -76,7 +84,7 @@ curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/valida
 
 **POST** `/api/v1/optimize`
 
-Optimize a prompt based on specified goals.
+Optimize a prompt using our advanced optimization engine with 50+ professional goals.
 
 ```bash
 curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimize" \
@@ -84,7 +92,8 @@ curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimi
   -H "X-API-Key: sk-opt-your-api-key" \
   -d '{
     "prompt": "Write me some code for a login system",
-    "goals": ["clarity", "specificity", "technical_accuracy"]
+    "goals": ["clarity", "technical_accuracy", "security_enhancement"],
+    "ai_context": "code_generation"
   }'
 ```
 
@@ -93,6 +102,7 @@ curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimi
 {
   "prompt": "string (required)",
   "goals": ["array of goal strings (optional)"],
+  "ai_context": "string (optional): code_generation, human_communication, technical_automation, etc.",
   "stream": "boolean (optional, default: false)"
 }
 ```
@@ -100,13 +110,14 @@ curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimi
 **Response:**
 ```json
 {
-  "optimized_prompt": "Create a secure user authentication system with the following specifications:\n\n## Requirements:\n- Implement login functionality with username/email and password\n- Include proper input validation and sanitization\n- Add password hashing using bcrypt or similar\n- Implement session management\n- Include error handling for invalid credentials\n- Add rate limiting to prevent brute force attacks\n\n## Deliverables:\n- Backend authentication logic\n- Frontend login form\n- Database schema for user accounts\n- Security best practices implementation",
-  "confidence_score": 0.87,
-  "optimization_goals": ["clarity", "specificity", "technical_accuracy"],
-  "quota_remaining": 194,
+  "optimized_prompt": "Create a secure user authentication system with the following specifications:\n\n## Requirements:\n- Implement login functionality with username/email and password\n- Include proper input validation and sanitization\n- Add password hashing using bcrypt or similar\n- Implement session management with JWT tokens\n- Include error handling for invalid credentials\n- Add rate limiting to prevent brute force attacks\n\n## Technical Stack:\n- Backend: Node.js/Express or Python/FastAPI\n- Database: PostgreSQL or MongoDB\n- Frontend: React/Vue/Angular\n- Security: bcrypt, JWT, express-rate-limit\n\n## Deliverables:\n- User registration and login endpoints\n- Frontend authentication forms\n- Database schema for user accounts\n- Security middleware implementation\n- Unit tests for authentication flows",
+  "confidence_score": 0.92,
+  "optimization_goals": ["clarity", "technical_accuracy", "security_enhancement"],
+  "quota_remaining": 17849,
   "template_saved": true,
   "request_id": "req_abc123xyz",
-  "processing_time_ms": 1250
+  "processing_time_ms": 850,
+  "ai_context_detected": "code_generation"
 }
 ```
 
@@ -114,7 +125,7 @@ curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimi
 
 **GET** `/api/v1/quota`
 
-Check current usage quota and limits.
+Check current usage quota and subscription limits.
 
 ```bash
 curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/quota" \
@@ -124,30 +135,42 @@ curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/quota" 
 **Response:**
 ```json
 {
-  "quota_limit": 200,
-  "quota_used": 5,
-  "quota_remaining": 195,
-  "reset_date": "2025-07-05T00:00:00.000Z",
-  "subscription_tier": "creator"
+  "quota_limit": 18000,
+  "quota_used": 150,
+  "quota_remaining": 17850,
+  "reset_date": "2025-08-11T00:00:00.000Z",
+  "subscription_tier": "creator",
+  "billing_cycle": "monthly",
+  "team_usage": {
+    "total_members": 2,
+    "individual_usage": [
+      {"user_id": "user_abc123", "usage": 120},
+      {"user_id": "user_def456", "usage": 30}
+    ]
+  }
 }
 ```
+
+## Template Management Endpoints
 
 ### List Templates
 
 **GET** `/api/v1/templates`
 
-Retrieve optimization history and saved templates.
+Retrieve optimization history and saved templates with advanced filtering.
 
 ```bash
-curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/templates" \
-  -H "X-API-Key: sk-opt-your-api-key" \
-  -H "Content-Type: application/json"
+curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/templates?limit=20&goals=technical_accuracy" \
+  -H "X-API-Key: sk-opt-your-api-key"
 ```
 
 **Query Parameters:**
 - `limit` (optional): Number of templates to return (default: 20, max: 100)
 - `offset` (optional): Pagination offset (default: 0)
-- `sort` (optional): Sort order - `newest` or `oldest` (default: `newest`)
+- `sort` (optional): Sort order - `newest`, `oldest`, `confidence`, `usage` (default: `newest`)
+- `goals` (optional): Filter by optimization goals (comma-separated)
+- `search` (optional): Search in template content
+- `team_only` (optional): Show only team templates (boolean)
 
 **Response:**
 ```json
@@ -155,43 +178,235 @@ curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/templat
   "templates": [
     {
       "id": "template_abc123",
-      "saved_at_utc": "2025-06-05T12:00:00.000Z",
+      "saved_at_utc": "2025-07-11T12:00:00.000Z",
       "optimization_tier": "LLM",
-      "confidence_score": 0.87,
+      "confidence_score": 0.92,
       "original_prompt": "Write me some code for a login system",
       "optimized_prompt": "Create a secure user authentication system...",
-      "optimization_goals": ["clarity", "specificity", "technical_accuracy"],
+      "optimization_goals": ["clarity", "technical_accuracy", "security_enhancement"],
       "context_snapshot": {
         "domain": "Software Development",
-        "target_audience": "Developers"
+        "target_audience": "Developers",
+        "ai_context": "code_generation"
       },
       "request_id": "req_abc123xyz",
       "request_metadata": {
         "api_request_type": "POST_non_streaming",
-        "user_id": "user_abc123"
+        "user_id": "user_abc123",
+        "team_id": "team_xyz789"
       },
-      "model_optimized_with": "openai/gpt-4o-mini"
+      "model_optimized_with": "openai/gpt-4o-mini",
+      "usage_analytics": {
+        "times_used": 15,
+        "last_used": "2025-07-10T15:30:00.000Z",
+        "average_confidence": 0.89
+      }
     }
   ],
-  "total_count": 15,
-  "has_more": false
+  "total_count": 45,
+  "has_more": true,
+  "filters_applied": ["goals: technical_accuracy"]
 }
 ```
 
-## Optimization Goals
+### Search Templates
 
-Supported optimization goals for the `/api/v1/optimize` endpoint:
+**POST** `/api/v1/templates/search`
 
-- **clarity** - Make the prompt clearer and more understandable
-- **conciseness** - Remove unnecessary words while preserving meaning  
-- **technical_accuracy** - Improve technical precision and correctness
-- **contextual_relevance** - Better alignment with context and purpose
-- **specificity** - Add specific details and reduce ambiguity
-- **actionability** - Make the prompt more actionable and directive
-- **structure** - Improve organization and logical flow
-- **technical_precision** - Enhance exactness of technical terms
-- **linguistic_precision** - Refine language for exact meaning
-- **holistic_effectiveness** - Overall optimization for best results
+Advanced template search with multiple criteria.
+
+```bash
+curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/templates/search" \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: sk-opt-your-api-key" \
+  -d '{
+    "query": "authentication system",
+    "goals": ["security_enhancement", "technical_accuracy"],
+    "min_confidence": 0.8,
+    "limit": 10
+  }'
+```
+
+### Get Template
+
+**GET** `/api/v1/templates/{template_id}`
+
+Retrieve specific template with full details and analytics.
+
+### Get Template Stats
+
+**GET** `/api/v1/templates/{template_id}/stats`
+
+Get detailed analytics for a specific template.
+
+## Team Management Endpoints
+
+### List Team Members
+
+**GET** `/api/v1/teams/members`
+
+List all team members and their roles.
+
+### Invite Team Member
+
+**POST** `/api/v1/teams/invite`
+
+Invite a new member to the team.
+
+### Remove Team Member
+
+**DELETE** `/api/v1/teams/members/{user_id}`
+
+Remove a team member.
+
+### Team Usage Analytics
+
+**GET** `/api/v1/teams/usage`
+
+Get team-wide usage analytics and insights.
+
+## User Management Endpoints
+
+### User Profile
+
+**GET** `/api/v1/user/profile`
+
+Get current user profile information.
+
+**PUT** `/api/v1/user/profile`
+
+Update user profile settings.
+
+### API Key Management
+
+**GET** `/api/v1/user/api-keys`
+
+List all API keys for the user.
+
+**POST** `/api/v1/user/api-keys`
+
+Generate a new API key.
+
+**DELETE** `/api/v1/user/api-keys/{key_id}`
+
+Revoke an API key.
+
+## Local License Endpoints
+
+### Generate Local License
+
+**POST** `/api/v1/local-license/generate`
+
+Generate a Basic (free) local license.
+
+### Upgrade Local License
+
+**POST** `/api/v1/local-license/upgrade`
+
+Upgrade to Pro local license via Stripe.
+
+### Validate Local License
+
+**POST** `/api/v1/local-license/validate`
+
+Validate a local license key.
+
+## 50+ Professional Optimization Goals
+
+Our platform offers the most comprehensive optimization goal library available:
+
+### Core Enhancement (10 goals)
+Available in all tiers:
+- `clarity` - Crystal-clear communication and understanding
+- `conciseness` - Efficient token usage while preserving meaning
+- `specificity` - Detailed requirements and reduced ambiguity
+- `actionability` - Direct, executable instructions
+- `structure` - Logical organization and flow
+- `contextual_relevance` - Perfect context alignment
+- `linguistic_precision` - Exact language refinement
+- `holistic_effectiveness` - Comprehensive optimization
+- `goal_synergy` - Intelligent combination of multiple goals
+- `workflow_optimization` - Enhanced for development workflows
+
+### Technical Precision (12 goals)
+Pro/Creator/Innovator tiers:
+- `technical_accuracy` - Precise technical terminology and correctness
+- `technical_precision` - Exact technical specifications
+- `code_optimization` - Programming-specific enhancements
+- `api_documentation` - REST/GraphQL API specifications
+- `database_optimization` - SQL and database query enhancement
+- `system_design` - Architecture and infrastructure focus
+- `security_enhancement` - Cybersecurity and safety improvements
+- `performance_optimization` - Speed and efficiency focus
+- `debugging_enhancement` - Error diagnosis and troubleshooting
+- `testing_optimization` - Quality assurance and testing improvements
+- `deployment_optimization` - CI/CD and production deployment focus
+- `monitoring_enhancement` - Observability and logging improvements
+
+### AI Model Compatibility (8 goals)
+Pro/Creator/Innovator tiers:
+- `ai_model_compatibility` - Optimized for specific AI models
+- `parameter_preservation` - Maintain critical prompt parameters
+- `token_efficiency` - Maximize information per token
+- `context_window_optimization` - Efficient use of context limits
+- `model_specific_formatting` - Tailored for GPT/Claude/other models
+- `streaming_optimization` - Enhanced for real-time responses
+- `multimodal_enhancement` - Image + text optimization
+- `cross_platform_compatibility` - Universal MCP client support
+
+### Domain-Specific Enhancement (10 goals)
+Pro/Creator/Innovator tiers:
+- `business_communication` - Professional business language
+- `academic_writing` - Scholarly and research-focused
+- `creative_writing` - Enhanced creativity and storytelling
+- `legal_precision` - Legal terminology and accuracy
+- `medical_accuracy` - Healthcare and medical precision
+- `scientific_research` - Research methodology and scientific writing
+- `financial_analysis` - Economic and financial terminology
+- `educational_content` - Teaching and learning optimization
+- `marketing_copy` - Persuasive and engaging content
+- `technical_documentation` - User manuals and technical guides
+
+### Advanced Techniques (8 goals)
+Creator/Innovator tiers:
+- `prompt_chaining` - Multi-step prompt sequences
+- `few_shot_optimization` - Example-based learning enhancement
+- `chain_of_thought` - Step-by-step reasoning optimization
+- `role_play_enhancement` - Character and persona development
+- `constraint_satisfaction` - Working within specific limitations
+- `output_formatting` - Structured response optimization
+- `error_handling` - Robust failure mode management
+- `edge_case_coverage` - Comprehensive scenario handling
+
+### Emerging Capabilities (6 goals)
+Innovator tier:
+- `real_time_adaptation` - Dynamic optimization based on usage
+- `collaborative_enhancement` - Team-optimized prompts
+- `enterprise_compliance` - Regulatory and compliance alignment
+- `multilingual_optimization` - Cross-language enhancement
+- `accessibility_enhancement` - Inclusive design principles
+- `sustainability_focus` - Environmental and ethical considerations
+
+### Specialized Applications (6 goals)
+Creator/Innovator tiers:
+- `data_analysis` - Statistical and analytical enhancements
+- `project_management` - Planning and coordination optimization
+- `customer_service` - Support and communication enhancement
+- `content_moderation` - Safety and appropriateness focus
+- `knowledge_extraction` - Information retrieval optimization
+- `decision_support` - Choice and evaluation assistance
+
+## AI Context Types
+
+The `ai_context` parameter helps optimize prompts for specific use cases:
+
+- `human_communication` - Human-to-human interaction optimization
+- `llm_interaction` - AI model interaction optimization
+- `image_generation` - Visual content creation prompts
+- `technical_automation` - Automated system integration
+- `structured_output` - Formatted data output requirements
+- `code_generation` - Software development and programming
+- `api_automation` - API integration and automation
 
 ## Error Handling
 
@@ -201,6 +416,7 @@ Supported optimization goals for the `/api/v1/optimize` endpoint:
 - `400` - Bad Request (invalid parameters)
 - `401` - Unauthorized (invalid or missing API key)
 - `403` - Forbidden (quota exceeded or subscription issues)
+- `404` - Not Found (resource doesn't exist)
 - `429` - Too Many Requests (rate limiting)
 - `500` - Internal Server Error
 - `503` - Service Unavailable
@@ -213,12 +429,14 @@ Supported optimization goals for the `/api/v1/optimize` endpoint:
     "code": "QUOTA_EXCEEDED",
     "message": "Monthly quota limit reached. Upgrade plan or wait for reset.",
     "details": {
-      "quota_used": 200,
-      "quota_limit": 200,
-      "reset_date": "2025-07-05T00:00:00.000Z"
+      "quota_used": 18000,
+      "quota_limit": 18000,
+      "reset_date": "2025-08-11T00:00:00.000Z",
+      "suggested_action": "upgrade_plan"
     }
   },
-  "request_id": "req_error_123"
+  "request_id": "req_error_123",
+  "timestamp": "2025-07-11T12:00:00.000Z"
 }
 ```
 
@@ -228,89 +446,95 @@ Supported optimization goals for the `/api/v1/optimize` endpoint:
 - `SUBSCRIPTION_REQUIRED` - Valid subscription required for this endpoint
 - `QUOTA_EXCEEDED` - Monthly usage quota has been reached
 - `RATE_LIMITED` - Too many requests, retry after delay
-- `INVALID_GOALS` - One or more optimization goals are not supported
-- `PROMPT_TOO_LONG` - Prompt exceeds maximum length limit
+- `INVALID_GOALS` - One or more optimization goals are not supported for your tier
+- `PROMPT_TOO_LONG` - Prompt exceeds maximum length limit (10,000 characters)
 - `PROMPT_EMPTY` - Prompt cannot be empty
+- `TEMPLATE_NOT_FOUND` - Requested template doesn't exist or not accessible
+- `TEAM_LIMIT_REACHED` - Team member limit exceeded for subscription tier
 - `SERVICE_UNAVAILABLE` - Backend service temporarily unavailable
 
 ## Rate Limiting
 
-API requests are subject to rate limiting:
+API requests are subject to rate limiting based on subscription tier:
 
-- **Creator Plan**: 10 requests per minute
-- **Innovator Plan**: 20 requests per minute  
+- **Explorer Plan**: 5 requests per minute
+- **Creator Plan**: 15 requests per minute
+- **Innovator Plan**: 30 requests per minute  
 - **Enterprise**: Custom limits
 
 Rate limit headers are included in responses:
 
 ```http
-X-RateLimit-Limit: 10
-X-RateLimit-Remaining: 8
-X-RateLimit-Reset: 1672531200
+X-RateLimit-Limit: 15
+X-RateLimit-Remaining: 12
+X-RateLimit-Reset: 1672531260
+X-RateLimit-Tier: creator
 ```
 
-## Request/Response Examples
+## Subscription Tiers & Pricing
 
-### Basic Optimization
+### Explorer - $2.99/month
+- 5,000 optimizations/month
+- 1 API key
+- Core optimization goals (25 goals)
+- Web dashboard access
+- Standard support
 
-```bash
-# Simple optimization with default goals
-curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimize" \
-  -H "Content-Type: application/json" \
-  -H "X-API-Key: sk-opt-abc123" \
-  -d '{
-    "prompt": "help me debug this code"
-  }'
-```
+### Creator - $25.99/month
+- 18,000 optimizations/month
+- 3 API keys
+- All optimization goals (50+ goals)
+- 2 team members
+- Template analytics
+- Priority support
 
-### Advanced Optimization
+### Innovator - $69.99/month
+- 75,000 optimizations/month
+- 10 API keys
+- All optimization goals (50+ goals)
+- 5 team members
+- Advanced analytics
+- Custom optimization models
+- Premium support
 
-```bash
-# Optimization with specific goals
-curl -X POST "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/optimize" \
-  -H "Content-Type: application/json" \
-  -H "X-API-Key: sk-opt-abc123" \
-  -d '{
-    "prompt": "Create a machine learning model",
-    "goals": ["technical_accuracy", "specificity", "structure"]
-  }'
-```
-
-### Pagination Example
-
-```bash
-# Get templates with pagination
-curl -X GET "https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/templates?limit=10&offset=20" \
-  -H "X-API-Key: sk-opt-abc123"
-```
-
-## SDKs and Libraries
+## SDK Examples
 
 ### JavaScript/Node.js
 
 ```javascript
-const axios = require('axios');
+const PromptOptimizer = require('prompt-optimizer-sdk');
 
-const client = axios.create({
-  baseURL: 'https://p01--project-optimizer--fvrdk8m9k9j.code.run',
-  headers: {
-    'X-API-Key': 'sk-opt-your-api-key',
-    'Content-Type': 'application/json'
-  }
+const optimizer = new PromptOptimizer({
+  apiKey: 'sk-opt-your-api-key',
+  baseUrl: 'https://p01--project-optimizer--fvrdk8m9k9j.code.run'
 });
 
-// Optimize a prompt
-async function optimizePrompt(prompt, goals = []) {
+// Basic optimization
+async function optimizePrompt() {
   try {
-    const response = await client.post('/api/v1/optimize', {
-      prompt,
-      goals
+    const result = await optimizer.optimize({
+      prompt: "Write me some code for a login system",
+      goals: ["clarity", "technical_accuracy", "security_enhancement"],
+      aiContext: "code_generation"
     });
-    return response.data;
+    
+    console.log('Optimized:', result.optimized_prompt);
+    console.log('Confidence:', result.confidence_score);
+    console.log('Quota remaining:', result.quota_remaining);
   } catch (error) {
-    console.error('Optimization failed:', error.response.data);
-    throw error;
+    console.error('Optimization failed:', error.message);
   }
+}
+
+// Template search
+async function searchTemplates() {
+  const templates = await optimizer.searchTemplates({
+    query: "authentication",
+    goals: ["security_enhancement"],
+    minConfidence: 0.8
+  });
+  
+  return templates;
 }
 ```
 
@@ -318,10 +542,10 @@ async function optimizePrompt(prompt, goals = []) {
 
 ```python
 import requests
-import json
+from typing import List, Optional
 
 class PromptOptimizer:
-    def __init__(self, api_key):
+    def __init__(self, api_key: str):
         self.api_key = api_key
         self.base_url = 'https://p01--project-optimizer--fvrdk8m9k9j.code.run'
         self.headers = {
@@ -329,11 +553,16 @@ class PromptOptimizer:
             'Content-Type': 'application/json'
         }
     
-    def optimize(self, prompt, goals=None):
-        """Optimize a prompt with optional goals"""
+    def optimize(self, 
+                 prompt: str, 
+                 goals: Optional[List[str]] = None,
+                 ai_context: Optional[str] = None) -> dict:
+        """Optimize a prompt with optional goals and context"""
         data = {'prompt': prompt}
         if goals:
             data['goals'] = goals
+        if ai_context:
+            data['ai_context'] = ai_context
             
         response = requests.post(
             f'{self.base_url}/api/v1/optimize',
@@ -343,7 +572,26 @@ class PromptOptimizer:
         response.raise_for_status()
         return response.json()
     
-    def get_quota(self):
+    def search_templates(self, 
+                        query: str,
+                        goals: Optional[List[str]] = None,
+                        min_confidence: Optional[float] = None) -> dict:
+        """Search for templates matching criteria"""
+        data = {'query': query}
+        if goals:
+            data['goals'] = goals
+        if min_confidence:
+            data['min_confidence'] = min_confidence
+            
+        response = requests.post(
+            f'{self.base_url}/api/v1/templates/search',
+            headers=self.headers,
+            json=data
+        )
+        response.raise_for_status()
+        return response.json()
+    
+    def get_quota(self) -> dict:
         """Check current quota usage"""
         response = requests.get(
             f'{self.base_url}/api/v1/quota',
@@ -352,51 +600,50 @@ class PromptOptimizer:
         response.raise_for_status()
         return response.json()
 
-# Usage
+# Usage example
 optimizer = PromptOptimizer('sk-opt-your-api-key')
+
+# Optimize with advanced goals
 result = optimizer.optimize(
-    "Write me some code", 
-    goals=["clarity", "specificity"]
+    prompt="Create a machine learning model", 
+    goals=["technical_accuracy", "specificity", "code_optimization"],
+    ai_context="code_generation"
 )
-print(result['optimized_prompt'])
+
+print(f"Optimized prompt: {result['optimized_prompt']}")
+print(f"Confidence: {result['confidence_score']}")
 ```
 
 ## Integration Best Practices
 
-1. **Error Handling**: Always implement comprehensive error handling for network issues and API errors
+1. **Error Handling**: Implement comprehensive error handling with retry logic
+2. **Rate Limiting**: Respect rate limits and implement exponential backoff
+3. **API Key Security**: Use environment variables, never expose in client code
+4. **Quota Management**: Monitor usage and implement graceful degradation
+5. **Template Reuse**: Leverage template search for consistency
+6. **Goal Selection**: Choose goals appropriate for your use case and tier
+7. **Context Setting**: Use `ai_context` for better optimization results
+8. **Monitoring**: Log API usage patterns and response times
 
-2. **Rate Limiting**: Respect rate limits and implement exponential backoff for retries
+## Webhook Support (Beta)
 
-3. **API Key Security**: Never expose API keys in client-side code or public repositories
+Real-time notifications for events:
 
-4. **Quota Management**: Monitor quota usage and handle quota exceeded scenarios gracefully
+- **quota_threshold**: When quota usage reaches 80%, 90%, 95%
+- **optimization_complete**: For long-running optimizations
+- **subscription_change**: Plan upgrades/downgrades
+- **team_member_added**: New team member invitations
 
-5. **Template Storage**: Leverage the automatic template saving feature for optimization history
+Configure webhooks in the dashboard or via API.
 
-6. **Goal Selection**: Choose optimization goals that align with your specific use case
+## Support & Resources
 
-7. **Request Validation**: Validate prompts on the client side before sending to reduce errors
-
-8. **Monitoring**: Implement logging and monitoring for API usage patterns
-
-## Webhook Support (Coming Soon)
-
-Webhook endpoints for real-time notifications:
-
-- Quota threshold alerts
-- Optimization completion events
-- Subscription changes
-- Usage analytics
-
-## Support
-
-For API support and technical questions:
-
-- 📚 [API Documentation](https://promptoptimizer-blog.vercel.app/docs/api)
-- 🎫 [Support Portal](https://promptoptimizer-blog.vercel.app/support)
-- 📧 Email: api-support@promptoptimizer.com
-- 💬 [Developer Discord](https://discord.gg/prompt-optimizer-devs)
+- 📚 **API Documentation**: [promptoptimizer-blog.vercel.app/docs/api](https://promptoptimizer-blog.vercel.app/docs/api)
+- 🎫 **Support Portal**: [promptoptimizer-blog.vercel.app/support](https://promptoptimizer-blog.vercel.app/support)
+- 📧 **API Support**: api-support@promptoptimizer.help
+- 💬 **Developer Discord**: [Join our community](https://discord.gg/prompt-optimizer-devs)
+- 🚀 **Status Page**: [status.promptoptimizer.help](https://status.promptoptimizer.help)
 
 ---
 
-**Note**: This API is under active development. Subscribe to our [Developer Newsletter](https://promptoptimizer-blog.vercel.app/newsletter) for updates and new feature announcements.
+**Note**: This API is under active development with new features and optimization goals added regularly. Subscribe to our [Developer Newsletter](https://promptoptimizer-blog.vercel.app/newsletter) for updates and announcements.
