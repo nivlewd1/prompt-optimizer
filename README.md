@@ -60,7 +60,7 @@ mcp-prompt-optimizer --setup
 # Add to your MCP client configuration
 ```
 
-**MCP Configuration for Cloud Package:**
+**✅ CORRECT MCP Configuration for Cloud Package:**
 ```json
 {
   "mcpServers": {
@@ -84,7 +84,7 @@ mcp-prompt-optimizer-local --license
 # Configure local settings
 ```
 
-**MCP Configuration for Local Package:**
+**✅ CORRECT MCP Configuration for Local Package:**
 ```json
 {
   "mcpServers": {
@@ -102,49 +102,79 @@ mcp-prompt-optimizer-local --license
 
 Transform your prompts with our comprehensive optimization techniques:
 
-### **Core Enhancement**
+### **Core Enhancement** (10 goals)
 - `clarity` - Crystal-clear communication and understanding
 - `conciseness` - Efficient token usage while preserving meaning
 - `specificity` - Detailed requirements and reduced ambiguity
 - `actionability` - Direct, executable instructions
 - `structure` - Logical organization and flow
-
-### **Technical Precision**
-- `technical_accuracy` - Precise technical terminology and correctness
-- `technical_precision` - Exact technical specifications
-- `code_optimization` - Programming-specific enhancements
-- `api_documentation` - REST/GraphQL API specifications
-- `database_optimization` - SQL and database query enhancement
-
-### **AI Model Compatibility**
-- `ai_model_compatibility` - Optimized for specific AI models
-- `parameter_preservation` - Maintain critical prompt parameters
-- `token_efficiency` - Maximize information per token
-- `context_window_optimization` - Efficient use of context limits
-- `model_specific_formatting` - Tailored for GPT/Claude/other models
-
-### **Domain-Specific Enhancement**
-- `business_communication` - Professional business language
-- `academic_writing` - Scholarly and research-focused
-- `creative_writing` - Enhanced creativity and storytelling
-- `legal_precision` - Legal terminology and accuracy
-- `medical_accuracy` - Healthcare and medical precision
-
-### **Advanced Techniques**
 - `contextual_relevance` - Perfect context alignment
 - `linguistic_precision` - Exact language refinement
 - `holistic_effectiveness` - Comprehensive optimization
 - `goal_synergy` - Intelligent combination of multiple goals
 - `workflow_optimization` - Enhanced for development workflows
 
-### **Emerging Capabilities**
+### **Technical Precision** (12 goals)
+- `technical_accuracy` - Precise technical terminology and correctness
+- `technical_precision` - Exact technical specifications
+- `code_optimization` - Programming-specific enhancements
+- `api_documentation` - REST/GraphQL API specifications
+- `database_optimization` - SQL and database query enhancement
+- `system_design` - Architecture and infrastructure focus
+- `security_enhancement` - Cybersecurity and safety improvements
+- `performance_optimization` - Speed and efficiency focus
+- `debugging_enhancement` - Error diagnosis and troubleshooting
+- `testing_optimization` - Quality assurance and testing improvements
+- `deployment_optimization` - CI/CD and production deployment focus
+- `monitoring_enhancement` - Observability and logging improvements
+
+### **AI Model Compatibility** (8 goals)
+- `ai_model_compatibility` - Optimized for specific AI models
+- `parameter_preservation` - Maintain critical prompt parameters
+- `token_efficiency` - Maximize information per token
+- `context_window_optimization` - Efficient use of context limits
+- `model_specific_formatting` - Tailored for GPT/Claude/other models
+- `streaming_optimization` - Enhanced for real-time responses
 - `multimodal_enhancement` - Image + text optimization
 - `cross_platform_compatibility` - Universal MCP client support
+
+### **Domain-Specific Enhancement** (10 goals)
+- `business_communication` - Professional business language
+- `academic_writing` - Scholarly and research-focused
+- `creative_writing` - Enhanced creativity and storytelling
+- `legal_precision` - Legal terminology and accuracy
+- `medical_accuracy` - Healthcare and medical precision
+- `scientific_research` - Research methodology and scientific writing
+- `financial_analysis` - Economic and financial terminology
+- `educational_content` - Teaching and learning optimization
+- `marketing_copy` - Persuasive and engaging content
+- `technical_documentation` - User manuals and technical guides
+
+### **Advanced Techniques** (8 goals)
+- `prompt_chaining` - Multi-step prompt sequences
+- `few_shot_optimization` - Example-based learning enhancement
+- `chain_of_thought` - Step-by-step reasoning optimization
+- `role_play_enhancement` - Character and persona development
+- `constraint_satisfaction` - Working within specific limitations
+- `output_formatting` - Structured response optimization
+- `error_handling` - Robust failure mode management
+- `edge_case_coverage` - Comprehensive scenario handling
+
+### **Emerging Capabilities** (6 goals)
 - `real_time_adaptation` - Dynamic optimization based on usage
 - `collaborative_enhancement` - Team-optimized prompts
 - `enterprise_compliance` - Regulatory and compliance alignment
+- `multilingual_optimization` - Cross-language enhancement
+- `accessibility_enhancement` - Inclusive design principles
+- `sustainability_focus` - Environmental and ethical considerations
 
-*...and 25+ additional specialized optimization goals available in Creator and Innovator tiers*
+### **Specialized Applications** (6 goals)
+- `data_analysis` - Statistical and analytical enhancements
+- `project_management` - Planning and coordination optimization
+- `customer_service` - Support and communication enhancement
+- `content_moderation` - Safety and appropriateness focus
+- `knowledge_extraction` - Information retrieval optimization
+- `decision_support` - Choice and evaluation assistance
 
 ---
 
@@ -155,7 +185,7 @@ Transform your prompts with our comprehensive optimization techniques:
 #### **Basic License** - FREE
 - ✅ **5 optimizations/day** - Perfect for trying the platform
 - ✅ **Complete privacy** - No data transmission
-- ✅ **Core optimization goals** - Essential techniques
+- ✅ **Core optimization goals** - Essential techniques (25 goals)
 - ✅ **Local processing** - Runs entirely on your machine
 - ✅ **No subscription required** - One-time setup
 
@@ -174,14 +204,14 @@ Transform your prompts with our comprehensive optimization techniques:
 - ✅ **1 API key** - Individual access
 - ✅ **Web dashboard access** - Browser-based optimization
 - ✅ **Template history** - Save and review optimizations
-- ✅ **Core optimization goals** - Essential techniques
+- ✅ **Core optimization goals** - Essential techniques (25 goals)
 
 #### **Creator** - $25.99/month
 *Most popular for teams and creators*
 - ✅ **18,000 optimizations/month** - Team-level capacity
 - ✅ **Up to 3 API keys** - Team collaboration
 - ✅ **2 team members** - Shared access and templates
-- ✅ **Advanced optimization goals** - All professional techniques
+- ✅ **Advanced optimization goals** - All professional techniques (50+ goals)
 - ✅ **Template analytics** - Usage patterns and insights
 - ✅ **Priority processing** - Faster response times
 
@@ -218,6 +248,14 @@ Browse team-shared optimization templates.
 
 #### `search_templates`
 Find relevant templates by keywords or goals.
+
+```json
+{
+  "query": "authentication system",
+  "goals": ["technical_accuracy"],
+  "limit": 10
+}
+```
 
 #### `get_template`
 Retrieve specific template details and metadata.
@@ -281,7 +319,7 @@ Upgrade from Basic to Pro license.
 
 ## 🏗️ **Technical Architecture**
 
-### **Backend Infrastructure**
+### **Backend Infrastructure** (`C:\Users\nivle\FastAPI_Backend\app`)
 - **🚀 FastAPI Framework** - High-performance async processing
 - **☁️ Northflank Hosting** - Production Kubernetes infrastructure
 - **🗄️ Supabase Database** - PostgreSQL with real-time features
@@ -289,45 +327,26 @@ Upgrade from Basic to Pro license.
 - **🔒 Production Security** - Multi-layered security with monitoring
 - **📊 Analytics Engine** - Real-time usage tracking and insights
 
-### **Frontend Technology**
+### **Frontend Technology** (`C:\Users\nivle\prompt-blog\src`)
 - **⚛️ Next.js Framework** - Server-side rendered React application
 - **🎨 Tailwind CSS** - Responsive design system
 - **📊 Chart.js Integration** - Analytics and usage visualization
 - **💳 Stripe Elements** - Secure payment forms
 - **🔐 JWT Authentication** - Secure session management
 
-### **NPM Package Architecture**
+### **NPM Package Architecture** (`C:\Users\nivle\mcp-local-prompt-optimizer-npm`)
 - **📦 Dual Package System** - Cloud and local variants
 - **🔧 Binary Distribution** - Platform-specific optimizers
 - **🐍 Python Fallback** - Universal compatibility
 - **🔐 License Validation** - Secure local licensing system
 - **📡 MCP Protocol** - Native Model Context Protocol integration
 
-### **MCP Server Engine**
+### **MCP Server Engine** (`C:\Users\nivle\MCP\app`)
 - **🎯 50+ Optimization Goals** - Comprehensive technique library
 - **📊 Template Management** - Automatic saving with rich metadata
 - **🔄 Streaming Support** - Real-time optimization responses
 - **🧠 Context Detection** - Automatic AI context routing
 - **⚡ Performance Optimization** - Sub-second response times
-
----
-
-## 🔒 **Security & Privacy**
-
-### **Cloud Security**
-- 🔒 **API Key Authentication** - Secure `sk-opt-` format tokens
-- 🌐 **HTTPS Encryption** - All communications encrypted in transit
-- 🗄️ **Data Encryption** - Template data protected at rest
-- 📋 **Complete Audit Trails** - Full API usage logging
-- 🛡️ **Multi-tenant Security** - Secure workload isolation
-- 🚨 **Real-time Monitoring** - Security event detection
-
-### **Local Privacy**
-- 🏠 **No Data Transmission** - Complete local processing
-- 🔐 **Local License Validation** - Secure offline operation
-- 💾 **Local Storage Only** - No cloud data storage
-- 🔒 **Encrypted Configuration** - Secure local settings
-- 🛡️ **Binary Security** - Signed and verified executables
 
 ---
 
@@ -371,7 +390,7 @@ mcp-prompt-optimizer-local --test
 
 ### **MCP Client Configuration Examples**
 
-#### **Claude Desktop**
+#### **Claude Desktop** (✅ CORRECT Configuration)
 ```json
 {
   "mcpServers": {
@@ -387,7 +406,7 @@ mcp-prompt-optimizer-local --test
 }
 ```
 
-#### **Cursor**
+#### **Cursor** (✅ CORRECT Configuration)
 ```json
 {
   "mcpServers": {
@@ -399,7 +418,7 @@ mcp-prompt-optimizer-local --test
 }
 ```
 
-#### **Windsurf**
+#### **Windsurf** (✅ CORRECT Configuration)
 ```json
 {
   "mcpServers": {
@@ -410,158 +429,6 @@ mcp-prompt-optimizer-local --test
   }
 }
 ```
-
----
-
-## 📊 **Usage Examples**
-
-### **Basic Optimization**
-```
-Use the optimize_prompt tool to improve this:
-"Write me some code for a login system"
-
-Goals: ["clarity", "technical_accuracy", "specificity"]
-```
-
-**Enhanced Result:**
-```
-Create a secure user authentication system with the following specifications:
-
-## Requirements:
-- Implement login functionality with username/email and password
-- Include proper input validation and sanitization
-- Add password hashing using bcrypt or similar
-- Implement session management with JWT tokens
-- Include error handling for invalid credentials
-- Add rate limiting to prevent brute force attacks
-
-## Technical Stack:
-- Backend: Node.js/Express or Python/FastAPI
-- Database: PostgreSQL or MongoDB
-- Frontend: React/Vue/Angular
-- Security: bcrypt, JWT, express-rate-limit
-
-## Deliverables:
-- User registration and login endpoints
-- Frontend authentication forms
-- Database schema for user accounts
-- Security middleware implementation
-- Unit tests for authentication flows
-
-Confidence Score: 0.89 | Quota: 4,850/5,000 | Template Saved: ✓
-```
-
-### **Advanced Team Template Usage**
-```
-Use template "API Development Best Practices" as base for:
-"Create endpoints for user management"
-
-Additional goals: ["api_documentation", "code_optimization"]
-```
-
-### **Local Privacy-First Optimization**
-```
-Optimize locally without cloud transmission:
-"Help me write a database query"
-
-Goals: ["database_optimization", "technical_precision"]
-Local only: true
-```
-
----
-
-## 🔧 **Advanced Configuration**
-
-### **Environment Variables**
-
-#### **Cloud Package**
-```bash
-PROMPT_OPTIMIZER_API_KEY=sk-opt-your-key
-PROMPT_OPTIMIZER_BACKEND_URL=https://p01--project-optimizer--fvrdk8m9k9j.code.run
-PROMPT_OPTIMIZER_TEAM_ID=team_123
-```
-
-#### **Local Package**
-```bash
-PROMPT_OPTIMIZER_LOCAL_LICENSE=sk-local-pro-your-key
-PROMPT_OPTIMIZER_LOCAL_BINARY_PATH=/custom/path/to/binaries
-PROMPT_OPTIMIZER_LOCAL_OFFLINE_MODE=true
-```
-
-### **Custom Configuration Files**
-
-#### **Cloud Configuration** (`~/.prompt-optimizer/config.json`)
-```json
-{
-  "apiKey": "sk-opt-your-key",
-  "backendUrl": "https://p01--project-optimizer--fvrdk8m9k9j.code.run",
-  "teamId": "team_123",
-  "defaultGoals": ["clarity", "technical_accuracy"],
-  "streamingEnabled": true,
-  "templateAutoSave": true
-}
-```
-
-#### **Local Configuration** (`~/.prompt-optimizer-local/config.json`)
-```json
-{
-  "licenseKey": "sk-local-pro-your-key",
-  "binaryPath": "/path/to/binaries",
-  "offlineMode": false,
-  "maxDailyQuota": "unlimited",
-  "defaultGoals": ["clarity", "privacy_enhancement"],
-  "encryptionEnabled": true
-}
-```
-
----
-
-## 📚 **Complete API Documentation**
-
-### **Cloud API Endpoints**
-
-#### **Optimization Engine**
-- `POST /api/v1/optimize` - Optimize prompts with cloud intelligence
-- `GET /api/v1/optimize/stream` - Stream optimization results
-- `POST /api/v1/optimize/batch` - Bulk optimization processing
-
-#### **Template Management**
-- `GET /api/v1/templates` - List saved templates
-- `POST /api/v1/templates/search` - Search templates by criteria
-- `GET /api/v1/templates/{id}` - Get specific template
-- `PUT /api/v1/templates/{id}` - Update template
-- `DELETE /api/v1/templates/{id}` - Delete template
-- `GET /api/v1/templates/{id}/stats` - Template analytics
-
-#### **Team Management**
-- `GET /api/v1/teams` - List team information
-- `POST /api/v1/teams/invite` - Invite team members
-- `DELETE /api/v1/teams/members/{id}` - Remove team member
-- `GET /api/v1/teams/usage` - Team usage analytics
-
-#### **User Management**
-- `GET /api/v1/user/profile` - User profile information
-- `PUT /api/v1/user/profile` - Update user profile
-- `GET /api/v1/user/quota` - Current usage quota
-- `GET /api/v1/user/api-keys` - List API keys
-- `POST /api/v1/user/api-keys` - Generate new API key
-
-#### **Subscription Management**
-- `GET /api/v1/subscriptions` - Current subscription details
-- `POST /api/v1/subscriptions/upgrade` - Upgrade subscription
-- `GET /api/v1/subscriptions/invoices` - Billing history
-
-### **Local API Endpoints**
-
-#### **Local Optimization**
-- `POST /local/v1/optimize` - Local prompt optimization
-- `GET /local/v1/license` - License status and quota
-- `POST /local/v1/license/upgrade` - Upgrade to Pro license
-
-#### **Local Management**
-- `GET /local/v1/health` - Local service health
-- `GET /local/v1/binaries` - Available binary versions
-- `POST /local/v1/binaries/update` - Update optimization binaries
 
 ---
 
@@ -584,6 +451,12 @@ npm list -g | grep mcp-prompt-optimizer
 
 #### **MCP Configuration Problems**
 ```bash
+# ❌ WRONG Configuration (DO NOT USE):
+# {"command": "mcp-prompt-optimizer-local"}
+
+# ✅ CORRECT Configuration:
+# {"command": "npx", "args": ["mcp-prompt-optimizer-local"]}
+
 # Validate JSON syntax
 node -e "console.log(JSON.parse(require('fs').readFileSync('~/.claude/claude_desktop_config.json')))"
 
@@ -619,31 +492,6 @@ echo $PROMPT_OPTIMIZER_LOCAL_LICENSE | grep "^sk-local-"
 mcp-prompt-optimizer-local --license --force
 ```
 
-### **Performance Optimization**
-
-#### **Binary Updates**
-```bash
-# Update local binaries
-mcp-prompt-optimizer-local --update-binaries
-
-# Force binary reinstall
-mcp-prompt-optimizer-local --reinstall-binaries
-
-# Check binary compatibility
-mcp-prompt-optimizer-local --check-platform
-```
-
-#### **Network Configuration**
-```bash
-# Test backend connectivity
-curl -o /dev/null -s -w "%{http_code}\n" \
-     https://p01--project-optimizer--fvrdk8m9k9j.code.run/health
-
-# Configure proxy if needed
-npm config set proxy http://proxy.company.com:8080
-npm config set https-proxy http://proxy.company.com:8080
-```
-
 ---
 
 ## 🎯 **Best Practices**
@@ -668,46 +516,6 @@ npm config set https-proxy http://proxy.company.com:8080
 
 ---
 
-## 🏢 **Enterprise Solutions**
-
-### **Custom Deployment Options**
-- 🏗️ **On-Premise Installation** - Complete platform deployment in your infrastructure
-- ☁️ **Private Cloud** - Dedicated cloud instance with enhanced security
-- 🔗 **Hybrid Architecture** - Combination of local and cloud processing
-- 🛡️ **Air-Gapped Deployment** - Completely isolated environment support
-
-### **Advanced Enterprise Features**
-- 📊 **Custom Analytics** - Tailored reporting and compliance dashboards
-- 🔒 **Enhanced Security** - SOC2, HIPAA, and custom compliance support
-- 🎯 **Domain-Specific Models** - Industry-specific optimization algorithms
-- 👥 **Enterprise Team Management** - Advanced role-based access control
-- 📞 **24/7 Support** - Dedicated support with SLA guarantees
-
-### **Contact Enterprise Sales**
-- 📧 **Email**: enterprise@promptoptimizer.help
-- 📞 **Demo**: [Schedule Enterprise Demo](https://cal.com/prompt-optimizer/enterprise)
-- 💼 **Custom Solutions**: Tailored deployments and integrations
-
----
-
-## 📞 **Support & Community**
-
-### **Support Channels**
-- 📚 **Documentation**: [promptoptimizer-blog.vercel.app/docs](https://promptoptimizer-blog.vercel.app/docs)
-- 🎫 **Support Portal**: [promptoptimizer-blog.vercel.app/support](https://promptoptimizer-blog.vercel.app/support)
-- 🐛 **GitHub Issues**: [Report bugs and feature requests](https://github.com/nivlewd1/prompt-optimizer/issues)
-- 💬 **Discord Community**: [Join our community](https://discord.gg/prompt-optimizer)
-- 📧 **Email Support**: promptoptimizer.help@gmail.com
-
-### **Response Time SLA**
-- **Basic/Local License**: Community support (24-48 hours)
-- **Explorer**: Standard support (12-24 hours)
-- **Creator**: Priority support (6-12 hours)
-- **Innovator**: Premium support (2-6 hours)
-- **Enterprise**: Dedicated support with custom SLA
-
----
-
 ## 🚀 **Start Optimizing Today**
 
 ### **Quick Decision Matrix**
@@ -727,37 +535,33 @@ npm config set https-proxy http://proxy.company.com:8080
 2. ✅ [Generate API Key](https://promptoptimizer-blog.vercel.app/dashboard)
 3. ✅ Install: `npm install -g mcp-prompt-optimizer`
 4. ✅ Configure: `mcp-prompt-optimizer --setup`
-5. ✅ Add MCP configuration to your client
+5. ✅ Add CORRECT MCP configuration to your client
 6. ✅ Test: Ask your MCP client to optimize a prompt
 
 #### **For Local Package:**
 1. ✅ Install: `npm install -g mcp-prompt-optimizer-local`
 2. ✅ Generate license: `mcp-prompt-optimizer-local --license`
 3. ✅ [Upgrade to Pro](https://promptoptimizer-blog.vercel.app/local-license) (optional)
-4. ✅ Add MCP configuration to your client
+4. ✅ Add CORRECT MCP configuration to your client
 5. ✅ Test: Optimize prompts locally
 
 ---
 
-## 📄 **License & Legal**
+## 📞 **Support & Community**
 
-### **Software Licensing**
-- **Cloud Package**: Commercial subscription license
-- **Local Package**: Freemium model with Pro upgrade
-- **Platform Code**: Proprietary - optimization algorithms not included
-- **MCP Integration**: Open-source MCP protocol implementation
+### **Support Channels**
+- 📚 **Documentation**: [promptoptimizer-blog.vercel.app/docs](https://promptoptimizer-blog.vercel.app/docs)
+- 🎫 **Support Portal**: [promptoptimizer-blog.vercel.app/support](https://promptoptimizer-blog.vercel.app/support)
+- 🐛 **GitHub Issues**: [Report bugs and feature requests](https://github.com/nivlewd1/prompt-optimizer/issues)
+- 💬 **Discord Community**: [Join our community](https://discord.gg/prompt-optimizer)
+- 📧 **Email Support**: promptoptimizer.help@gmail.com
 
-### **Data Rights**
-- **Intellectual Property**: You retain full rights to all prompts and content
-- **Template Ownership**: All saved templates belong to you and your team
-- **Privacy Guarantee**: Local package never transmits data externally
-- **Data Portability**: Export all templates and data at any time
-
-### **Compliance & Security**
-- **SOC 2 Type II**: Enterprise compliance available
-- **GDPR Compliant**: Full data protection compliance
-- **HIPAA Compatible**: Healthcare industry deployment options
-- **Privacy Shield**: International data transfer protections
+### **Response Time SLA**
+- **Basic/Local License**: Community support (24-48 hours)
+- **Explorer**: Standard support (12-24 hours)
+- **Creator**: Priority support (6-12 hours)
+- **Innovator**: Premium support (2-6 hours)
+- **Enterprise**: Dedicated support with custom SLA
 
 ---
 
