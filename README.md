@@ -520,30 +520,32 @@ mcp-prompt-optimizer-local --license --force
 
 ### **Quick Decision Matrix**
 
-| Use Case | Recommended Package | Plan |
-|----------|-------------------|------|
-| **Individual Developer** | `mcp-prompt-optimizer-local` | Pro License ($19.99) |
-| **Privacy-Critical Work** | `mcp-prompt-optimizer-local` | Pro License ($19.99) |
-| **Small Team (2-3)** | `mcp-prompt-optimizer` | Creator ($25.99/month) |
-| **Large Team (5+)** | `mcp-prompt-optimizer` | Innovator ($69.99/month) |
-| **Enterprise** | Hybrid deployment | Custom Enterprise |
+| Use Case | Recommended Solution | Plan |
+|----------|---------------------|------|
+| **Individual Developer** | Local MCP Package | Pro License ($19.99) |
+| **Privacy-Critical Work** | Local MCP Package | Pro License ($19.99) |
+| **Small Team (2-3)** | **FastAPI Backend Platform** | Creator ($25.99/month) |
+| **Large Team (5+)** | **FastAPI Backend Platform** | Innovator ($69.99/month) |
+| **Enterprise** | **FastAPI Backend Platform** | Custom Enterprise |
 
 ### **Setup Checklist**
 
-#### **For Cloud Package:**
-1. ✅ [Subscribe to a Plan](https://promptoptimizer-blog.vercel.app/pricing)
-2. ✅ [Generate API Key](https://promptoptimizer-blog.vercel.app/dashboard)
-3. ✅ Install: `npm install -g mcp-prompt-optimizer`
-4. ✅ Configure: `mcp-prompt-optimizer --setup`
-5. ✅ Add CORRECT MCP configuration to your client
-6. ✅ Test: Ask your MCP client to optimize a prompt
+#### **For FastAPI Backend Platform (Teams/Enterprise):**
+1. ✅ [Subscribe to Creator/Innovator Plan](https://promptoptimizer-blog.vercel.app/pricing)
+2. ✅ [Access Web Dashboard](https://promptoptimizer-blog.vercel.app/dashboard)
+3. ✅ [Generate API Keys](https://promptoptimizer-blog.vercel.app/dashboard)
+4. ✅ Set up team members and collaborative templates
+5. ✅ Install MCP package: `npm install -g mcp-prompt-optimizer`
+6. ✅ Configure: `mcp-prompt-optimizer --setup`
+7. ✅ Add CORRECT MCP configuration to your clients
+8. ✅ Test: Optimize prompts with team collaboration
 
-#### **For Local Package:**
+#### **For Local Package (Individual/Privacy):**
 1. ✅ Install: `npm install -g mcp-prompt-optimizer-local`
 2. ✅ Generate license: `mcp-prompt-optimizer-local --license`
 3. ✅ [Upgrade to Pro](https://promptoptimizer-blog.vercel.app/local-license) (optional)
 4. ✅ Add CORRECT MCP configuration to your client
-5. ✅ Test: Optimize prompts locally
+5. ✅ Test: Optimize prompts locally with complete privacy
 
 ---
 
