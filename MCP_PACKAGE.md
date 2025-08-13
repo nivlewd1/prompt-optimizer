@@ -1,100 +1,48 @@
-# MCP Package Documentation
+# MCP Package Documentation - mcp-prompt-optimizer
 
 ## Overview
 
-The Prompt Optimizer provides **two complementary NPM packages** for Model Context Protocol (MCP) integration, offering both cloud-powered and local privacy-first optimization capabilities. These packages provide seamless access to prompt optimization directly within MCP-compatible clients like Claude Desktop, Cursor, and Windsurf.
+The **mcp-prompt-optimizer** package provides seamless Model Context Protocol (MCP) integration for professional prompt optimization. Transform your prompts with 50+ specialized optimization goals, enterprise-grade analytics, and team collaboration features.
 
 ## Package Information
 
-### Cloud Package - [`mcp-prompt-optimizer`](https://www.npmjs.com/package/mcp-prompt-optimizer)
-- **Version**: Latest
-- **License**: Commercial Subscription
-- **Features**: Cloud optimization, team collaboration, advanced analytics
-- **Requires**: Active subscription and API key
+**Package**: [`mcp-prompt-optimizer`](https://www.npmjs.com/package/mcp-prompt-optimizer)  
+**Version**: Latest  
+**License**: Commercial Subscription  
+**Repository**: [GitHub](https://github.com/nivlewd1/prompt-optimizer)  
+**Homepage**: [promptoptimizer-blog.vercel.app](https://promptoptimizer-blog.vercel.app)
 
-### Local Package - [`mcp-prompt-optimizer-local`](https://www.npmjs.com/package/mcp-prompt-optimizer-local)
-- **Version**: Latest  
-- **License**: Freemium (Basic free, Pro $19.99 one-time)
-- **Features**: Privacy-first local processing, binary optimization
-- **Requires**: Local license (Basic or Pro)
-
-## Installation
-
-### Cloud Package Installation
+## Quick Installation
 
 ```bash
-# Global installation (recommended)
+# Install globally (recommended)
 npm install -g mcp-prompt-optimizer
 
-# Local installation
-npm install mcp-prompt-optimizer
-```
-
-### Local Package Installation
-
-```bash
-# Global installation (recommended)
-npm install -g mcp-prompt-optimizer-local
-
-# Local installation
-npm install mcp-prompt-optimizer-local
-```
-
-## Configuration
-
-### Cloud Package Setup
-
-```bash
-# Initial setup with API key
+# Configure API key
 mcp-prompt-optimizer --setup
 
-# Test connection
+# Test installation
 mcp-prompt-optimizer --test
 ```
 
-Configuration is stored at:
-- **Windows**: `%USERPROFILE%\.prompt-optimizer\config.json`
-- **macOS/Linux**: `~/.prompt-optimizer/config.json`
+## MCP Client Configuration
+
+### ✅ CORRECT Configuration
+
+**For ALL MCP clients (Claude Desktop, Cursor, Windsurf, Cline, etc.):**
 
 ```json
 {
-  "apiKey": "sk-opt-your-key-here",
-  "backendUrl": "https://p01--project-optimizer--fvrdk8m9k9j.code.run",
-  "teamId": "team_123",
-  "updatedAt": "2025-07-11T12:00:00.000Z"
+  "mcpServers": {
+    "prompt-optimizer": {
+      "command": "npx",
+      "args": ["mcp-prompt-optimizer"]
+    }
+  }
 }
 ```
 
-### Local Package Setup
-
-```bash
-# Generate Basic license (free, 5 daily optimizations)
-mcp-prompt-optimizer-local --license
-
-# Upgrade to Pro license ($19.99, unlimited)
-mcp-prompt-optimizer-local --upgrade
-
-# Check license status
-mcp-prompt-optimizer-local --license-status
-```
-
-Configuration is stored at:
-- **Windows**: `%USERPROFILE%\.prompt-optimizer-local\config.json`
-- **macOS/Linux**: `~/.prompt-optimizer-local/config.json`
-
-```json
-{
-  "licenseKey": "sk-local-pro-your-key",
-  "licenseType": "pro",
-  "dailyQuota": "unlimited",
-  "offlineMode": false,
-  "binaryPath": "/path/to/binaries"
-}
-```
-
-## MCP Client Integration
-
-### ✅ CORRECT Configuration Examples
+### Client-Specific Examples
 
 #### **Claude Desktop** (`~/.claude/claude_desktop_config.json`)
 
@@ -104,16 +52,12 @@ Configuration is stored at:
     "prompt-optimizer": {
       "command": "npx",
       "args": ["mcp-prompt-optimizer"]
-    },
-    "prompt-optimizer-local": {
-      "command": "npx",
-      "args": ["mcp-prompt-optimizer-local"]
     }
   }
 }
 ```
 
-#### **Cursor** (`~/.cursor/mcp.json`)
+#### **Cursor** (Settings → Extensions → MCP)
 
 ```json
 {
@@ -126,101 +70,105 @@ Configuration is stored at:
 }
 ```
 
-#### **Windsurf**
-
-```json
-{
-  "mcpServers": {
-    "prompt-optimizer-local": {
-      "command": "npx",
-      "args": ["mcp-prompt-optimizer-local"]
-    }
-  }
-}
-```
-
-### ❌ WRONG Configuration (DO NOT USE)
+#### **Windsurf** (MCP Settings)
 
 ```json
 {
   "mcpServers": {
     "prompt-optimizer": {
-      "command": "mcp-prompt-optimizer-local"
+      "command": "npx",
+      "args": ["mcp-prompt-optimizer"]
     }
   }
 }
 ```
 
-**The above configuration is INCORRECT and will not work!**
+#### **Cline** (VS Code Extension)
 
-## Available Tools
+```json
+{
+  "mcpServers": {
+    "prompt-optimizer": {
+      "command": "npx",
+      "args": ["mcp-prompt-optimizer"]
+    }
+  }
+}
+```
 
-### Cloud Package Tools (`mcp-prompt-optimizer`)
+### ❌ INCORRECT Configuration
 
-#### `optimize_prompt`
-Cloud-powered optimization with team collaboration features and 50+ goals.
+```json
+{
+  "mcpServers": {
+    "prompt-optimizer": {
+      "command": "mcp-prompt-optimizer"
+    }
+  }
+}
+```
 
-**Parameters**:
+**Never use the package name directly as the command! Always use `npx` with the `args` array.**
+
+## Available MCP Tools
+
+### `optimize_prompt`
+Transform your prompts with professional optimization techniques using 50+ specialized goals.
+
+**Parameters:**
 - `prompt` (required): The prompt text to optimize
-- `goals` (optional): Array of optimization goals (50+ available)
+- `goals` (optional): Array of optimization goals
 - `ai_context` (optional): Context for optimization (code_generation, human_communication, etc.)
 - `stream` (optional): Whether to stream the response (default: false)
 
-**Example Usage**:
+**Example:**
+```json
+{
+  "prompt": "Write me some code for a login system",
+  "goals": ["clarity", "technical_accuracy", "specificity", "security_enhancement"],
+  "ai_context": "code_generation"
+}
 ```
-Use the optimize_prompt tool to improve this prompt:
-"Write me some code for a login system"
 
-Goals: ["clarity", "technical_accuracy", "specificity", "security_enhancement"]
-```
+### `list_saved_templates`
+Browse your saved optimization templates with metadata and analytics.
 
-#### `list_saved_templates`
-Browse team-shared optimization templates with metadata.
+**Parameters:**
+- `category` (optional): Filter by template category
+- `limit` (optional): Number of results (default: 20)
 
-#### `search_templates`
+### `search_templates`
 Find relevant templates by keywords, goals, or content.
 
-**Parameters**:
-- `query` (optional): Search keywords
-- `goals` (optional): Filter by optimization goals
+**Parameters:**
+- `query` (required): Search keywords
+- `category` (optional): Filter by template category
 - `limit` (optional): Number of results (default: 10)
 
-#### `get_template`
-Retrieve specific template details and analytics.
+### `get_template`
+Retrieve specific template details and usage analytics.
 
-#### `get_template_stats`
-Analytics for template usage and effectiveness metrics.
+**Parameters:**
+- `template_id` (required): Template identifier
+- `include_metadata` (optional): Include enhanced metadata (default: true)
 
-#### `use_template_as_base`
-Start optimization from a proven template foundation.
+### `get_template_stats`
+Get comprehensive analytics for template usage and effectiveness.
 
-### Local Package Tools (`mcp-prompt-optimizer-local`)
+**Parameters:**
+- `detailed` (optional): Include detailed analytics (default: false)
 
-#### `optimize_prompt`
-Privacy-first local optimization with binary processing.
+### `use_template_as_base`
+Start optimization from a proven template foundation with optional modifications.
 
-**Parameters**:
-- `prompt` (required): The prompt text to optimize
-- `goals` (optional): Array of optimization goals (25 Basic, 50+ Pro)
-- `local_only` (optional): Force local processing (default: true)
+**Parameters:**
+- `template_id` (required): Template to use as base
+- `modifications` (optional): Additional requirements
+- `new_goals` (optional): Override template goals
 
-**Example Usage**:
-```
-Use the optimize_prompt tool to improve this prompt locally:
-"Help me write a database query"
+## Optimization Goals (50+)
 
-Goals: ["database_optimization", "technical_precision"]
-```
-
-#### `check_license`
-Verify local license status and remaining quota.
-
-#### `upgrade_license`
-Upgrade from Basic to Pro license ($19.99 one-time).
-
-## 50+ Optimization Goals
-
-### **Core Enhancement** (Available in all tiers)
+### **Core Enhancement** (10 goals)
 - `clarity` - Crystal-clear communication and understanding
 - `conciseness` - Efficient token usage while preserving meaning
 - `specificity` - Detailed requirements and reduced ambiguity
@@ -232,7 +180,7 @@ Upgrade from Basic to Pro license ($19.99 one-time).
 - `goal_synergy` - Intelligent combination of multiple goals
 - `workflow_optimization` - Enhanced for development workflows
 
-### **Technical Precision** (Pro/Creator/Innovator)
+### **Technical Precision** (12 goals)
 - `technical_accuracy` - Precise technical terminology and correctness
 - `technical_precision` - Exact technical specifications
 - `code_optimization` - Programming-specific enhancements
@@ -246,7 +194,7 @@ Upgrade from Basic to Pro license ($19.99 one-time).
 - `deployment_optimization` - CI/CD and production deployment focus
 - `monitoring_enhancement` - Observability and logging improvements
 
-### **AI Model Compatibility** (Pro/Creator/Innovator)
+### **AI Model Compatibility** (8 goals)
 - `ai_model_compatibility` - Optimized for specific AI models
 - `parameter_preservation` - Maintain critical prompt parameters
 - `token_efficiency` - Maximize information per token
@@ -256,7 +204,7 @@ Upgrade from Basic to Pro license ($19.99 one-time).
 - `multimodal_enhancement` - Image + text optimization
 - `cross_platform_compatibility` - Universal MCP client support
 
-### **Domain-Specific Enhancement** (Pro/Creator/Innovator)
+### **Domain-Specific Enhancement** (10 goals)
 - `business_communication` - Professional business language
 - `academic_writing` - Scholarly and research-focused
 - `creative_writing` - Enhanced creativity and storytelling
@@ -268,7 +216,7 @@ Upgrade from Basic to Pro license ($19.99 one-time).
 - `marketing_copy` - Persuasive and engaging content
 - `technical_documentation` - User manuals and technical guides
 
-### **Advanced Techniques** (Pro/Creator/Innovator)
+### **Advanced Techniques** (8 goals)
 - `prompt_chaining` - Multi-step prompt sequences
 - `few_shot_optimization` - Example-based learning enhancement
 - `chain_of_thought` - Step-by-step reasoning optimization
@@ -278,7 +226,7 @@ Upgrade from Basic to Pro license ($19.99 one-time).
 - `error_handling` - Robust failure mode management
 - `edge_case_coverage` - Comprehensive scenario handling
 
-### **Emerging Capabilities** (Innovator)
+### **Emerging Capabilities** (6 goals)
 - `real_time_adaptation` - Dynamic optimization based on usage
 - `collaborative_enhancement` - Team-optimized prompts
 - `enterprise_compliance` - Regulatory and compliance alignment
@@ -286,7 +234,7 @@ Upgrade from Basic to Pro license ($19.99 one-time).
 - `accessibility_enhancement` - Inclusive design principles
 - `sustainability_focus` - Environmental and ethical considerations
 
-### **Specialized Applications** (Pro/Creator/Innovator)
+### **Specialized Applications** (6 goals)
 - `data_analysis` - Statistical and analytical enhancements
 - `project_management` - Planning and coordination optimization
 - `customer_service` - Support and communication enhancement
@@ -294,15 +242,96 @@ Upgrade from Basic to Pro license ($19.99 one-time).
 - `knowledge_extraction` - Information retrieval optimization
 - `decision_support` - Choice and evaluation assistance
 
+## Subscription Plans
+
+### **Explorer** - $2.99/month
+- 5,000 optimizations/month
+- 1 API key
+- Web dashboard access
+- Core optimization goals (25 goals)
+- Template history
+
+### **Creator** - $25.99/month
+- 18,000 optimizations/month
+- Up to 3 API keys
+- 2 team members
+- All optimization goals (50+ goals)
+- Template analytics
+- Priority processing
+
+### **Innovator** - $69.99/month
+- 75,000 optimizations/month
+- Up to 10 API keys
+- 5 team members
+- Advanced analytics dashboard
+- Priority support
+- Custom optimization models
+
+## Commands
+
+### Available Commands
+
+```bash
+# Start MCP server (called by MCP client)
+mcp-prompt-optimizer
+
+# Initial setup and API key configuration
+mcp-prompt-optimizer --setup
+
+# Test functionality and connectivity
+mcp-prompt-optimizer --test
+
+# Test MCP protocol connectivity
+mcp-prompt-optimizer --test-mcp
+
+# Show subscription and usage status
+mcp-prompt-optimizer --status
+
+# Display help information
+mcp-prompt-optimizer --help
+
+# Show version information
+mcp-prompt-optimizer --version
+```
+
+### Environment Variables
+
+Override configuration with environment variables:
+
+- `PROMPT_OPTIMIZER_API_KEY`: Override stored API key
+- `PROMPT_OPTIMIZER_BACKEND_URL`: Override backend URL
+- `PROMPT_OPTIMIZER_TEAM_ID`: Override team ID
+- `NODE_ENV`: Set to 'development' for debug logging
+
+```bash
+# Example usage with environment variable
+PROMPT_OPTIMIZER_API_KEY=sk-opt-your-key mcp-prompt-optimizer
+```
+
+## Configuration
+
+Configuration is stored at:
+- **Windows**: `%USERPROFILE%\\.prompt-optimizer\\config.json`
+- **macOS/Linux**: `~/.prompt-optimizer/config.json`
+
+**Example config.json:**
+```json
+{
+  "apiKey": "sk-opt-your-key-here",
+  "backendUrl": "https://p01--project-optimizer--fvrdk8m9k9j.code.run",
+  "teamId": "team_123",
+  "updatedAt": "2025-08-13T12:00:00.000Z"
+}
+```
+
 ## Template Management
 
-### Cloud Package Templates
-All cloud optimizations are automatically saved as templates with rich metadata:
+All optimizations are automatically saved as templates with rich metadata:
 
 ```json
 {
   "id": "template_abc123",
-  "saved_at_utc": "2025-07-11T12:00:00.000Z",
+  "saved_at_utc": "2025-08-13T12:00:00.000Z",
   "optimization_tier": "LLM",
   "confidence_score": 0.95,
   "original_prompt": "Your original prompt",
@@ -326,235 +355,112 @@ All cloud optimizations are automatically saved as templates with rich metadata:
 }
 ```
 
-### Local Package Templates
-Local optimizations can be saved locally with privacy protection:
-
-```json
-{
-  "id": "local_template_xyz789",
-  "saved_at_utc": "2025-07-11T12:00:00.000Z",
-  "license_type": "pro",
-  "confidence_score": 0.89,
-  "original_prompt": "Your original prompt",
-  "optimized_prompt": "The improved version",
-  "optimization_goals": ["clarity", "database_optimization"],
-  "local_metadata": {
-    "binary_version": "1.2.3",
-    "optimization_time_ms": 850,
-    "privacy_mode": true
-  }
-}
-```
-
-## Commands
-
-### Cloud Package Commands
-
-```bash
-# Start the MCP server (usually called by MCP client)
-mcp-prompt-optimizer
-
-# Configure API key
-mcp-prompt-optimizer --setup
-
-# Test functionality
-mcp-prompt-optimizer --test
-
-# Show help
-mcp-prompt-optimizer --help
-
-# Show version
-mcp-prompt-optimizer --version
-
-# Test MCP connectivity
-mcp-prompt-optimizer --test-mcp
-```
-
-### Local Package Commands
-
-```bash
-# Start the MCP server (usually called by MCP client)
-mcp-prompt-optimizer-local
-
-# Generate Basic license (free)
-mcp-prompt-optimizer-local --license
-
-# Upgrade to Pro license
-mcp-prompt-optimizer-local --upgrade
-
-# Check license status
-mcp-prompt-optimizer-local --license-status
-
-# Update optimization binaries
-mcp-prompt-optimizer-local --update-binaries
-
-# Test local optimization
-mcp-prompt-optimizer-local --test
-
-# Show help
-mcp-prompt-optimizer-local --help
-
-# Show version
-mcp-prompt-optimizer-local --version
-```
-
-## Environment Variables
-
-### Cloud Package Environment Variables
-
-Override configuration with environment variables:
-
-- `PROMPT_OPTIMIZER_API_KEY`: Override stored API key
-- `PROMPT_OPTIMIZER_BACKEND_URL`: Override backend URL
-- `PROMPT_OPTIMIZER_TEAM_ID`: Override team ID
-- `NODE_ENV`: Set to 'development' for debug logging
-
-```bash
-PROMPT_OPTIMIZER_API_KEY=sk-opt-your-key mcp-prompt-optimizer
-```
-
-### Local Package Environment Variables
-
-- `PROMPT_OPTIMIZER_LOCAL_LICENSE`: Override stored license
-- `PROMPT_OPTIMIZER_LOCAL_BINARY_PATH`: Override binary path
-- `PROMPT_OPTIMIZER_LOCAL_OFFLINE_MODE`: Enable offline mode
-- `NODE_ENV`: Set to 'development' for debug logging
-
-```bash
-PROMPT_OPTIMIZER_LOCAL_LICENSE=sk-local-pro-your-key mcp-prompt-optimizer-local
-```
-
 ## Troubleshooting
 
-### Cloud Package Issues
+### Installation Issues
 
-#### API Key Problems
 ```bash
-# Reconfigure your API key
-mcp-prompt-optimizer --setup
+# Clear npm cache
+npm cache clean --force
 
+# Reinstall package
+npm uninstall -g mcp-prompt-optimizer
+npm install -g mcp-prompt-optimizer
+
+# Verify installation
+npm list -g | grep mcp-prompt-optimizer
+```
+
+### Configuration Issues
+
+```bash
+# Validate MCP configuration JSON
+node -e "console.log(JSON.parse(require('fs').readFileSync('~/.claude/claude_desktop_config.json')))"
+
+# Test MCP connectivity
+npx mcp-prompt-optimizer --test-mcp
+
+# Reconfigure API key
+mcp-prompt-optimizer --setup
+```
+
+### API Issues
+
+```bash
 # Verify API key format
 echo $PROMPT_OPTIMIZER_API_KEY | grep "^sk-opt-"
 
 # Test API connectivity
 curl -H "X-API-Key: $PROMPT_OPTIMIZER_API_KEY" \
-     https://p01--project-optimizer--fvrdk8m9k9j.code.run/health
+     https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/health
+
+# Check subscription status
+mcp-prompt-optimizer --status
 ```
 
-#### Connection Issues
-1. Verify internet connection
-2. Check API key validity at [dashboard](https://promptoptimizer-blog.vercel.app/dashboard)
-3. Ensure subscription is active
-4. Test backend: `curl https://p01--project-optimizer--fvrdk8m9k9j.code.run/health`
+### Common Error Solutions
 
-### Local Package Issues
-
-#### License Problems
+#### "Command not found: mcp-prompt-optimizer"
 ```bash
-# Check license status
-mcp-prompt-optimizer-local --license-status
+# Check if package is installed globally
+npm list -g mcp-prompt-optimizer
 
-# Regenerate Basic license
-mcp-prompt-optimizer-local --license --force
+# If not installed, install globally
+npm install -g mcp-prompt-optimizer
 
-# Upgrade to Pro
-mcp-prompt-optimizer-local --upgrade
+# Check npm global path
+npm config get prefix
 ```
 
-#### Binary Issues
+#### "Invalid API key" Error
 ```bash
-# Update binaries
-mcp-prompt-optimizer-local --update-binaries
+# Reconfigure API key
+mcp-prompt-optimizer --setup
 
-# Check platform compatibility
-mcp-prompt-optimizer-local --check-platform
+# Verify key format (should start with sk-opt-)
+echo $PROMPT_OPTIMIZER_API_KEY
 
-# Force binary reinstall
-mcp-prompt-optimizer-local --reinstall-binaries
+# Check subscription status at dashboard
+# https://promptoptimizer-blog.vercel.app/dashboard
 ```
 
-### MCP Client Issues
-
-#### Configuration Problems
-```bash
-# ❌ Common WRONG configurations:
-# {"command": "mcp-prompt-optimizer-local"}
-# {"command": "mcp-prompt-optimizer"}
-
-# ✅ CORRECT configurations:
-# {"command": "npx", "args": ["mcp-prompt-optimizer"]}
-# {"command": "npx", "args": ["mcp-prompt-optimizer-local"]}
-
-# Validate JSON configuration
-node -e "console.log(JSON.parse(require('fs').readFileSync('~/.claude/claude_desktop_config.json')))"
-
-# Test MCP connectivity
-npx mcp-prompt-optimizer --test-mcp
-npx mcp-prompt-optimizer-local --test-mcp
-```
-
-#### Installation Problems
-1. Verify Node.js installation: `node --version`
-2. Check global packages: `npm list -g | grep mcp-prompt-optimizer`
+#### MCP Client Not Connecting
+1. Verify JSON syntax in MCP configuration
+2. Ensure using `npx` with `args` array format
 3. Restart MCP client after configuration changes
-4. Clear npm cache if needed: `npm cache clean --force`
+4. Test with: `npx mcp-prompt-optimizer --test-mcp`
 
 ## Security
 
-### Cloud Package Security
-- API keys stored locally and encrypted
-- All communication uses HTTPS/TLS
-- No prompt data stored permanently (except user-controlled templates)
-- Full audit trail available in dashboard
-- Enterprise security standards compliance
-- Multi-tenant security isolation
-
-### Local Package Security
-- Complete privacy: no data transmission during optimization
-- Local license validation with secure offline operation
-- Encrypted configuration files
-- Signed and verified binary executables
-- Local storage only - no cloud data storage
-- Open-source security audit availability
+- **Enterprise Security**: Production-grade encryption and authentication
+- **API Key Protection**: Secure local storage with encryption
+- **Audit Trails**: Complete optimization history and usage tracking
+- **Data Privacy**: User prompts processed securely, not stored permanently
+- **Compliance**: SOC 2, GDPR, and enterprise security standards
+- **Zero Trust**: Multi-layered security architecture
 
 ## Performance
 
-### Cloud Package Performance
-- Sub-50ms average response times
-- Global CDN for optimal latency
-- Auto-scaling based on demand
-- Real-time streaming optimization
-- Team collaboration features
-- Advanced analytics and insights
-
-### Local Package Performance
-- Binary optimization for speed
-- Platform-specific compiled optimizers
-- Python fallback for compatibility
-- Offline operation capabilities
-- Local caching for license validation
-- No network latency dependencies
-
-## Licensing Comparison
-
-| Feature | Local Basic (Free) | Local Pro ($19.99) | Cloud Explorer ($2.99/mo) | Cloud Creator ($25.99/mo) | Cloud Innovator ($69.99/mo) |
-|---------|-------------------|-------------------|---------------------------|--------------------------|----------------------------|
-| **Daily/Monthly Optimizations** | 5/day | Unlimited | 5,000/month | 18,000/month | 75,000/month |
-| **Optimization Goals** | 25 core | 50+ complete | 25 core | 50+ complete | 50+ complete |
-| **Privacy** | Complete | Complete | Standard | Standard | Standard |
-| **Team Features** | ❌ | ❌ | ❌ | ✅ 2 members | ✅ 5 members |
-| **API Keys** | ❌ | ❌ | 1 | 3 | 10 |
-| **Template Analytics** | ❌ | Basic | Basic | Advanced | Enterprise |
-| **Support** | Community | Community | Standard | Priority | Premium |
+- **Sub-50ms Response Times**: Optimized for real-time workflows
+- **Global CDN**: Minimal latency worldwide
+- **Auto-scaling**: Handles demand spikes seamlessly
+- **Streaming Support**: Real-time optimization updates
+- **99.9% Uptime**: Enterprise-grade reliability
+- **Smart Caching**: Intelligent template and result caching
 
 ## Support
 
 - 📚 **Documentation**: [promptoptimizer-blog.vercel.app/docs](https://promptoptimizer-blog.vercel.app/docs)
 - 🎫 **Support Portal**: [promptoptimizer-blog.vercel.app/support](https://promptoptimizer-blog.vercel.app/support)
 - 🐛 **GitHub Issues**: [Report bugs and feature requests](https://github.com/nivlewd1/prompt-optimizer/issues)
-- 💬 **Discord Community**: [Join our community](https://discord.gg/prompt-optimizer)
 - 📧 **Email Support**: promptoptimizer.help@gmail.com
+
+### Response Time SLA
+- **Explorer**: Standard support (12-24 hours)
+- **Creator**: Priority support (6-12 hours)
+- **Innovator**: Premium support (2-6 hours)
+- **Enterprise**: Dedicated support with custom SLA
 
 ---
 
-**Note**: Both packages connect to sophisticated backend services. The optimization algorithms and core processing logic are proprietary and not included in this open-source repository. Choose the package that best fits your privacy requirements and collaboration needs.
+**Ready to transform your prompts?** [Get started today!](https://promptoptimizer-blog.vercel.app/pricing)
