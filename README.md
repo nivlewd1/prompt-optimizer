@@ -39,21 +39,29 @@ Use the available tools in your MCP client:
 ---
 ## 💰 **Cloud Subscription Plans**
 All plans include the same sophisticated AI optimization quality.
-### **Explorer** - $2.99/month
+### **Explorer (WebUI)** - $0/month
+*Try for free*
+- ✅ **5 optimizations/month** - Try it out!
+- ✅ **0 API key** - WebUI Only
+- ✅ **Rule Engine Access** 
+- ✅ **Personal Use Only** 
+- ✅ **Basic Analytics**
+
+### **Explorer (CLI ONLY)** - $2.99/month
 *Perfect for individual developers*
 - ✅ **5,000 optimizations/month** - Generous personal quota
 - ✅ **1 API key** - Individual use
 - ✅ **Full AI usage** - Context detection, template management, insights
 - ✅ **Personal model configuration** - Via WebUI
 - ✅ **Community support**
-### **Creator** - $25.99/month ⭐ Popular
+### **Creator** - $19.99/month ⭐ Popular
 *Best for teams and creators*
 - ✅ **18,000 optimizations/month** - Team-level quota
 - ✅ **Up to 3 API keys** - Team collaboration
 - ✅ **2 team members** - Shared access and templates
 - ✅ **Priority processing** - Faster response times
 - ✅ **Priority support** - Email support
-### **Innovator** - $69.99/month
+### **Innovator** - $49.99/month
 *Enterprise-grade for large teams*
 - ✅ **75,000 optimizations/month** - Enterprise capacity
 - ✅ **Up to 10 API keys** - Large team management
