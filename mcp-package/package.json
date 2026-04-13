@@ -1,18 +1,18 @@
 {
   "name": "mcp-prompt-optimizer",
-  "version": "1.0.1",
-  "description": "Revolutionary MCP-native prompt engineering server - Bridge the gap with professional optimization tools designed specifically for MCP environments",
+  "version": "3.1.1",
+  "description": "Professional cloud-based MCP server for AI-powered prompt optimization with intelligent context detection, Bayesian optimization, AG-UI real-time optimization, template auto-save, optimization insights, personal model configuration via WebUI, team collaboration, enterprise-grade features, production resilience, and startup validation. Universal compatibility with Claude Desktop, Cursor, Windsurf, and 17+ MCP clients.",
   "main": "index.js",
-  "preferGlobal": true,
   "bin": {
-    "mcp-prompt-optimizer": "./bin/start-server"
+    "mcp-prompt-optimizer": "index.js"
   },
   "scripts": {
     "start": "node index.js",
-    "setup": "node index.js --setup",
-    "test": "node test-package.js"
+    "test": "node test-package.js",
+    "setup": "node index.js --setup"
   },
   "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.15.1",
     "axios": "^1.6.0"
   },
   "engines": {
@@ -20,37 +20,32 @@
   },
   "keywords": [
     "mcp",
-    "prompt-engineering",
-    "ai-optimization",
-    "claude-desktop",
-    "cursor",
-    "windsurf",
-    "professional-prompts",
-    "developer-tools",
-    "ai-development",
-    "workflow-integration",
-    "prompt-enhancement",
     "mcp-server",
+    "prompt",
+    "optimization",
+    "ai",
+    "claude",
     "anthropic",
-    "ai-assistant"
+    "openrouter",
+    "professional",
+    "context-detection",
+    "agentic-scaffolding",
+    "bayesian-optimization"
   ],
-  "author": "Prompt Optimizer Team <support@promptoptimizer.com>",
+  "author": "Prompt Optimizer Team <support@promptoptimizer.xyz>",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
     "url": "https://github.com/nivlewd1/prompt-optimizer"
   },
-  "homepage": "https://promptoptimizer-blog.vercel.app",
+  "homepage": "https://promptoptimizer.xyz",
   "bugs": {
     "url": "https://github.com/nivlewd1/prompt-optimizer/issues"
   },
   "files": [
     "index.js",
     "lib/",
-    "bin/",
-    "docs/",
     "README.md",
-    "CHANGELOG.md",
     "LICENSE"
   ]
 }

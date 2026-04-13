@@ -1,180 +1,253 @@
 #!/usr/bin/env node
 
-const MCPServer = require('./lib/mcp-protocol');
+/**
+ * Prompt Optimizer - Modernized MCP Showcase
+ * This file provides a professional implementation using the official MCP SDK.
+ */
+
+const { Server } = require('@modelcontextprotocol/sdk/server/index.js');
+const { StdioServerTransport } = require('@modelcontextprotocol/sdk/server/stdio.js');
+const { CallToolRequestSchema, ListToolsRequestSchema } = require('@modelcontextprotocol/sdk/types.js');
+const axios = require('axios');
 const Config = require('./lib/config');
+const packageJson = require('./package.json');
+const OPTIMIZATION_TEMPLATES = require('./lib/optimization-templates.json');
 
-async function setup() {
-  const readline = require('readline');
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
+class PromptOptimizerServer {
+  constructor() {
+    this.config = new Config();
+    this.apiKey = process.env.OPTIMIZER_API_KEY || this.config.getApiKey();
+    this.backendUrl = process.env.OPTIMIZER_BACKEND_URL || this.config.getBackendUrl();
 
-  return new Promise((resolve) => {
-    console.log('🔧 MCP Prompt Optimizer Setup');
-    console.log('Get your API key from: https://promptoptimizer-blog.vercel.app/dashboard\n');
-    
-    rl.question('Enter your API key: ', (apiKey) => {
-      if (!apiKey || !apiKey.startsWith('sk-opt-')) {
-        console.error('❌ Invalid API key format. Must start with "sk-opt-"');
-        process.exit(1);
+    this.server = new Server(
+      {
+        name: "prompt-optimizer",
+        version: packageJson.version,
+      },
+      {
+        capabilities: {
+          tools: {},
+        },
       }
+    );
 
-      const config = new Config();
-      if (config.setApiKey(apiKey)) {
-        console.log('✅ API key saved successfully');
-        console.log('\n📋 Add this to your Claude Desktop config:');
-        console.log('File location: ~/.claude/claude_desktop_config.json');
-        console.log(JSON.stringify({
-          "mcpServers": {
-            "prompt-optimizer": {
-              "command": "npx",
-              "args": ["mcp-prompt-optimizer"]
-            }
-          }
-        }, null, 2));
-        
-        console.log('\n📋 Or for Cursor:');
-        console.log('File location: ~/.cursor/mcp.json');
-        console.log(JSON.stringify({
-          "mcpServers": {
-            "prompt-optimizer": {
-              "command": "npx",
-              "args": ["mcp-prompt-optimizer"]
-            }
-          }
-        }, null, 2));
-
-        console.log('\n📋 Or for Windsurf:');
-        console.log('Add via Windsurf settings or config file');
-        console.log(JSON.stringify({
-          "mcpServers": {
-            "prompt-optimizer": {
-              "command": "npx",
-              "args": ["mcp-prompt-optimizer"]
-            }
-          }
-        }, null, 2));
-
-        console.log('\n🎉 Setup complete! Restart your MCP client to use the tool.');
-        console.log('💡 Run "mcp-prompt-optimizer" to test the server manually.');
-      } else {
-        console.error('❌ Failed to save configuration');
-        process.exit(1);
-      }
-      
-      rl.close();
-      resolve();
-    });
-  });
-}
-
-async function startServer() {
-  const config = new Config();
-  const apiKey = config.getApiKey();
-  
-  if (!apiKey) {
-    console.error('❌ No API key found. Run: mcp-prompt-optimizer --setup');
-    process.exit(1);
+    this.setupHandlers();
   }
 
-  const server = new MCPServer(apiKey);
-  
-  if (!(await server.initialize())) {
-    console.error('💡 If your API key is invalid, run: mcp-prompt-optimizer --setup');
-    process.exit(1);
-  }
-
-  // Handle STDIO communication (MCP protocol)
-  process.stdin.setEncoding('utf8');
-  
-  let buffer = '';
-  process.stdin.on('data', async (chunk) => {
-    buffer += chunk;
-    
-    // Process complete lines (JSON-RPC messages)
-    let lines = buffer.split('\n');
-    buffer = lines.pop(); // Keep incomplete line in buffer
-    
-    for (const line of lines) {
-      if (line.trim()) {
-        try {
-          const message = JSON.parse(line);
-          const response = await server.handleMessage(message);
-          process.stdout.write(JSON.stringify(response) + '\n');
-        } catch (error) {
-          console.error('Protocol error:', error.message);
-          // Send proper JSON-RPC error response
-          const errorResponse = {
-            jsonrpc: "2.0",
-            id: null,
-            error: {
-              code: -32700,
-              message: 'Parse error'
-            }
-          };
-          process.stdout.write(JSON.stringify(errorResponse) + '\n');
+  setupHandlers() {
+    this.server.setRequestHandler(ListToolsRequestSchema, async () => ({
+      tools: [
+        {
+          name: "optimize_prompt",
+          description: "🎯 Professional AI-powered prompt optimization with intelligent context detection, Bayesian optimization, and template auto-save.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              prompt: { type: "string", description: "The prompt text to optimize" },
+              goals: { 
+                type: "array", 
+                items: { type: "string" }, 
+                description: "Optimization goals (e.g., 'clarity', 'technical_accuracy', 'conciseness')",
+                default: ["clarity"]
+              },
+              ai_context: { 
+                type: "string", 
+                description: "The context for the AI's task (e.g., 'code_generation', 'image_generation')",
+                enum: ["code_generation", "image_generation", "llm_interaction", "human_communication", "technical_automation", "structured_output"]
+              }
+            },
+            required: ["prompt"]
+          }
+        },
+        {
+          name: "detect_ai_context",
+          description: "🧠 Detects the AI context for a given prompt using advanced backend analysis.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              prompt: { type: "string", description: "The prompt text for which to detect context" }
+            },
+            required: ["prompt"]
+          }
+        },
+        {
+          name: "get_quota_status",
+          description: "📊 Check your current subscription status and remaining optimization quota.",
+          inputSchema: { type: "object", properties: {} }
+        },
+        {
+          name: "generate_agent_sop",
+          description: "🤖 Context Engineer: Generate a structured SOP document for an AI agent.",
+          inputSchema: {
+            type: "object",
+            properties: {
+              goal: { type: "string", description: "What the agent should accomplish" },
+              context: { type: "string", description: "Additional context or constraints" }
+            },
+            required: ["goal"]
+          }
+        },
+        {
+          name: "generate_skill_package",
+          description: "📦 Context Engineer: Create a complete skill package (SOP + SKILL.md + reference).",
+          inputSchema: {
+            type: "object",
+            properties: {
+              goal: { type: "string", description: "What the agent should accomplish" }
+            },
+            required: ["goal"]
+          }
         }
+      ]
+    }));
+
+    this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
+      const { name, arguments: args } = request.params;
+      
+      if (!this.apiKey && name !== "optimize_prompt") {
+        return {
+          content: [{ type: "text", text: "❌ API Key required. Set OPTIMIZER_API_KEY environment variable or run --setup." }],
+          isError: true
+        };
       }
+
+      try {
+        switch (name) {
+          case "optimize_prompt":
+            return await this.handleOptimize(args);
+          case "detect_ai_context":
+            return await this.handleDetectContext(args);
+          case "get_quota_status":
+            return await this.handleGetQuota();
+          case "generate_agent_sop":
+            return await this.handleGenerateSOP(args);
+          case "generate_skill_package":
+            return await this.handleGenerateSkill(args);
+          default:
+            throw new Error(`Tool not found: ${name}`);
+        }
+      } catch (error) {
+        return {
+          content: [{ type: "text", text: `Error: ${error.message}` }],
+          isError: true
+        };
+      }
+    });
+  }
+
+  async handleOptimize(args) {
+    if (!this.apiKey) {
+      // Fallback to local rules if no API key
+      const localResult = this.applyLocalOptimization(args.prompt, args.ai_context || 'llm_interaction');
+      return { content: [{ type: "text", text: this.formatLocalResult(localResult) }] };
     }
-  });
 
-  process.stdin.on('end', () => {
-    console.error('📡 MCP connection closed');
-    process.exit(0);
-  });
+    try {
+      const response = await axios.post(`${this.backendUrl}/api/v1/mcp/optimize`, {
+        prompt: args.prompt,
+        goals: args.goals || ['clarity'],
+        ai_context: args.ai_context
+      }, {
+        headers: { 'X-API-Key': this.apiKey }
+      });
 
-  process.on('SIGINT', () => {
-    console.error('\n👋 MCP server shutting down...');
-    process.exit(0);
-  });
+      return { content: [{ type: "text", text: this.formatBackendResult(response.data) }] };
+    } catch (error) {
+      // Network failure -> Local Fallback (Tier 3)
+      const localResult = this.applyLocalOptimization(args.prompt, args.ai_context || 'llm_interaction');
+      localResult.fallback = true;
+      return { content: [{ type: "text", text: this.formatLocalResult(localResult) }] };
+    }
+  }
 
-  process.on('SIGTERM', () => {
-    console.error('\n👋 MCP server shutting down...');
-    process.exit(0);
-  });
+  applyLocalOptimization(prompt, context) {
+    const lc = prompt.toLowerCase();
+    let bestTemplate = 'general_assistant';
+    
+    // Simple matching for showcase
+    if (lc.includes('code') || lc.includes('fix') || lc.includes('debug')) bestTemplate = 'debugging_request';
+    else if (lc.includes('image') || lc.includes('draw')) bestTemplate = 'image_generation';
+    
+    const template = OPTIMIZATION_TEMPLATES[bestTemplate] || OPTIMIZATION_TEMPLATES['software_engineering'];
+    
+    return {
+      optimized_prompt: `${prompt}\n\nTo address this effectively:\n- ${template.playbook.principles.join('\n- ')}`,
+      confidence: 0.45,
+      context: context,
+      template: bestTemplate
+    };
+  }
 
-  console.error('🚀 MCP Prompt Optimizer Server running...');
-  console.error('💡 Use Ctrl+C to stop the server');
+  formatLocalResult(result) {
+    let output = `# 🔧 Rules-Based Optimization Applied\n\n`;
+    if (result.fallback) {
+      output += `⚠️ *Backend unreachable — your prompt has been structured using local rule templates.*\n\n`;
+    } else {
+      output += `*No API Key — using local rule templates for demonstration.*\n\n`;
+    }
+    output += `**Optimized Prompt:**\n\`\`\`\n${result.optimized_prompt}\n\`\`\`\n\n`;
+    output += `**Confidence:** ${(result.confidence * 100).toFixed(1)}% *(rules-based)*\n`;
+    return output;
+  }
+
+  formatBackendResult(data) {
+    let output = `# 🎯 Optimized Prompt\n\n${data.optimized_prompt}\n\n`;
+    output += `**Confidence:** ${(data.confidence_score * 100).toFixed(1)}%\n`;
+    output += `**AI Context:** ${data.ai_context_detected}\n`;
+    if (data.template_saved) {
+      output += `\n📁 **Template Auto-Save**\n✅ Saved as template (ID: \`${data.template_id}\`)`;
+    }
+    return output;
+  }
+
+  async handleDetectContext(args) {
+    const response = await axios.post(`${this.backendUrl}/api/v1/detect-context`, { prompt: args.prompt }, {
+      headers: { 'X-API-Key': this.apiKey }
+    });
+    return { content: [{ type: "text", text: `**Detected Context:** ${response.data.primary_context}\n**Confidence:** ${(response.data.confidence * 100).toFixed(1)}%` }] };
+  }
+
+  async handleGetQuota() {
+    const response = await axios.get(`${this.backendUrl}/api/v1/mcp/quota-status`, {
+      headers: { 'X-API-Key': this.apiKey }
+    });
+    const { quota } = response.data;
+    return { content: [{ type: "text", text: `# 📊 Quota Status\n**Remaining:** ${quota.remaining}/${quota.limit}\n**Reset Date:** ${response.data.reset_date}` }] };
+  }
+
+  async handleGenerateSOP(args) {
+    const response = await axios.post(`${this.backendUrl}/api/v1/context-engineer/sop`, args, {
+      headers: { 'X-API-Key': this.apiKey }
+    });
+    return { content: [{ type: "text", text: `# Agent SOP\n\n${response.data.sop}` }] };
+  }
+
+  async handleGenerateSkill(args) {
+    const response = await axios.post(`${this.backendUrl}/api/v1/context-engineer/generate-skill-package`, args, {
+      headers: { 'X-API-Key': this.apiKey }
+    });
+    return { content: [{ type: "text", text: `✅ Skill package generation started. Session ID: ${response.data.session_id}` }] };
+  }
+
+  async run() {
+    const transport = new StdioServerTransport();
+    await this.server.connect(transport);
+    console.error('🚀 Prompt Optimizer MCP Server running...');
+  }
 }
 
-async function showHelp() {
-  console.log('MCP Prompt Optimizer - Local server for prompt optimization');
-  console.log('');
-  console.log('Usage:');
-  console.log('  mcp-prompt-optimizer          Start the MCP server');
-  console.log('  mcp-prompt-optimizer --setup  Configure API key');
-  console.log('  mcp-prompt-optimizer --help   Show this help');
-  console.log('  mcp-prompt-optimizer --version Show version');
-  console.log('');
-  console.log('Configuration:');
-  console.log('  Config file: ~/.prompt-optimizer/config.json');
-  console.log('  API keys: Get from https://promptoptimizer-blog.vercel.app/dashboard');
-  console.log('');
-  console.log('Supported MCP clients:');
-  console.log('  - Claude Desktop');
-  console.log('  - Cursor IDE');  
-  console.log('  - Windsurf IDE');
-}
-
-async function showVersion() {
-  const packageJson = require('./package.json');
-  console.log(`mcp-prompt-optimizer v${packageJson.version}`);
-}
-
-// Main execution
+// CLI Command Handling
 if (require.main === module) {
   const args = process.argv.slice(2);
-  
+  const server = new PromptOptimizerServer();
+
   if (args.includes('--setup')) {
-    setup();
-  } else if (args.includes('--help') || args.includes('-h')) {
-    showHelp();
-  } else if (args.includes('--version') || args.includes('-v')) {
-    showVersion();
+    require('./lib/setup')(server.config);
+  } else if (args.includes('--version')) {
+    console.log(`v${packageJson.version}`);
   } else {
-    startServer();
+    server.run().catch(console.error);
   }
 }
 
-module.exports = MCPServer;
+module.exports = PromptOptimizerServer;
