@@ -10,10 +10,10 @@
 
 Prompt Optimizer is more than just a server; it's a complete ecosystem for high-performance AI interaction.
 
-### 1. ☁️ Cloud Pro (v3.1.1)
+### 1. ☁️ Cloud Pro (v3.7.5)
 The flagship MCP server. Routes complex prompts through a sophisticated LLM rewriting pipeline with **Bayesian tuning** and **AG-UI** real-time streaming. Includes team collaboration and shared quotas.
 
-### 2. 🔒 Local Core (v4.0.2)
+### 2. 🔒 Local Core (v4.1.2)
 A privacy-first, 100% offline version. Uses a library of **120+ domain-specific rules** and platform-specific binaries for zero-latency, secure optimization on your own machine.
 
 ### 3. 🖥️ Web Dashboard
@@ -105,11 +105,11 @@ Don't be locked into one model. Configure your own **OpenRouter** keys in the We
 
 ## 💰 Subscription Plans
 
-| Plan | Price | Optimizations/mo | CE Credits | Features |
-|---|---|---|---|---|
-| **Explorer** | $2.99/mo | 5,000 | 5 | Personal use, Analytics |
-| **Creator** | $29/mo | 18,000 | 30 | Team features, Advanced goals |
-| **Innovator** | $99/mo | 75,000 | Unlimited | Enterprise analytics, Full CE Suite |
+| Plan | Price | Optimizations/mo | Features |
+|---|---|---|---|
+| **Free** | $0/mo | 20 | Validate fit, no credit card required |
+| **Pro** | $19/mo | 500 | Full model config, Context Engineering |
+| **Enterprise** | Custom | Custom | Team features, shared quotas |
 
 ---
 

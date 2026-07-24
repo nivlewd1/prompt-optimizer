@@ -2,9 +2,9 @@
 
 The Prompt Optimizer is an integrated ecosystem designed for high-performance AI prompt engineering, agentic scaffolding, and deployment. The architecture is modular, ensuring both cloud-powered intelligence and privacy-first local processing.
 
-## 🏗️ The Three-Tier Ecosystem
+## 🏗️ The Four-Tier Ecosystem
 
-The platform is divided into three core pillars that work in harmony:
+The platform is divided into four core pillars that work in harmony:
 
 ### 1. 🏢 Backend Infrastructure (FastAPI Pro)
 The central intelligence and routing hub. Built with **FastAPI** for high-performance asynchronous processing.
@@ -70,6 +70,6 @@ The platform utilizes a **Confidence-Based Pipeline** to ensure quality:
 4. **Local Sovereignty**: The `local` package ensures that sensitive data never leaves the user's machine.
 
 ---
-**Version:** production-v2.2.0-stable  
-**License:** Commercial / Enterprise  
+**Version:** production-v2.3.0
+**License:** Commercial / Enterprise for the backend, MCP packages, and web dashboard. The `skill/` directory (Prompt Optimizer Skill) is MIT-licensed separately — see `skill/LICENSE`.
 **Official Homepage:** [promptoptimizer.xyz](https://promptoptimizer.xyz)
