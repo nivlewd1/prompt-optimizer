@@ -26,6 +26,9 @@ Connects the platform directly to your developer tools (Claude Desktop, Cursor, 
 - **`mcp-prompt-optimizer` (Cloud)**: Connects to the FastAPI backend for the highest-sophistication optimization.
 - **`mcp-prompt-optimizer-local` (Local)**: A standalone version for privacy-first users, featuring 120+ offline rules and native platform binaries.
 
+### 4. ⚡ Zero-Friction Skill (Claude Code)
+- **[`skill/SKILL.md`](./skill/SKILL.md)**: A pure in-context Claude Code Skill distilling the platform's optimization methodology (context classification, sophistication assessment, optimization moves, parameter preservation) into direct instructions for Claude. No backend call, no account, no external process — generated via this platform's own Context Engineer system (`generate_skill_package(format="claude_skill")`, which internally calls `transform_sop_to_claude_skill()`).
+
 ---
 
 ## 📁 Repository Organization

@@ -6,7 +6,7 @@
 
 ---
 
-## 🌟 The Three-Tier Ecosystem
+## 🌟 The Four-Tier Ecosystem
 
 Prompt Optimizer is more than just a server; it's a complete ecosystem for high-performance AI interaction.
 
@@ -18,6 +18,9 @@ A privacy-first, 100% offline version. Uses a library of **120+ domain-specific 
 
 ### 3. 🖥️ Web Dashboard
 The command center at [promptoptimizer.xyz](https://promptoptimizer.xyz). Manage API keys, configure **Personal Model Choice** (via OpenRouter), track analytics, and run A/B evaluations.
+
+### 4. ⚡ Prompt Optimizer Skill (MIT, zero-friction)
+A free Claude Code Skill distilling this platform's optimization methodology into pure in-context instructions. No npm install, no API key, no license key, no external process — copy [`skill/SKILL.md`](./skill/SKILL.md) into `.claude/skills/prompt-optimizer/` and Claude Code loads it directly. A weaker sibling to Cloud Pro and Local Core (no LLM-based optimization tier, no persistent history/quota/templates, no Bayesian tuning), positioned as the zero-account entry point — see [`skill/LICENSE`](./skill/LICENSE) (MIT, separate from this repo's Commercial license covering the backend and MCP packages).
 
 ---
 
