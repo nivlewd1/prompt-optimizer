@@ -2,12 +2,14 @@
 
 ## Supported Versions
 
-We actively support the following versions of the Prompt Optimizer with security updates:
+We actively support the latest published version of each component with security updates:
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.0.x   | :white_check_mark: |
-| < 1.0   | :x:                |
+| Component | Version | Supported |
+| --- | --- | --- |
+| Backend | production-v2.3.0 | :white_check_mark: |
+| `mcp-prompt-optimizer` (Cloud) | 3.7.5 | :white_check_mark: |
+| `mcp-prompt-optimizer-local` | 4.1.2 | :white_check_mark: |
+| Older releases | — | :x: |
 
 ## Reporting a Vulnerability
 
@@ -19,7 +21,7 @@ Security vulnerabilities should not be disclosed publicly until they have been a
 
 ### 2. Email our security team
 
-Send details to: **security@promptoptimizer.com**
+Send details to: **privacy@promptoptimizer.com**
 
 Include:
 - Description of the vulnerability
@@ -52,8 +54,9 @@ We follow responsible disclosure practices:
 
 ### Data Protection
 
-- **No Persistent Storage**: Prompts are not stored permanently on servers
+- **Scoped Storage**: Prompts are saved to your own template library (not shared across users) and encrypted at rest — not used to train models
 - **Template Encryption**: User templates are encrypted at rest
+- **Right to Erasure**: Request permanent deletion of your prompts, optimization history, and account metadata at any time — see [promptoptimizer.xyz/privacy](https://promptoptimizer.xyz/privacy)
 - **Access Controls**: Strict access controls on all systems
 - **Audit Logging**: Comprehensive audit trails
 
@@ -117,14 +120,14 @@ In case of a security incident:
    - Implement additional safeguards if needed
    - Assist with any remediation efforts
 
-## Compliance
+## Compliance Posture
 
-We maintain compliance with:
+We design our data handling around, but are not formally certified against:
 
-- **SOC 2 Type II**: Annual audits for security controls
-- **GDPR**: European data protection regulations
-- **CCPA**: California consumer privacy standards
-- **Industry Standards**: Following OWASP and NIST guidelines
+- **GDPR / CCPA principles**: Prompts and optimization history live in your own scoped template library; never shared across users or used to train models. Right to export and right to erasure are available on request — see [promptoptimizer.xyz/privacy](https://promptoptimizer.xyz/privacy).
+- **Industry Standards**: Following OWASP guidance for API and web application security.
+
+We are a small, independently-operated product — if formal certification (e.g. SOC 2) matters for your use case, contact us before relying on it.
 
 ## Security Updates
 
@@ -141,8 +144,7 @@ We're considering a bug bounty program for security researchers. Stay tuned for 
 
 ## Contact Information
 
-- **Security Email**: security@promptoptimizer.com
-- **General Support**: support@promptoptimizer.com
+- **Security & General Support**: support@promptoptimizer.help
 - **Emergency Contact**: Available through the dashboard
 
 ---

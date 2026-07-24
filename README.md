@@ -34,7 +34,7 @@ npm install -g mcp-prompt-optimizer
 
 ### Step 2: Get Your API Key
 1. Visit [promptoptimizer.xyz/pricing](https://promptoptimizer.xyz/pricing)
-2. Choose your tier (Free trial includes 5 optimizations).
+2. Choose your tier (Free tier includes 20 optimizations/month, no credit card required).
 3. API keys follow the format: `sk-opt-*`, `sk-team-*`, or `sk-local-*`.
 
 ### Step 3: Configure Your MCP Client
@@ -59,14 +59,14 @@ Add to `~/.claude/claude_desktop_config.json` (Claude Desktop):
 
 Prompts are routed through a tiered system to ensure the highest quality based on your subscription and connectivity.
 
-- **Tier 1 — LLM Optimization (70–95% Confidence):** Genuine rewriting and enrichment using advanced models (Gemini Flash/Claude 3.5).
+- **Tier 1 — LLM Optimization (70–95% Confidence):** Genuine rewriting and enrichment using advanced models (Gemini, Claude, and GPT families, configurable per your OpenRouter setup).
 - **Tier 2 — Backend Rules ( < 25% Confidence):** Rapid rules-based pass for simple prompts or when personal models aren't configured.
 - **Tier 3 — Local Fallback (35–55% Confidence):** Structured optimization applied locally if the backend is unreachable.
 
 ---
 
 ## 🤖 Context Engineer (CE) Suite
-*Available in Creator and Innovator tiers.*
+*Available on Pro and Enterprise tiers.*
 
 Transform vague goals into production-ready agentic scaffolding directly in your IDE.
 
@@ -99,10 +99,7 @@ Automatically applies specialized goals for:
 ---
 
 ## 🎛️ Personal Model Choice
-Don't be locked into one model. Configure your own **OpenRouter** keys in the WebUI to use:
-- **Claude 3.5 Sonnet** for complex technical tasks.
-- **GPT-4o** for rapid creative iterations.
-- **Gemini 1.5 Pro** for deep research.
+Don't be locked into one model. Configure your own **OpenRouter** keys in the WebUI to pick from the current Claude, GPT, and Gemini model families — swap models per task without changing your integration.
 
 ---
 
@@ -118,15 +115,15 @@ Don't be locked into one model. Configure your own **OpenRouter** keys in the We
 
 ## 🔒 Security & Privacy
 - **Encrypted Transmission**: All data is sent over TLS.
-- **Zero-Retention**: Prompts are processed and discarded; we never train on your data.
+- **Scoped Retention**: Optimizations are saved to your own template library, encrypted at rest — never shared across users or used to train models.
 - **Local Option**: Use `mcp-prompt-optimizer-local` for 100% on-device processing.
 
 ---
 
 ## 📞 Support & Resources
-- **Documentation**: [promptoptimizer.xyz/docs](https://promptoptimizer.xyz/docs)
+- **Documentation**: [promptoptimizer.xyz/documentation](https://promptoptimizer.xyz/documentation)
 - **Dashboard**: [promptoptimizer.xyz/dashboard](https://promptoptimizer.xyz/dashboard)
-- **Email**: support@promptoptimizer.xyz
+- **Email**: support@promptoptimizer.help
 
 ---
 *Transforming AI interactions through professional prompt engineering.*

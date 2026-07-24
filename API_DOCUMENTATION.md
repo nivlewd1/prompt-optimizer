@@ -1,6 +1,6 @@
 # REST API Documentation: Prompt Optimizer Pro
 
-The Prompt Optimizer Pro API provides high-performance prompt engineering through HTTP endpoints. This API powers both our MCP packages and the web dashboard, offering 50+ professional optimization goals and agentic scaffolding tools.
+The Prompt Optimizer Pro API provides high-performance prompt engineering through HTTP endpoints. This API powers both our MCP packages and the web dashboard, offering 70+ professional optimization goals and agentic scaffolding tools.
 
 **Production Endpoint**: `https://p01--project-optimizer--fvrdk8m9k9j.code.run`
 
@@ -51,15 +51,15 @@ Automatically identify the intent and optimal strategy for a prompt.
 ---
 
 ## 🤖 Context Engineer (CE) Tools
-*Requires Creator or Innovator subscription.*
+*Requires Pro or Enterprise subscription.*
 
 ### 1. Generate Agent SOP
-**POST** `/api/v1/context-engineer/generate-sop`
+**POST** `/api/v1/context-engineer/sop`
 
 Create a structured Standard Operating Procedure for an AI agent.
 
 ### 2. Generate Skill Package
-**POST** `/api/v1/context-engineer/generate-skill`
+**POST** `/api/v1/context-engineer/skill-package`
 
 Generate a comprehensive skill package (SOP + SKILL.md + reference).
 
@@ -101,12 +101,9 @@ The API uses `ai_context` to apply specialized optimization rules:
 
 ---
 
-## 🔧 Optimization Goals (50+)
+## 🔧 Optimization Goals (77 and counting)
 
-Goals are categorized by subscription tier:
-
-- **Core (25 goals)**: Clarity, conciseness, specificity, structure.
-- **Advanced (25 goals)**: Prompt chaining, few-shot optimization, Bayesian tuning, technical precision, security enhancement.
+Passed as strings in the `goals` array — e.g. `clarity`, `technical_precision`, `role_prompting`. See [MCP_PACKAGE.md](./MCP_PACKAGE.md#optimization-goals-77-and-counting) for a representative sample, or [promptoptimizer.xyz/documentation](https://promptoptimizer.xyz/documentation) for the complete, current set.
 
 ---
 
@@ -120,5 +117,5 @@ Goals are categorized by subscription tier:
 | `500` | `INTERNAL_ERROR` | Unexpected backend error. |
 
 ---
-**Version:** v1 (Backend production-v2.2.0-stable)  
+**Version:** v1 (Backend production-v2.3.0)  
 **Full Documentation:** [promptoptimizer.xyz](https://promptoptimizer.xyz)

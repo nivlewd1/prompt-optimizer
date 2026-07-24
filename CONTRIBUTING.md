@@ -297,15 +297,13 @@ describe('Config Management', () => {
 
 - **GitHub Issues**: Bug reports and feature requests
 - **Pull Requests**: Code discussions
-- **Discord**: Community chat (link in README)
 - **Email**: Direct contact for sensitive issues
 
 ### Getting Help
 
 - Check existing documentation first
 - Search issues for similar problems
-- Ask questions in Discord community
-- Create detailed issue if needed
+- Create a detailed issue if needed
 
 ## Recognition
 
@@ -313,8 +311,6 @@ Contributors are recognized through:
 
 - **Contributors List**: Added to repository
 - **Release Notes**: Mentioned in changelogs
-- **Discord Role**: Special contributor role
-- **Swag**: Occasional contributor merchandise
 
 ## Legal
 
@@ -339,14 +335,12 @@ By contributing, you agree that:
 - [ ] Create feature branch
 - [ ] Make small test change
 - [ ] Submit first pull request
-- [ ] Join Discord community
 
 ## Questions?
 
 If you have questions about contributing:
 
-- 📧 Email: contributors@promptoptimizer.com
-- 💬 Discord: [Community Server](https://discord.gg/prompt-optimizer)
+- 📧 Email: support@promptoptimizer.help
 - 🐛 Issues: [GitHub Issues](https://github.com/nivlewd1/prompt-optimizer/issues)
 
 Thank you for contributing to Prompt Optimizer! 🚀

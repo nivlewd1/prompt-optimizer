@@ -110,7 +110,7 @@ npm install -g mcp-prompt-optimizer
 ```json
 {
   "name": "mcp-prompt-optimizer",
-  "version": "1.0.1",
+  "version": "<current published version, see npm>",
   "main": "index.js",
   "bin": {
     "mcp-prompt-optimizer": "./bin/start-server"
@@ -145,6 +145,8 @@ npm install -g mcp-prompt-optimizer
    - Create GitHub release
 
 ## Self-Hosted Deployment
+
+> **Note:** Self-hosting is not an officially offered or supported deployment mode today — the production service runs exclusively on the managed infrastructure described above. The example below is illustrative of a generic FastAPI + Postgres deployment shape, not a guaranteed-working setup for this codebase.
 
 ### Prerequisites
 
@@ -232,36 +234,22 @@ GRANT ALL PRIVILEGES ON DATABASE promptopt TO promptopt_user;
 
 ### Local Development Setup
 
+This repository ships the MCP package client and the Skill — the backend source is proprietary and not included here (see the note at the end of this document). Local development against this repo means the MCP package only:
+
 1. **Clone Repository**
    ```bash
    git clone https://github.com/nivlewd1/prompt-optimizer.git
    cd prompt-optimizer
    ```
 
-2. **Backend Setup**
+2. **MCP Package Setup**
    ```bash
-   cd backend  # if backend code was included
-   python -m venv venv
-   source venv/bin/activate  # or venv\Scripts\activate on Windows
-   pip install -r requirements.txt
+   cd mcp-package
+   npm install
+   node index.js --setup   # configure your API key against the hosted backend
    ```
 
-3. **Environment Configuration**
-   ```bash
-   cp .env.example .env
-   # Edit .env with your configuration
-   ```
-
-4. **Database Setup**
-   ```bash
-   python manage.py migrate
-   python manage.py createsuperuser
-   ```
-
-5. **Start Development Server**
-   ```bash
-   python manage.py runserver
-   ```
+See [MCP_PACKAGE.md](./MCP_PACKAGE.md) for full local usage and troubleshooting.
 
 ### MCP Package Development
 
@@ -325,7 +313,7 @@ add_header Content-Security-Policy "default-src 'self';";
 async def health_check():
     return {
         "status": "healthy",
-        "version": "0.2.2",
+        "version": "2.3.0",
         "timestamp": datetime.utcnow().isoformat(),
         "database": await check_database(),
         "redis": await check_redis(),
@@ -448,10 +436,8 @@ tail -f /var/log/app.log | grep -i "optimization"
 
 For deployment support:
 
-- 📧 **Technical Support**: devops@promptoptimizer.com
-- 📚 **Documentation**: [docs.promptoptimizer.com](https://promptoptimizer-blog.vercel.app/docs)
-- 🎫 **Support Tickets**: [support portal](https://promptoptimizer-blog.vercel.app/support)
-- 💬 **Community**: [Discord server](https://discord.gg/prompt-optimizer)
+- 📧 **Technical Support**: support@promptoptimizer.help
+- 📚 **Documentation**: [promptoptimizer.xyz/documentation](https://promptoptimizer.xyz/documentation)
 
 ---
 

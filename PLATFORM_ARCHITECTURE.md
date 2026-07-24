@@ -69,7 +69,7 @@ The platform utilizes a **Confidence-Based Pipeline** to ensure quality:
 
 1. **Authentication**: All requests are validated using tier-specific API keys (`sk-opt-*`, `sk-team-*`, `sk-local-*`).
 2. **Encryption**: 100% TLS/SSL encryption for data in transit.
-3. **Privacy**: Prompts are processed in memory and never stored or used for model training.
+3. **Privacy**: Prompts are saved to your own scoped template library, encrypted at rest — never shared across users or used for model training.
 4. **Local Sovereignty**: The `local` package ensures that sensitive data never leaves the user's machine.
 
 ---
