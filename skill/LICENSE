@@ -22,7 +22,8 @@ SOFTWARE.
 
 ---
 
-This license applies only to the contents of this `skill/` directory
-(the Prompt Optimizer Skill for Claude Code). The rest of this repository
-— the backend, MCP packages, and web dashboard — remains under this
-repository's root `LICENSE` (Commercial / Enterprise).
+This license applies only to the contents of this `skill/` directory —
+every Claude Code Skill under it (`prompt-optimizer/`, `context-cartographer/`,
+`empirical-diagnostician/`, and any added later). The rest of this
+repository — the backend, MCP packages, and web dashboard — remains
+under this repository's root `LICENSE` (Commercial / Enterprise).
