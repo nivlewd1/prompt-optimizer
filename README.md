@@ -2,7 +2,9 @@
 
 🚀 **Enterprise-grade, MCP-native platform** designed to transform AI development workflows through professional prompt engineering, agentic scaffolding, and cloud-powered optimization.
 
-[![NPM Package](https://img.shields.io/npm/v/mcp-prompt-optimizer)](https://www.npmjs.com/package/mcp-prompt-optimizer) [![API Status](https://img.shields.io/badge/API-Production-green)](https://p01--project-optimizer--fvrdk8m9k9j.code.run/health) [![Dashboard](https://img.shields.io/badge/Dashboard-Live-blue)](https://promptoptimizer.xyz) [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-purple)](https://mcp.so)
+[![NPM Package](https://img.shields.io/npm/v/mcp-prompt-optimizer)](https://www.npmjs.com/package/mcp-prompt-optimizer) [![API Status](https://img.shields.io/badge/API-Production-green)](https://p01--project-optimizer--fvrdk8m9k9j.code.run/health) [![Dashboard](https://img.shields.io/badge/Dashboard-Live-blue)](https://promptoptimizer.xyz) [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-purple)](https://mcp.so) [![Skills License](https://img.shields.io/badge/skill%2F-MIT-brightgreen)](./skill/LICENSE)
+
+> **License split:** the [`skill/`](./skill/) directory (Claude Code Skills) is free and open-source under MIT — no account, no signup. Everything else in this repo (backend, MCP packages, web dashboard) is Commercial — see the root [`LICENSE`](./LICENSE).
 
 ---
 
