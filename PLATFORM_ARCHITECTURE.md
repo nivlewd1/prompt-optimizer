@@ -26,8 +26,12 @@ Connects the platform directly to your developer tools (Claude Desktop, Cursor, 
 - **`mcp-prompt-optimizer` (Cloud)**: Connects to the FastAPI backend for the highest-sophistication optimization.
 - **`mcp-prompt-optimizer-local` (Local)**: A standalone version for privacy-first users, featuring 120+ offline rules and native platform binaries.
 
-### 4. ⚡ Zero-Friction Skill (Claude Code)
-- **[`skill/SKILL.md`](./skill/SKILL.md)**: A pure in-context Claude Code Skill distilling the platform's optimization methodology (context classification, sophistication assessment, optimization moves, parameter preservation) into direct instructions for Claude. No backend call, no account, no external process — generated via this platform's own Context Engineer system (`generate_skill_package(format="claude_skill")`, which internally calls `transform_sop_to_claude_skill()`).
+### 4. ⚡ Zero-Friction Skills (Claude Code)
+Three pure in-context Claude Code Skills. No backend call, no account, no external process. All three were generated via this platform's own Context Engineer system (`generate_skill_package(format="claude_skill")`, which internally calls `transform_sop_to_claude_skill()`).
+
+- **[`skill/prompt-optimizer/SKILL.md`](./skill/prompt-optimizer/SKILL.md)**: distills the platform's optimization methodology (context classification, sophistication assessment, optimization moves, parameter preservation) into direct instructions for Claude.
+- **[`skill/context-cartographer/SKILL.md`](./skill/context-cartographer/SKILL.md)**: assembles high-signal repository context before non-trivial implementation, debugging, or review work.
+- **[`skill/empirical-diagnostician/SKILL.md`](./skill/empirical-diagnostician/SKILL.md)**: forces evidence-based debugging via mandatory log extraction, a Fast-Track bypass for unambiguous defects, a hypothesis matrix for anything more complex, and a Root-Cause Contract before any edit. Validated against a fixed behavioral benchmark: 6/6 disposable-repo runs, independent pytest oracle, 1.0 on a live LLM-rubric fidelity check.
 
 ---
 

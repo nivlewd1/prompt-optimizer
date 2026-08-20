@@ -19,8 +19,12 @@ A privacy-first, 100% offline version. Uses a library of **120+ domain-specific 
 ### 3. 🖥️ Web Dashboard
 The command center at [promptoptimizer.xyz](https://promptoptimizer.xyz). Manage API keys, configure **Personal Model Choice** (via OpenRouter), track analytics, and run A/B evaluations.
 
-### 4. ⚡ Prompt Optimizer Skill (MIT, zero-friction)
-A free Claude Code Skill distilling this platform's optimization methodology into pure in-context instructions. No npm install, no API key, no license key, no external process — copy [`skill/SKILL.md`](./skill/SKILL.md) into `.claude/skills/prompt-optimizer/` and Claude Code loads it directly. A weaker sibling to Cloud Pro and Local Core (no LLM-based optimization tier, no persistent history/quota/templates, no Bayesian tuning), positioned as the zero-account entry point — see [`skill/LICENSE`](./skill/LICENSE) (MIT, separate from this repo's Commercial license covering the backend and MCP packages).
+### 4. ⚡ Claude Code Skills (MIT, zero-friction)
+Free Claude Code Skills distilling this platform's methodology into pure in-context instructions. No npm install, no API key, no license key, no external process — copy the `SKILL.md` you want into `.claude/skills/<name>/` and Claude Code loads it directly. Each is MIT-licensed, separate from this repo's Commercial license covering the backend and MCP packages — see [`skill/LICENSE`](./skill/LICENSE).
+
+- **[`skill/prompt-optimizer/SKILL.md`](./skill/prompt-optimizer/SKILL.md)** — this platform's optimization methodology (context classification, sophistication assessment, optimization moves, parameter preservation). A weaker sibling to Cloud Pro and Local Core (no LLM-based optimization tier, no persistent history/quota/templates, no Bayesian tuning), positioned as the zero-account entry point.
+- **[`skill/context-cartographer/SKILL.md`](./skill/context-cartographer/SKILL.md)** — assembles high-signal repository context before non-trivial implementation, debugging, or review work.
+- **[`skill/empirical-diagnostician/SKILL.md`](./skill/empirical-diagnostician/SKILL.md)** — forces evidence-based debugging: mandatory log extraction, a Fast-Track bypass for unambiguous single-token defects, a hypothesis matrix for anything more complex, and a Root-Cause Contract before any edit. Validated against a fixed behavioral benchmark (6/6 disposable-repo runs, independent pytest oracle, 1.0 on a live LLM-rubric fidelity check).
 
 ---
 
