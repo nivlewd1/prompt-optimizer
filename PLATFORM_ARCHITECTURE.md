@@ -11,7 +11,7 @@ The central intelligence and routing hub. Built with **FastAPI** for high-perfor
 - **Optimization Engine**: Implements a three-tier optimization pipeline (LLM-based, rules-based, and local fallback).
 - **Intelligent Routing**: Automatically detects AI context (Code, Image, Research, etc.) and routes to specialized templates.
 - **Enterprise Features**: Handles Stripe billing, team multi-tenancy, and template governance.
-- **Bayesian Optimizer**: Fine-tunes optimization parameters based on performance metrics.
+- **Bayesian Optimizer**: Optional parameter-tuning subsystem; disabled by default in the standard deployment.
 - **AG-UI Service**: Powers real-time, streaming optimization feedback.
 
 ### 2. 🌐 Frontend & User Interface (Next.js Dashboard)
@@ -27,11 +27,12 @@ Connects the platform directly to your developer tools (Claude Desktop, Cursor, 
 - **`mcp-prompt-optimizer-local` (Local)**: A standalone version for privacy-first users, featuring 120+ offline rules and native platform binaries.
 
 ### 4. ⚡ Zero-Friction Skills (Claude Code)
-Three pure in-context Claude Code Skills. No backend call, no account, no external process. All three were generated via this platform's own Context Engineer system (`generate_skill_package(format="claude_skill")`, which internally calls `transform_sop_to_claude_skill()`).
+Four pure in-context Claude Code Skills. No backend call, no account, no external process. All four were generated via this platform's own Context Engineer system (`generate_skill_package(format="claude_skill")`, which internally calls `transform_sop_to_claude_skill()`).
 
 - **[`skill/prompt-optimizer/SKILL.md`](./skill/prompt-optimizer/SKILL.md)**: distills the platform's optimization methodology (context classification, sophistication assessment, optimization moves, parameter preservation) into direct instructions for Claude.
 - **[`skill/context-cartographer/SKILL.md`](./skill/context-cartographer/SKILL.md)**: assembles high-signal repository context before non-trivial implementation, debugging, or review work.
 - **[`skill/empirical-diagnostician/SKILL.md`](./skill/empirical-diagnostician/SKILL.md)**: forces evidence-based debugging via mandatory log extraction, a Fast-Track bypass for unambiguous defects, a hypothesis matrix for anything more complex, and a Root-Cause Contract before any edit. Validated against a fixed behavioral benchmark: 6/6 disposable-repo runs, independent pytest oracle, 1.0 on a live LLM-rubric fidelity check.
+- **[`skill/prompt-evaluation-engineer/SKILL.md`](./skill/prompt-evaluation-engineer/SKILL.md)**: turns prompts into reproducible evaluation protocols with contracts, balanced test matrices, deterministic checks before semantic rubrics, evidence preservation, and regression-safe comparisons.
 
 ---
 
@@ -77,6 +78,6 @@ The platform utilizes a **Confidence-Based Pipeline** to ensure quality:
 4. **Local Sovereignty**: The `local` package ensures that sensitive data never leaves the user's machine.
 
 ---
-**Version:** production-v2.3.0
+**Version:** see the backend [`/status`](https://p01--project-optimizer--fvrdk8m9k9j.code.run/status) endpoint for the current deployed version.
 **License:** Commercial / Enterprise for the backend, MCP packages, and web dashboard. The `skill/` directory (Prompt Optimizer Skill) is MIT-licensed separately — see `skill/LICENSE`.
 **Official Homepage:** [promptoptimizer.xyz](https://promptoptimizer.xyz)

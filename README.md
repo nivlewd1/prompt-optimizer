@@ -27,6 +27,7 @@ Free Claude Code Skills distilling this platform's methodology into pure in-cont
 - **[`skill/prompt-optimizer/SKILL.md`](./skill/prompt-optimizer/SKILL.md)** — this platform's optimization methodology (context classification, sophistication assessment, optimization moves, parameter preservation). A weaker sibling to Cloud Pro and Local Core (no LLM-based optimization tier, no persistent history/quota/templates, no Bayesian tuning), positioned as the zero-account entry point.
 - **[`skill/context-cartographer/SKILL.md`](./skill/context-cartographer/SKILL.md)** — assembles high-signal repository context before non-trivial implementation, debugging, or review work.
 - **[`skill/empirical-diagnostician/SKILL.md`](./skill/empirical-diagnostician/SKILL.md)** — forces evidence-based debugging: mandatory log extraction, a Fast-Track bypass for unambiguous single-token defects, a hypothesis matrix for anything more complex, and a Root-Cause Contract before any edit. Validated against a fixed behavioral benchmark (6/6 disposable-repo runs, independent pytest oracle, 1.0 on a live LLM-rubric fidelity check).
+- **[`skill/prompt-evaluation-engineer/SKILL.md`](./skill/prompt-evaluation-engineer/SKILL.md)** — turns prompts into reproducible evaluation protocols: contracts, balanced test matrices, deterministic checks before semantic rubrics, evidence preservation, and regression-safe comparisons.
 
 ---
 
