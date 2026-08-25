@@ -61,6 +61,7 @@ When a user asks to evaluate, test, benchmark, or compare an AI prompt, follow t
 1. Group failures by symptoms and identify likely causes, ensuring to distinguish evidence from hypotheses.
 2. Maintain constant test conditions when comparing prompt versions and use independent identifiers for prompts and matrices.
 3. If prompt improvement is needed, keep it as a subsequent step after reporting measured behaviors.
+4. Before trusting any failure diagnosis from this stage, check whether the test itself is tautological, overly narrow, or accidentally rewards copying the input.
 
 ### Stage 6: Report Reproducible Findings
 
