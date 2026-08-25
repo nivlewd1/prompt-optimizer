@@ -18,7 +18,7 @@ When a user asks to evaluate, test, benchmark, or compare an AI prompt, follow t
    - **Objective:** Define the target behavior the prompt should produce.
    - **Inputs:** Specify representative variables and boundary conditions.
    - **Required outputs:** List fields, sections, tone, actions, or decisions that must be present.
-   - **Forbidden outputs:** Identify outputs like hallucinations or unsafe actions that must not occur.
+   - **Forbidden outputs:** Identify outputs like hallucinations, format violations, or unsafe actions that must not occur.
    - **Acceptance criteria:** Establish observable checks and a passing threshold, proposing a numerical threshold if necessary.
    - **Non-goals:** Clarify qualities that will not be scored.
 
@@ -26,7 +26,7 @@ When a user asks to evaluate, test, benchmark, or compare an AI prompt, follow t
 
 1. Create a test matrix that balances different input types by including:
    - **Golden cases:** Ordinary inputs representing the main use cases.
-   - **Boundary cases:** Test with empty, short, long, or ambiguous inputs.
+   - **Boundary cases:** Test with empty, short, long, ambiguous, multilingual, malformed, or maximum-size inputs when relevant.
    - **Adversarial cases:** Include conflicting instructions and misleading premises.
    - **Contrast pairs:** Use two inputs differing in a meaningful factor.
    - **Regression cases:** Re-test prior failures to confirm accepted outputs.
@@ -37,24 +37,25 @@ When a user asks to evaluate, test, benchmark, or compare an AI prompt, follow t
 
 1. Classify each assertion into:
    - **Deterministic checks:** Use exact equality, regex, parsing, and schema validation.
-   - **Semantic rubric checks:** Assess relevance, completeness, tone, etc.
+   - **Semantic rubric checks:** Assess relevance, factual support, completeness, tone, etc.
 
-2. Execute inexpensive deterministic checks first. If any fail, record the issue and avoid subjective scoring thereafter.
+2. Execute deterministic checks first. If any fail, record the failure; you may still run semantic checks for diagnostic value, but never treat a passing subjective score as evidence of an overall pass.
 
-3. For rubric checks, define dimensions, scale, anchors, and include concrete examples for "Pass", "Fail", etc. Do not claim correctness solely on fluency—require citations or trusted references if factuality is essential.
+3. For rubric checks, define dimensions, scale, anchors, and include concrete examples for "Pass", "Borderline", "Fail", etc. Do not claim correctness solely on fluency—require citations or trusted references if factuality is essential.
 
 ### Stage 4: Run the Evaluation and Preserve Evidence
 
-1. Execute tests using the specified model and settings. If none are specified, document the choices made.
+1. Execute tests using the specified model and settings. If none are specified, state what you used or clearly mark the result as a design proposal rather than an executed result.
 2. For each test case, capture:
    - The exact prompt and input.
-   - The model and generation settings.
+   - The model and generation settings (including temperature, system prompts, and tools if applicable).
    - The raw output without corrections.
    - Assertion results with evidence.
    - Latency or token measurements upon request.
    - Errors, retries, and skipped checks.
 
-3. Avoid averaging failures; report pass rates or scores linked to per-case evidence.
+3. Avoid averaging failures; report pass rates or scores linked directly to per-case evidence.
+4. Treat retries as new observations unless the evaluation protocol explicitly defines a retry policy.
 
 ### Stage 5: Diagnose Failures Without Rewriting the Test
 
@@ -70,7 +71,7 @@ When a user asks to evaluate, test, benchmark, or compare an AI prompt, follow t
    - **Protocol:** versions, model/settings, evaluator method, threshold.
    - **Results table:** one row per case with statuses and evidence.
    - **Failure analysis:** document patterns and unknowns.
-   - **Decision:** indicate pass, fail, or inconclusive with reasoning.
+   - **Decision:** indicate pass, fail, inconclusive, or not executed with reasoning — use "not executed" when no real model run occurred, and "inconclusive" when the sample, evaluator, or environment cannot support a reliable decision.
    - **Next actions:** propose minimal changes for uncertainty reduction.
 
 2. Do not present hypothetical results as real findings.
@@ -85,7 +86,7 @@ When a user asks to evaluate, test, benchmark, or compare an AI prompt, follow t
 - Maintain exact commands for verification along with actual results.
 - Do not claim statistical significance, generalization, or production readiness from a small illustrative sample.
 - Do not expose private test data, secrets, or personal information in reports.
-- Treat every reported result as permanent data: do not retroactively drop a failing case or a bad score from a report to make an aggregate look better. This is a data-integrity rule, independent of the Stage 5 rule about what a like-for-like prompt-version comparison requires.
+- Treat every reported result as permanent data: do not retroactively drop failing cases or adjust bad scores to improve aggregate metrics.
 
 ## Worked Examples
 
