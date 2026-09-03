@@ -28,6 +28,8 @@ Free Claude Code Skills distilling this platform's methodology into pure in-cont
 - **[`skill/context-cartographer/SKILL.md`](./skill/context-cartographer/SKILL.md)** — assembles high-signal repository context before non-trivial implementation, debugging, or review work.
 - **[`skill/empirical-diagnostician/SKILL.md`](./skill/empirical-diagnostician/SKILL.md)** — forces evidence-based debugging: mandatory log extraction, a Fast-Track bypass for unambiguous single-token defects, a hypothesis matrix for anything more complex, and a Root-Cause Contract before any edit. Validated against a fixed behavioral benchmark (6/6 disposable-repo runs, independent pytest oracle, 1.0 on a live LLM-rubric fidelity check).
 - **[`skill/prompt-evaluation-engineer/SKILL.md`](./skill/prompt-evaluation-engineer/SKILL.md)** — turns prompts into reproducible evaluation protocols: contracts, balanced test matrices, deterministic checks before semantic rubrics, evidence preservation, and regression-safe comparisons.
+- **[`skill/prompt-injection-guard/SKILL.md`](./skill/prompt-injection-guard/SKILL.md)** — detects, classifies, and responds to prompt-injection against an LLM application: input and output inspection, graded severity with a confidence factor, tiered response strategy, fail-mode and per-check latency budget, and outbound tool-argument hardening.
+- **[`skill/agent-prompt-architect/SKILL.md`](./skill/agent-prompt-architect/SKILL.md)** — architects the system prompt, context budget, and tool contract of an AI agent as one system: an agent contract, a cache-stable context budget, tool-contract engineering, explicit stop conditions split into prompt-side and harness-enforced, and evaluation-driven iteration.
 
 ---
 
