@@ -16,6 +16,7 @@ Before deciding whether to delegate, classify the task itself.
 - **Identify dependencies.** Does the task need anything not yet known — a file read, a command run, an earlier decision made? A task that is fully specified right now is a delegation candidate; a task still blocked on orientation is not yet ready to hand off.
 - **Identify task count and independence.** A single task is a single-dispatch decision (Stage 2). Two or more tasks are a wave-sizing decision (Stage 5) in addition to Stage 2 — each task in the candidate wave still needs its own classification here.
 - **Escalation trigger:** if classifying the task requires information only the user has (an ambiguous goal, an unstated priority between two valid approaches), stop and ask the user before dispatching anything. Do not delegate an ambiguous task to a subagent in the hope it resolves the ambiguity better than the dispatcher would.
+- **Granularity floor.** This procedure applies to a task worth classifying at all — something that could plausibly be handed to a subagent (a multi-step investigation, a multi-file change, a judgment call worth a second opinion). A single atomic tool call issued as a normal step of already-decided work — one more grep in an ongoing investigation, one more file read to confirm a fact — does not need its own Stage 1–7 pass merely because it is technically "a task." Example 1 demonstrates the floor case (a task small enough to state and classify on its own) correctly refusing delegation; it is not a mandate to narrate every individual tool call issued while executing already-scoped work.
 
 ### Stage 2: The Delegation Test
 Score the task against these four questions. All four must be answered before a dispatch decision is made.
@@ -27,7 +28,7 @@ Score the task against these four questions. All four must be answered before a 
 | **Q3 — Reusability of the answer.** Does the dispatcher need the full raw output, or only a distilled conclusion (a decision, a file path, a yes/no, a short list)? | Full output needed favors inline or a fork the dispatcher reads carefully; a distilled conclusion favors a fresh subagent | — |
 | **Q4 — Genuine judgment value.** Would an independent read (no anchoring on the dispatcher's already-formed hypothesis) produce a materially different or more trustworthy answer — e.g., a second opinion, an adversarial review, a check for something the dispatcher might rationalize past? | Favors a fresh agent even if context cost is low | Fork or inline is sufficient |
 
-- **No delegation:** if Q1 is "no" and Q2 is "no" — the task is cheap to keep in context and needs the dispatcher's ongoing involvement — do it inline. This is the default for anything answerable in one to three tool calls.
+- **No delegation:** if neither Q1 nor Q4 is "yes" — the task is cheap to keep in context and an independent read would not produce a materially different answer — do it inline. This holds regardless of Q2: an independent task (Q2="yes") that fails both Q1 and Q4 is still inline on its own; independence alone only matters if it later qualifies for the batching exception below. This is the default for anything answerable in one to three tool calls.
 - **Delegate:** if Q1 or Q4 is "yes", proceed to Stage 3 to choose the shape.
 - **Batching exception:** two or more tasks that are each individually Q1="no" and Q4="no", but Q2="yes" and mutually non-interfering (Stage 5), may still be grouped into one parallel wave purely for wall-clock savings — this is the only case where a dispatch happens without Q1 or Q4 being "yes" on any single task. A lone task in this quadrant stays inline; only batching with other non-interfering tasks earns it a wave. **A batching-exception wave executes as parallel direct tool calls made by the dispatcher itself — no subagent is spawned and no Stage 4 prompt is written**, because none of the batched tasks individually cleared the Delegate bar above. This is distinct from a genuine parallel dispatch wave (Stage 5), where each member task independently justified delegation and runs as a fork or fresh agent.
 - **Do not delegate merely because delegation is available.** A tool call saved by doing something inline is not a failure; reflexive delegation for a trivial lookup is the primary anti-pattern this procedure exists to prevent (see Stage 7).
@@ -76,7 +77,7 @@ Delegation is not complete when the subagent is launched; it is complete when it
 Every dispatch decision — including the decision not to dispatch — is recorded in this order before proceeding:
 
 1. **Dispatch line** — exactly one of these forms:
-   - `Dispatch: no delegation -> inline (Q1=no, Q2=no)`
+   - `Dispatch: no delegation -> inline (neither Q1 nor Q4 = yes)`
    - `Dispatch: fork -> <one-line task> (Q1 and/or Q4 = yes; rationale citing whichever triggered)`
    - `Dispatch: fresh agent -> <one-line task> (Q4=yes; rationale)`
    - `Dispatch: wave of N (subagents) -> <task list>; grouped by <file/resource independence>; sequential after: <none | task IDs>` — a genuine parallel dispatch: each task independently cleared the Delegate bar (Q1 or Q4 = yes) and runs as a fork or fresh agent.
@@ -97,7 +98,7 @@ Every dispatch decision — including the decision not to dispatch — is record
 - **No fresh-agent overuse:** never dispatch a fresh agent when a fork satisfies the task equally well — restating context a fork would get for free wastes effort and risks silently omitting something the restatement forgot.
 
 ## Success Criteria
-This procedure is followed correctly when all of the following are true, and each is independently checkable without judgment calls: (1) every dispatch decision — including a decision not to delegate — emits the Stage 7 dispatch line with its rationale; (2) every fresh-agent prompt and every genuine subagent-wave prompt satisfies every condition in Stage 4 (goal and motivation stated, prior work ruled out named, scope boundary explicit, output shape stated) before it is sent — a batching-exception wave has no subagent and no prompt, and is exempt from this condition; (3) no parallel wave places two tasks that write the same file or resource in the same wave; (4) no subagent's self-reported completion claim is treated as fact until the artifact it produced (diff, file, command output) has been checked. A dispatch that fails any of these observable conditions has not met the procedure's definition of done, regardless of whether the subagent's task ultimately succeeded.
+This procedure is followed correctly when all of the following are true, and each is independently checkable without judgment calls: (1) every dispatch decision for a task that clears Stage 1's granularity floor — including a decision not to delegate — emits the Stage 7 dispatch line with its rationale; (2) every fresh-agent prompt and every genuine subagent-wave prompt satisfies every condition in Stage 4 (goal and motivation stated, prior work ruled out named, scope boundary explicit, output shape stated) before it is sent — a batching-exception wave has no subagent and no prompt, and is exempt from this condition; (3) no parallel wave places two tasks that write the same file or resource in the same wave; (4) no subagent's self-reported completion claim is treated as fact until the artifact it produced (diff, file, command output) has been checked. A dispatch that fails any of these observable conditions has not met the procedure's definition of done, regardless of whether the subagent's task ultimately succeeded.
 
 ## Worked Examples
 
@@ -105,7 +106,7 @@ This procedure is followed correctly when all of the following are true, and eac
 - **Task:** "What does the `retry_policy` field in this config default to?"
 - **Stage 1:** Deliverable is a single fact; no unmet dependency; single task.
 - **Stage 2:** Q1 no (one grep, no large intermediate output worth discarding), Q2 no (needs no independent judgment), Q3 n/a, Q4 no.
-- **Decision:** `Dispatch: no delegation -> inline (Q1=no, Q2=no)`. A direct grep answers it in one call; spawning an agent here would cost more in dispatch and result-integration overhead than the lookup itself.
+- **Decision:** `Dispatch: no delegation -> inline (neither Q1 nor Q4 = yes)`. A direct grep answers it in one call; spawning an agent here would cost more in dispatch and result-integration overhead than the lookup itself.
 
 ### Example 2: Large read-heavy exploration, forked
 - **Task:** "Find every place in the codebase that constructs an `OptimizationResult` and summarize the construction patterns."
@@ -133,7 +134,7 @@ This procedure is followed correctly when all of the following are true, and eac
 - **Task:** Add a new field to a Pydantic model in `app/models/user.py`, and separately rename an existing field on the same model.
 - **Stage 2 (per task):** Both score Q1 no, Q2 yes, Q3 n/a, Q4 no — individually inline candidates, and superficially batching-exception eligible like Example 4.
 - **Stage 5:** The batching exception requires the tasks to be mutually non-interfering; these two are not — both write `app/models/user.py`. Even though each task is otherwise independent and well-specified, they cannot share a wave — a parallel edit race would produce a merge conflict or a silently dropped change. This disqualifies the batching exception entirely, not just the wave size.
-- **Decision:** `Dispatch: wave of 1 -> add field to User model; sequential after: none` followed by `Dispatch: wave of 1 -> rename field on User model; sequential after: add-field task`.
+- **Decision:** `Dispatch: no delegation -> inline (neither Q1 nor Q4 = yes)` for the field addition, then `Dispatch: no delegation -> inline (neither Q1 nor Q4 = yes)` for the rename — sequential because both write `app/models/user.py`, not because either one was ever a wave. A sequential wave of one is not a wave; it is two ordinary inline actions done in order.
 
 ### Example 6: A fork's own findings trigger a second wave
 - **Task:** Example 2's fork returns 40 call sites constructing `OptimizationResult`, and 6 of them use a deprecated keyword argument that needs updating.
@@ -152,4 +153,4 @@ This procedure is followed correctly when all of the following are true, and eac
 ### Example 8: Different files, same external resource — still sequential
 - **Task:** Two tasks each call a third-party API with a strict per-minute rate limit — one refreshes stale prices from `services/pricing.ts`, the other refreshes stale inventory counts from `services/inventory.ts`.
 - **Stage 5:** The tasks touch different files, so a file-overlap check alone would wave them together — but both saturate the same rate-limited external resource. Running them in the same wave risks one task's calls being throttled or rejected by the other's traffic, which is exactly the resource-contention case Stage 5 names alongside same-file contention, not just a file-independence check.
-- **Decision:** `Dispatch: wave of 1 (batching exception, no subagent) -> refresh stale prices; sequential after: none` followed by `Dispatch: wave of 1 (batching exception, no subagent) -> refresh stale inventory counts; sequential after: refresh-stale-prices task` — sequential despite touching zero common files, because the shared resource is the rate limit, not a file.
+- **Decision:** `Dispatch: no delegation -> inline (neither Q1 nor Q4 = yes)` for the price refresh, then `Dispatch: no delegation -> inline (neither Q1 nor Q4 = yes)` for the inventory refresh — sequential despite touching zero common files, because both saturate the same rate limit. Neither was ever a wave; a sequential pair of solo inline actions doesn't become one by naming a shared resource.
