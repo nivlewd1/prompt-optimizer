@@ -1,12 +1,14 @@
 # REST API Documentation: Prompt Optimizer Pro
 
-The Prompt Optimizer Pro API provides high-performance prompt engineering through HTTP endpoints. This API powers both our MCP packages and the web dashboard, offering 70+ professional optimization goals and agentic scaffolding tools.
+The Prompt Optimizer API provides prompt optimization and Context Engineering over HTTP. It powers the MCP packages and the web dashboard, and accepts 77 optimization goals.
 
-**Production Endpoint**: `https://p01--project-optimizer--fvrdk8m9k9j.code.run`
+**Production endpoint**: `https://p01--project-optimizer--fvmrdk8m9k9j.code.run`
+
+The live OpenAPI schema is served at `/openapi.json`. Where this page and the schema differ, the schema is correct.
 
 ## Authentication
 
-All requests must include an `X-API-Key` header:
+Send your API key in the `X-API-Key` header:
 
 ```http
 X-API-Key: sk-opt-your-api-key-here
@@ -16,12 +18,12 @@ API keys follow the format: `sk-opt-*`, `sk-team-*`, or `sk-local-*`.
 
 ---
 
-## 🚀 Core Optimization Endpoints
+## Core Optimization Endpoints
 
 ### 1. Optimize Prompt
 **POST** `/api/v1/optimize`
 
-The primary endpoint for prompt refinement.
+The primary endpoint for prompt refinement. Only `prompt` is required. Other accepted fields include `goals`, `ai_context`, `model`, `stream`, `context` and `output_format`.
 
 **Request:**
 ```json
@@ -33,25 +35,27 @@ The primary endpoint for prompt refinement.
 }
 ```
 
-**Response:**
+**Response** (abridged; see the schema for every field):
 ```json
 {
+  "original_prompt": "...",
   "optimized_prompt": "...",
   "confidence_score": 0.89,
-  "quota_remaining": 17850,
-  "ai_context_detected": "code_generation"
+  "status": "...",
+  "metadata": {}
 }
 ```
 
 ### 2. Context Detection
-**POST** `/api/v1/detect-context`
+**POST** `/api/v1/mcp/detect-context`
 
-Automatically identify the intent and optimal strategy for a prompt.
+Identify the intent of a prompt. (`/api/v1/templates/detect-context` is also available.)
 
 ---
 
-## 🤖 Context Engineer (CE) Tools
-*Requires Pro or Enterprise subscription.*
+## Context Engineer (CE) Tools
+
+Free accounts get a small monthly allowance (3 basic SOPs and 1 full skill package, for the Claude Code and Ollama targets on the default model). Pro adds 3 full skill builds a month, advanced steps and the other agent targets. Enterprise allowances are custom. A request over an allowance is refused with a `403` (see Error Handling).
 
 ### 1. Generate Agent SOP
 **POST** `/api/v1/context-engineer/sop`
@@ -61,60 +65,62 @@ Create a structured Standard Operating Procedure for an AI agent.
 ### 2. Generate Skill Package
 **POST** `/api/v1/context-engineer/skill-package`
 
-Generate a comprehensive skill package (SOP + SKILL.md + reference).
+Generate a skill package (SOP + SKILL.md + reference). The asynchronous agent workflow is `POST /api/v1/context-engineer/generate-skill-package`, polled with `GET /api/v1/context-engineer/sessions/{session_id}`.
 
 ### 3. Transform for Framework
 **POST** `/api/v1/context-engineer/transform`
 
-Transform an SOP into native code for **LangChain**, **AutoGen**, or **Claude Code**.
+Transform an SOP into a framework-specific agent configuration: `claude_skill`, `langchain_tool` or `autogen_agent`.
 
 ---
 
-## 🛠️ Management & Analytics
+## Management
 
 ### 1. Quota Status
 **GET** `/api/v1/mcp/quota-status`
 
-Check real-time usage and limits.
+Check usage and limits.
 
 ### 2. Template Search
-**POST** `/api/v1/templates/search`
+**GET** `/api/v1/mcp/templates`
 
-Search your history and reusable optimization patterns.
+Search your saved templates. Query parameters: `query`, `ai_context`, `sophistication_level`, `complexity_level`, `optimization_strategy`, `sort_by`, `sort_order`, `page`, `per_page`.
 
-### 3. Personal Model Configuration
-**GET** `/api/v1/user/config`
+### 3. Personal Model Settings
+**GET** `/api/v1/user/settings`
 
-Retrieve user-configured model preferences (OpenRouter settings).
+Retrieve your model preferences, including whether you have set an OpenRouter key.
 
 ---
 
-## 🎨 AI Context Types
+## AI Context Types
 
-The API uses `ai_context` to apply specialized optimization rules:
+The API uses `ai_context` to apply specialized optimization rules. Primary values:
 - `code_generation`: Python, JavaScript, SQL, debugging.
 - `image_generation`: Midjourney, DALL-E, visual descriptors.
 - `llm_interaction`: Research, analysis, complex explanation.
 - `human_communication`: Emails, memos, formal letters.
 - `technical_automation`: API docs, deployment scripts, DevOps.
+- `api_automation`, `data_analysis`
 - `structured_output`: JSON, YAML, Schema-based tasks.
 
 ---
 
-## 🔧 Optimization Goals (77 and counting)
+## Optimization Goals (77)
 
-Passed as strings in the `goals` array — e.g. `clarity`, `technical_precision`, `role_prompting`. See [MCP_PACKAGE.md](./MCP_PACKAGE.md#optimization-goals-77-and-counting) for a representative sample, or [promptoptimizer.xyz/documentation](https://promptoptimizer.xyz/documentation) for the complete, current set.
+Passed as strings in the `goals` array, for example `clarity`, `technical_precision`, `role_prompting`. See [MCP_PACKAGE.md](./MCP_PACKAGE.md#optimization-goals-77) for a representative sample, or [promptoptimizer.xyz/documentation](https://promptoptimizer.xyz/documentation) for the complete set.
 
 ---
 
-## 🚨 Error Handling
+## Error Handling
 
-| Status | Error Code | Description |
+| Status | Error | Description |
 |---|---|---|
-| `401` | `INVALID_API_KEY` | Key is malformed or invalid. |
-| `403` | `QUOTA_EXCEEDED` | Monthly usage limit reached. |
-| `429` | `RATE_LIMITED` | Too many requests; retry after delay. |
-| `500` | `INTERNAL_ERROR` | Unexpected backend error. |
+| `401` | `Authentication required` | Missing or invalid API key or token. |
+| `403` | `TIER_LIMIT_REACHED`, `FEATURE_NOT_AVAILABLE`, `CE_QUOTA_EXCEEDED`, `MODEL_NOT_AVAILABLE` | Your plan does not include this feature or model, or you used this period's allowance for it. |
+| `429` | `quota_exceeded` (`QUOTA_LIMIT_REACHED`) | Monthly optimization quota used up. |
+| `503` | `QUOTA_CHECK_UNAVAILABLE`, `WORKFLOW_UNAVAILABLE` | Temporary; retry shortly. |
+| `500` | | Unexpected backend error. |
 
 ---
 **Version:** v1 (Backend production-v2.3.0)  

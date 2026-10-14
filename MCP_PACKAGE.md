@@ -2,124 +2,66 @@
 
 ## Overview
 
-The **mcp-prompt-optimizer** package provides seamless Model Context Protocol (MCP) integration for professional prompt optimization. Transform your prompts with 70+ specialized optimization goals, template analytics, and team collaboration features.
+The **mcp-prompt-optimizer** package connects MCP clients to the Prompt Optimizer backend for prompt optimization (77 optimization goals), a template library, and Context Engineering tools.
 
 ## Package Information
 
 **Package**: [`mcp-prompt-optimizer`](https://www.npmjs.com/package/mcp-prompt-optimizer)  
-**Version**: Latest  
+**Version**: Latest (see npm)  
 **License**: Commercial Subscription  
-**Repository**: [GitHub](https://github.com/nivlewd1/prompt-optimizer)  
+**Source**: [nivlewd1/mcp-prompt-optimizer-npm](https://github.com/nivlewd1/mcp-prompt-optimizer-npm). The `mcp-package/` directory in this repository is an older snapshot (v3.1.1) and does not match the commands below.  
 **Homepage**: [promptoptimizer.xyz](https://promptoptimizer.xyz)
 
 ## Quick Installation
 
 ```bash
-# Install globally (recommended)
+# Install globally
 npm install -g mcp-prompt-optimizer
 
-# Configure API key
-mcp-prompt-optimizer --setup
+# Connect your MCP client (writes the client config and your API key)
+npx mcp-prompt-optimizer connect
 
-# Test installation
-mcp-prompt-optimizer --test
+# Check your key and plan
+npx mcp-prompt-optimizer validate-key
+npx mcp-prompt-optimizer check-status
 ```
+
+You need an API key from [promptoptimizer.xyz/pricing](https://promptoptimizer.xyz/pricing). The Free plan needs no credit card.
 
 ## MCP Client Configuration
 
-### ✅ CORRECT Configuration
-
-**For ALL MCP clients (Claude Desktop, Cursor, Windsurf, Cline, etc.):**
+`connect` writes this for you. To add it by hand, put the server in your client's MCP configuration and set your API key in `env`:
 
 ```json
 {
   "mcpServers": {
     "prompt-optimizer": {
       "command": "npx",
-      "args": ["mcp-prompt-optimizer"]
+      "args": ["mcp-prompt-optimizer"],
+      "env": {
+        "OPTIMIZER_API_KEY": "sk-opt-your-key-here"
+      }
     }
   }
 }
 ```
 
-### Client-Specific Examples
+Where the file lives:
+- **Claude Desktop**: `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS), `%APPDATA%\Claude\claude_desktop_config.json` (Windows), `~/.config/Claude/claude_desktop_config.json` (Linux).
+- **Cursor**: `~/.cursor/mcp.json`.
+- **Other clients** (Windsurf, Cline, etc.): use the MCP settings of that client; the JSON above is the same.
 
-#### **Claude Desktop** (`~/.claude/claude_desktop_config.json`)
-
-```json
-{
-  "mcpServers": {
-    "prompt-optimizer": {
-      "command": "npx",
-      "args": ["mcp-prompt-optimizer"]
-    }
-  }
-}
-```
-
-#### **Cursor** (Settings → Extensions → MCP)
-
-```json
-{
-  "mcpServers": {
-    "prompt-optimizer": {
-      "command": "npx",
-      "args": ["mcp-prompt-optimizer"]
-    }
-  }
-}
-```
-
-#### **Windsurf** (MCP Settings)
-
-```json
-{
-  "mcpServers": {
-    "prompt-optimizer": {
-      "command": "npx",
-      "args": ["mcp-prompt-optimizer"]
-    }
-  }
-}
-```
-
-#### **Cline** (VS Code Extension)
-
-```json
-{
-  "mcpServers": {
-    "prompt-optimizer": {
-      "command": "npx",
-      "args": ["mcp-prompt-optimizer"]
-    }
-  }
-}
-```
-
-### ❌ INCORRECT Configuration
-
-```json
-{
-  "mcpServers": {
-    "prompt-optimizer": {
-      "command": "mcp-prompt-optimizer"
-    }
-  }
-}
-```
-
-**Never use the package name directly as the command! Always use `npx` with the `args` array.**
+We recommend `npx` with an `args` array, as above, so the client always starts the installed package the same way.
 
 ## Available MCP Tools
 
 ### `optimize_prompt`
-Transform your prompts with professional optimization techniques using 70+ specialized goals.
+Optimize a prompt with context-aware techniques.
 
 **Parameters:**
 - `prompt` (required): The prompt text to optimize
-- `goals` (optional): Array of optimization goals
-- `ai_context` (optional): Context for optimization (code_generation, human_communication, etc.)
-- `stream` (optional): Whether to stream the response (default: false)
+- `goals` (optional): Array of optimization goals (default: `["clarity"]`)
+- `ai_context` (optional): Context for optimization (code_generation, human_communication, etc.); auto-detected if omitted
 
 **Example:**
 ```json
@@ -137,7 +79,7 @@ List your most recently saved optimization templates, sorted by creation date.
 - `limit` (optional): Number of templates to return, 1-20 (default: 10)
 
 ### `search_templates`
-Search your saved template library with AI-aware filtering and sophisticated template matching.
+Search your saved template library with AI-aware filtering.
 
 **Parameters:**
 - `query` (optional): Search term to filter templates by content or title
@@ -155,13 +97,13 @@ Retrieve a specific template by its ID.
 - `template_id` (required): The ID of the template to retrieve
 
 ### `create_template` / `update_template` / `delete_template`
-Full CRUD on your saved templates — see the tool's own inputSchema (returned via your MCP client's tool-listing) for exact parameters, since these accept the full template shape (title, prompts, goals, confidence score, tags, etc.).
+Full CRUD on your saved templates. Your MCP client's tool listing shows the exact parameters.
 
-This is a partial list — the package registers 20+ tools, including `generate_agent_sop`, `generate_skill_package`, `transform_for_framework`, `get_ce_quota_status`, `compile_prompt`, and `get_prompt_by_slug`. Your MCP client's tool listing is the authoritative, always-current source.
+This is a partial list: the package registers 20+ tools, including `generate_agent_sop`, `generate_skill_package`, `transform_for_framework`, `get_ce_quota_status`, `run_quick_evaluation`, `compile_prompt` and `get_prompt_by_slug`. Your MCP client's tool listing is the authoritative, always-current source.
 
-## Optimization Goals (77 and counting)
+## Optimization Goals (77)
 
-Goals are passed as strings in the `goals` array. A representative sample across the real categories:
+Goals are passed as strings in the `goals` array. A representative sample:
 
 ### **Core Enhancement**
 - `clarity` - Crystal-clear communication and understanding
@@ -199,120 +141,68 @@ Goals are passed as strings in the `goals` array. A representative sample across
 - `example_integration` - Concrete examples woven into the prompt
 - `expertise_injection` - Domain-expert framing
 
-This is a subset of the full goal list — see [promptoptimizer.xyz/documentation](https://promptoptimizer.xyz/documentation) for the complete, current set.
+This is a subset of the full goal list — see [promptoptimizer.xyz/documentation](https://promptoptimizer.xyz/documentation) for the complete set.
 
 ## Subscription Plans
 
 ### **Free** - $0/month
-- 20 optimizations/month
-- Validate fit, no credit card required
+- 20 optimizations/month, no credit card required
+- Default model
+- Context Engineering: 3 basic SOPs and 1 full skill package a month (Claude Code and Ollama targets)
 
 ### **Pro** - $19/month
 - 500 optimizations/month
-- Full model configuration (OpenRouter)
-- Context Engineering tools
+- Model choice (OpenRouter)
+- Context Engineering: 3 full skill builds a month, advanced steps and the other agent targets
 
 ### **Enterprise** - Custom
-- Custom optimization volume
+- Custom optimization volume and Context Engineering allowance
 - Team features, shared quotas
 
 ## Commands
 
-### Available Commands
-
 ```bash
-# Start MCP server (called by MCP client)
+# Start the MCP server (your MCP client does this)
 mcp-prompt-optimizer
 
-# Initial setup and API key configuration
-mcp-prompt-optimizer --setup
+# Connect an MCP client: writes the client config and your API key
+mcp-prompt-optimizer connect
 
-# Test functionality and connectivity
-mcp-prompt-optimizer --test
+# Validate your API key
+mcp-prompt-optimizer validate-key
 
-# Test MCP protocol connectivity
-mcp-prompt-optimizer --test-mcp
+# Show your plan and usage
+mcp-prompt-optimizer check-status
 
-# Show subscription and usage status
-mcp-prompt-optimizer --status
+# Clear the local cache
+mcp-prompt-optimizer clear-cache
 
-# Display help information
+# Run diagnostics
+mcp-prompt-optimizer diagnose
+
+# Help and version
 mcp-prompt-optimizer --help
-
-# Show version information
 mcp-prompt-optimizer --version
 ```
 
 ### Environment Variables
 
-Override configuration with environment variables:
-
-- `PROMPT_OPTIMIZER_API_KEY`: Override stored API key
-- `PROMPT_OPTIMIZER_BACKEND_URL`: Override backend URL
-- `PROMPT_OPTIMIZER_TEAM_ID`: Override team ID
-- `NODE_ENV`: Set to 'development' for debug logging
-
-```bash
-# Example usage with environment variable
-PROMPT_OPTIMIZER_API_KEY=sk-opt-your-key mcp-prompt-optimizer
-```
-
-## Configuration
-
-Configuration is stored at:
-- **Windows**: `%USERPROFILE%\\.prompt-optimizer\\config.json`
-- **macOS/Linux**: `~/.prompt-optimizer/config.json`
-
-**Example config.json:**
-```json
-{
-  "apiKey": "sk-opt-your-key-here",
-  "backendUrl": "https://p01--project-optimizer--fvrdk8m9k9j.code.run",
-  "teamId": "team_123",
-  "updatedAt": "2025-08-13T12:00:00.000Z"
-}
-```
+- `OPTIMIZER_API_KEY`: your API key (set by `connect` in your client's config)
+- `OPTIMIZER_BACKEND_URL`: override the backend URL
+- `OPTIMIZER_REQUEST_TIMEOUT`: request timeout
+- `OPTIMIZER_DEV_MODE`: enable development behaviour
 
 ## Template Management
 
-All optimizations are automatically saved as templates with rich metadata:
-
-```json
-{
-  "id": "template_abc123",
-  "saved_at_utc": "2025-08-13T12:00:00.000Z",
-  "optimization_tier": "LLM",
-  "confidence_score": 0.95,
-  "original_prompt": "Your original prompt",
-  "optimized_prompt": "The improved version",
-  "optimization_goals": ["clarity", "technical_accuracy"],
-  "context_snapshot": {
-    "domain": "Software Development",
-    "target_audience": "Developers"
-  },
-  "request_id": "unique-request-identifier",
-  "request_metadata": {
-    "api_request_type": "POST_non_streaming",
-    "user_id": "your-user-id",
-    "team_id": "team_123"
-  },
-  "model_optimized_with": "openai/gpt-4o-mini",
-  "usage_analytics": {
-    "times_used": 15,
-    "average_confidence": 0.87
-  }
-}
-```
+Optimizations that produce a result are saved to your template library automatically. A result is not saved when it came from a fallback path, has very low confidence, or leaves the prompt unchanged. Use `list_recent_templates`, `search_templates` and `get_template` to work with them.
 
 ## Troubleshooting
 
 ### Installation Issues
 
 ```bash
-# Clear npm cache
+# Clear the npm cache and reinstall
 npm cache clean --force
-
-# Reinstall package
 npm uninstall -g mcp-prompt-optimizer
 npm install -g mcp-prompt-optimizer
 
@@ -320,89 +210,61 @@ npm install -g mcp-prompt-optimizer
 npm list -g | grep mcp-prompt-optimizer
 ```
 
-### Configuration Issues
+### Configuration and API Issues
 
 ```bash
-# Validate MCP configuration JSON
-node -e "console.log(JSON.parse(require('fs').readFileSync('~/.claude/claude_desktop_config.json')))"
+# Re-run the connect wizard
+npx mcp-prompt-optimizer connect
 
-# Test MCP connectivity
-npx mcp-prompt-optimizer --test-mcp
+# Check that your key is accepted, and your plan
+npx mcp-prompt-optimizer validate-key
+npx mcp-prompt-optimizer check-status
 
-# Reconfigure API key
-mcp-prompt-optimizer --setup
-```
+# Run diagnostics
+npx mcp-prompt-optimizer diagnose
 
-### API Issues
-
-```bash
-# Verify API key format
-echo $PROMPT_OPTIMIZER_API_KEY | grep "^sk-opt-"
-
-# Test API connectivity
-curl -H "X-API-Key: $PROMPT_OPTIMIZER_API_KEY" \
-     https://p01--project-optimizer--fvrdk8m9k9j.code.run/api/v1/health
-
-# Check subscription status
-mcp-prompt-optimizer --status
+# Check that the API is reachable
+curl https://p01--project-optimizer--fvmrdk8m9k9j.code.run/health
 ```
 
 ### Common Error Solutions
 
 #### "Command not found: mcp-prompt-optimizer"
 ```bash
-# Check if package is installed globally
+# Check if the package is installed globally
 npm list -g mcp-prompt-optimizer
 
-# If not installed, install globally
+# If not, install it globally
 npm install -g mcp-prompt-optimizer
 
-# Check npm global path
+# Check the npm global path
 npm config get prefix
 ```
 
 #### "Invalid API key" Error
-```bash
-# Reconfigure API key
-mcp-prompt-optimizer --setup
-
-# Verify key format (should start with sk-opt-)
-echo $PROMPT_OPTIMIZER_API_KEY
-
-# Check subscription status at dashboard
-# https://promptoptimizer.xyz/dashboard
-```
+1. Run `npx mcp-prompt-optimizer validate-key`.
+2. Check that your key starts with `sk-opt-`, `sk-team-` or `sk-local-`.
+3. Check your plan at [promptoptimizer.xyz/dashboard](https://promptoptimizer.xyz/dashboard).
 
 #### MCP Client Not Connecting
-1. Verify JSON syntax in MCP configuration
-2. Ensure using `npx` with `args` array format
-3. Restart MCP client after configuration changes
-4. Test with: `npx mcp-prompt-optimizer --test-mcp`
+1. Verify the JSON syntax of your MCP configuration.
+2. Make sure `OPTIMIZER_API_KEY` is set in the server's `env`.
+3. Restart your MCP client after configuration changes.
+4. Run `npx mcp-prompt-optimizer diagnose`.
 
 ## Security
 
-- **Enterprise Security**: Production-grade encryption and authentication
-- **API Key Protection**: Secure local storage with encryption
-- **Audit Trails**: Complete optimization history and usage tracking
-- **Data Privacy**: Optimizations are saved to your own template library (see Template Management below) — never shared with other users or used to train models
+- **Transport**: All requests use HTTPS.
+- **API key**: Sent in the `X-API-Key` header and stored in your MCP client's configuration; keep that file private.
+- **Data Privacy**: Saved optimizations go to your own template library and are not shared with other users or used to train models.
 - **Compliance Posture**: Designed around GDPR/CCPA principles and OWASP guidance; not formally certified (see [SECURITY.md](./SECURITY.md#compliance-posture))
-- **Zero Trust**: Multi-layered security architecture
-
-## Performance
-
-- **Sub-50ms Response Times**: Optimized for real-time workflows
-- **Global CDN**: Minimal latency worldwide
-- **Auto-scaling**: Handles demand spikes seamlessly
-- **Streaming Support**: Real-time optimization updates
-- **99.9% Uptime**: Enterprise-grade reliability
-- **Smart Caching**: Intelligent template and result caching
 
 ## Support
 
 - 📚 **Documentation**: [promptoptimizer.xyz/documentation](https://promptoptimizer.xyz/documentation)
 - 🐛 **GitHub Issues**: [Report bugs and feature requests](https://github.com/nivlewd1/prompt-optimizer/issues)
-- 📧 **Email Support**: support@promptoptimizer.help
+- 📧 **Email Support**: support@promptoptimizer.xyz
 
 ---
 
-**Ready to transform your prompts?** [Get started today!](https://promptoptimizer.xyz/pricing)
+**Ready to try it?** [Get started](https://promptoptimizer.xyz/pricing)

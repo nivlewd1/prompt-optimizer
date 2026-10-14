@@ -1,83 +1,69 @@
 # Platform Architecture Overview: Prompt Optimizer
 
-The Prompt Optimizer is an integrated ecosystem designed for high-performance AI prompt engineering, agentic scaffolding, and deployment. The architecture is modular, ensuring both cloud-powered intelligence and privacy-first local processing.
+Prompt Optimizer is an ecosystem for prompt engineering, agentic scaffolding and deployment: a cloud backend, a web dashboard, two MCP packages and a set of in-context Claude Code skills.
 
-## 🏗️ The Four-Tier Ecosystem
+## The Four-Tier Ecosystem
 
-The platform is divided into four core pillars that work in harmony:
+### 1. Backend (FastAPI)
+The central service, built with **FastAPI** for asynchronous request handling.
+- **Optimization Engine**: Routes each prompt by complexity to a rules-based pass, an LLM-based pass, or a hybrid of the two.
+- **Context Detection**: Detects the AI context (code, image, research, etc.) and picks specialized templates.
+- **Billing and Teams**: Stripe billing, team multi-tenancy and template governance (version history, publish states).
+- **Bayesian Optimizer**: An experimental parameter-tuning subsystem under operator control. It is not applied to individual requests automatically.
+- **AG-UI Service**: Streaming optimization feedback over WebSocket.
 
-### 1. 🏢 Backend Infrastructure (FastAPI Pro)
-The central intelligence and routing hub. Built with **FastAPI** for high-performance asynchronous processing.
-- **Optimization Engine**: Implements a three-tier optimization pipeline (LLM-based, rules-based, and local fallback).
-- **Intelligent Routing**: Automatically detects AI context (Code, Image, Research, etc.) and routes to specialized templates.
-- **Enterprise Features**: Handles Stripe billing, team multi-tenancy, and template governance.
-- **Bayesian Optimizer**: Optional parameter-tuning subsystem; disabled by default in the standard deployment.
-- **AG-UI Service**: Powers real-time, streaming optimization feedback.
-
-### 2. 🌐 Frontend & User Interface (Next.js Dashboard)
-The command center for users and administrators.
+### 2. Web Dashboard (Next.js)
 - **User Portal**: API key management, quota tracking, and subscription upgrades.
-- **Evaluation Framework**: Run A/B tests on prompts and analyze confidence scores.
-- **Model Personalization**: Configure **OpenRouter** keys to choose specific LLMs for optimization tasks.
-- **Template Library**: Browse, search, and manage a team-wide library of optimized patterns.
+- **Evaluation Framework**: Run quick evaluations, manage datasets, and compare models.
+- **Model Personalization**: On Pro, configure your own **OpenRouter** key to choose the model used for your optimizations.
+- **Template Library**: Browse, search and manage your saved optimization templates.
 
-### 3. 🔌 Universal Integration (MCP Packages)
-Connects the platform directly to your developer tools (Claude Desktop, Cursor, etc.).
-- **`mcp-prompt-optimizer` (Cloud)**: Connects to the FastAPI backend for the highest-sophistication optimization.
-- **`mcp-prompt-optimizer-local` (Local)**: A standalone version for privacy-first users, featuring 120+ offline rules and native platform binaries.
+### 3. MCP Packages
+Connect the platform to your developer tools (Claude Desktop, Cursor, etc.).
+- **`mcp-prompt-optimizer` (Cloud)**: Connects to the backend for LLM-based optimization.
+- **`mcp-prompt-optimizer-local` (Local)**: Optimizes prompts on your machine with 129 built-in rules. Only your license key is sent to the backend, to validate it and read your quota.
 
-### 4. ⚡ Zero-Friction Skills (Claude Code)
-Four pure in-context Claude Code Skills. No backend call, no account, no external process. All four were generated via this platform's own Context Engineer system (`generate_skill_package(format="claude_skill")`, which internally calls `transform_sop_to_claude_skill()`).
-
-- **[`skill/prompt-optimizer/SKILL.md`](./skill/prompt-optimizer/SKILL.md)**: distills the platform's optimization methodology (context classification, sophistication assessment, optimization moves, parameter preservation) into direct instructions for Claude.
-- **[`skill/context-cartographer/SKILL.md`](./skill/context-cartographer/SKILL.md)**: assembles high-signal repository context before non-trivial implementation, debugging, or review work.
-- **[`skill/empirical-diagnostician/SKILL.md`](./skill/empirical-diagnostician/SKILL.md)**: forces evidence-based debugging via mandatory log extraction, a Fast-Track bypass for unambiguous defects, a hypothesis matrix for anything more complex, and a Root-Cause Contract before any edit. Validated against a fixed behavioral benchmark: 6/6 disposable-repo runs, independent pytest oracle, 1.0 on a live LLM-rubric fidelity check.
-- **[`skill/prompt-evaluation-engineer/SKILL.md`](./skill/prompt-evaluation-engineer/SKILL.md)**: turns prompts into reproducible evaluation protocols with contracts, balanced test matrices, deterministic checks before semantic rubrics, evidence preservation, and regression-safe comparisons.
+### 4. Claude Code Skills
+Ten in-context Claude Code skills. No backend call, no account, no external process. Most were produced with the Context Engineer. See [`skill/README.md`](./skill/README.md) for the index and install steps.
 
 ---
 
-## 📁 Repository Organization
+## Repository Organization
 
-The platform's code is distributed across specialized modules to ensure modularity and security:
+This public repository contains the documentation, the skills (`skill/`) and an **older snapshot** of the MCP package (`mcp-package/`, v3.1.1). The backend and the web app live in private repositories. The current source of the cloud MCP package is [`nivlewd1/mcp-prompt-optimizer-npm`](https://github.com/nivlewd1/mcp-prompt-optimizer-npm).
 
-### **FastAPI Backend (`/app`)**
-- `/api`: Specialized routers for optimization, analytics, and management.
-- `/core`: The core logic for context detection, Bayesian optimization, and database interactions.
-- `/services`: High-level services like AG-UI and dynamic model management.
-- `/models`: Pydantic schemas and database models.
+In the private backend repository:
+- `/app/api`: routers for optimization, analytics, and management.
+- `/app/core`: context detection, optimization engines and database access.
+- `/app/services`: services such as AG-UI and model management.
+- `/app/models`: Pydantic schemas.
 
-### **Next.js Frontend (`/src`)**
-- `/pages`: Dashboard, blog, documentation, and payment interfaces.
-- `/components`: Specialized UI elements like the **Hybrid Optimizer** and **Evaluation Panel**.
-- `/services`: Client-side logic for interacting with the backend API and Supabase.
-
-### **MCP Server Logic**
-- **Protocol Implementation**: Standardized JSON-RPC 2.0 communication for MCP compliance.
-- **Validation Engine**: Pre-flight checks for API keys and subscription quotas.
-- **Resilient Fallback**: Structured local rule engine that activates if the backend is unreachable.
+### MCP Server Logic
+- **Protocol Implementation**: Model Context Protocol over JSON-RPC.
+- **Validation**: The server checks your API key before it starts.
+- **Local Fallback**: A structured local rule pass applies if the backend is unreachable.
 
 ---
 
-## 🎯 Optimization Methodology
+## Optimization Pipeline
 
-The platform utilizes a **Confidence-Based Pipeline** to ensure quality:
-
-| Tier | Source | Confidence | Description |
-|---|---|---|---|
-| **Tier 1** | Backend LLM | 70% – 95% | Deep rewriting using professional engineering principles. |
-| **Tier 2** | Backend Rules | < 25% | Rapid structural enhancement for simple prompts. |
-| **Tier 3** | Local Fallback | 35% – 55% | Offline structural patterns applied via the NPM package. |
-
----
-
-## 🔐 Security & Data Flow
-
-1. **Authentication**: All requests are validated using tier-specific API keys (`sk-opt-*`, `sk-team-*`, `sk-local-*`).
-2. **Encryption**: 100% TLS/SSL encryption for data in transit.
-3. **Privacy**: Prompts are saved to your own scoped template library, encrypted at rest — never shared across users or used for model training.
-4. **Local Sovereignty**: The `local` package ensures that sensitive data never leaves the user's machine.
+| Tier | Source | Description |
+|---|---|---|
+| **Rules** | Backend | A rules-based pass for simple prompts. |
+| **Hybrid** | Backend | Rules plus an LLM pass for medium-complexity prompts. |
+| **LLM** | Backend | Full LLM optimization for complex prompts. |
+| **Local fallback** | npm package | Structured local patterns when the backend is unreachable (confidence 0.35 to 0.55). |
 
 ---
-**Version:** see the backend [`/status`](https://p01--project-optimizer--fvrdk8m9k9j.code.run/status) endpoint for the current deployed version.
-**License:** Commercial / Enterprise for the backend, MCP packages, and web dashboard. The `skill/` directory (Prompt Optimizer Skill) is MIT-licensed separately — see `skill/LICENSE`.
+
+## Security & Data Flow
+
+1. **Authentication**: Requests are validated using API keys (`sk-opt-*`, `sk-team-*`, `sk-local-*`).
+2. **Encryption**: TLS (1.2 or newer) for data in transit.
+3. **Privacy**: Optimizations that produce a result are saved to your own scoped template library (Supabase Postgres, encrypted at rest by the provider). They are not shared across users or used for model training.
+4. **Local package**: Prompts are processed on your machine; only your license key is sent to the backend.
+
+---
+**Version:** see the backend [`/status`](https://p01--project-optimizer--fvmrdk8m9k9j.code.run/status) endpoint for the current deployed version.
+**License:** Commercial for the backend, MCP packages, and web dashboard. The `skill/` directory is MIT-licensed separately — see `skill/LICENSE`.
 **Official Homepage:** [promptoptimizer.xyz](https://promptoptimizer.xyz)

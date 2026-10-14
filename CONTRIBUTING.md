@@ -53,22 +53,23 @@ We welcome several types of contributions:
 
 ### Setting Up Development Environment
 
+The current source of the MCP package is [nivlewd1/mcp-prompt-optimizer-npm](https://github.com/nivlewd1/mcp-prompt-optimizer-npm). This repository holds the documentation and the skills; its `mcp-package/` folder is an older snapshot (v3.1.1). Code contributions to the package go to the package repository.
+
 1. **Fork the Repository**
    ```bash
-   git clone https://github.com/your-username/prompt-optimizer.git
-   cd prompt-optimizer
+   git clone https://github.com/your-username/mcp-prompt-optimizer-npm.git
+   cd mcp-prompt-optimizer-npm
    ```
 
 2. **Install Dependencies**
    ```bash
-   cd mcp-package
    npm install
    ```
 
 3. **Set Up API Key**
    ```bash
-   node index.js --setup
-   # Enter your API key when prompted
+   node index.js connect
+   # Follow the prompts to enter your API key
    ```
 
 4. **Run Tests**
@@ -156,11 +157,8 @@ function validateGoals(goals) {
 # Run all tests
 npm test
 
-# Run specific test file
-node test-package.js
-
-# Test with coverage (if available)
-npm run test:coverage
+# Quick checks
+npm run test:quick
 ```
 
 ### Writing Tests
@@ -169,26 +167,6 @@ npm run test:coverage
 - Include edge cases
 - Test error conditions
 - Mock external dependencies
-
-### Test Structure
-
-```javascript
-const { expect } = require('chai');
-const Config = require('./lib/config');
-
-describe('Config Management', () => {
-  it('should save and load API keys correctly', () => {
-    const config = new Config();
-    const testKey = 'sk-opt-test123';
-    
-    const saved = config.setApiKey(testKey);
-    const loaded = config.getApiKey();
-    
-    expect(saved).to.be.true;
-    expect(loaded).to.equal(testKey);
-  });
-});
-```
 
 ## Documentation
 
@@ -239,7 +217,7 @@ describe('Config Management', () => {
 
 6. **Create Pull Request**
    - Use descriptive title
-   - Fill out PR template
+   - Use the checklist below
    - Link related issues
    - Request review
 
@@ -271,8 +249,6 @@ describe('Config Management', () => {
 
 1. **Automated Checks**
    - Tests must pass
-   - Code style checks
-   - Security scanning
 
 2. **Human Review**
    - Code quality assessment
@@ -309,7 +285,6 @@ describe('Config Management', () => {
 
 Contributors are recognized through:
 
-- **Contributors List**: Added to repository
 - **Release Notes**: Mentioned in changelogs
 
 ## Legal
@@ -340,7 +315,7 @@ By contributing, you agree that:
 
 If you have questions about contributing:
 
-- 📧 Email: support@promptoptimizer.help
+- 📧 Email: support@promptoptimizer.xyz
 - 🐛 Issues: [GitHub Issues](https://github.com/nivlewd1/prompt-optimizer/issues)
 
 Thank you for contributing to Prompt Optimizer! 🚀
