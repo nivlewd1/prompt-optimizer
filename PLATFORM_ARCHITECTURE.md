@@ -21,7 +21,7 @@ The central service, built with **FastAPI** for asynchronous request handling.
 ### 3. MCP Packages
 Connect the platform to your developer tools (Claude Desktop, Cursor, etc.).
 - **`mcp-prompt-optimizer` (Cloud)**: Connects to the backend for LLM-based optimization.
-- **`mcp-prompt-optimizer-local` (Local)**: Optimizes prompts on your machine with 129 built-in rules. Only your license key is sent to the backend, to validate it and read your quota.
+- **`mcp-prompt-optimizer-local` (Local)**: Optimizes prompts on your machine with 129 built-in rules. The free tier needs no key and makes no network calls; with a license key, only the key is sent to the backend, to validate it and read your quota.
 
 ### 4. Claude Code Skills
 Ten in-context Claude Code skills. No backend call, no account, no external process. Most were produced with the Context Engineer. See [`skill/README.md`](./skill/README.md) for the index and install steps.
@@ -61,7 +61,7 @@ In the private backend repository:
 1. **Authentication**: Requests are validated using API keys (`sk-opt-*`, `sk-team-*`, `sk-local-*`).
 2. **Encryption**: TLS (1.2 or newer) for data in transit.
 3. **Privacy**: Optimizations that produce a result are saved to your own scoped template library (Supabase Postgres, encrypted at rest by the provider). They are not shared across users or used for model training.
-4. **Local package**: Prompts are processed on your machine; only your license key is sent to the backend.
+4. **Local package**: Prompts are processed on your machine. The free tier makes no network calls; with a license key, only the key is sent to the backend.
 
 ---
 **Version:** see the backend [`/status`](https://p01--project-optimizer--fvmrdk8m9k9j.code.run/status) endpoint for the current deployed version.

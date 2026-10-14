@@ -16,7 +16,7 @@ Prompt Optimizer has four parts: a cloud MCP server, a local package, a web dash
 The cloud MCP server. Optimizes prompts through an LLM rewriting pipeline with context detection, a template library with version history, and streaming (AG-UI). Pro is a single-user plan; shared quotas and team features are Enterprise.
 
 ### 2. 🔒 Local Core (v4.1.10)
-A rules-based version that optimizes prompts on your own machine using 129 built-in rules, with no prompt text sent to the backend. It validates your license key against the backend, so it is not fully offline.
+A rules-based version that optimizes prompts on your own machine using 129 built-in rules, with no prompt text sent to the backend. The free tier needs no key and makes no network calls; a Basic or Pro license key is validated against the backend.
 
 ### 3. 🖥️ Web Dashboard
 The command center at [promptoptimizer.xyz](https://promptoptimizer.xyz). Manage API keys, configure **Personal Model Choice** (via OpenRouter), track analytics, and run evaluations (quick evaluate, datasets, cross-model comparison).
@@ -125,7 +125,7 @@ Don't be locked into one model. On Pro, configure your own **OpenRouter** key in
 ## 🔒 Security & Privacy
 - **Encrypted Transmission**: All traffic uses HTTPS (TLS 1.2 or newer, with HSTS).
 - **Scoped Retention**: Optimizations that produce a result are saved to your own template library, stored in Supabase Postgres (encrypted at rest by the provider). They are not shared across users or used to train models.
-- **Local Option**: `mcp-prompt-optimizer-local` processes prompts on your machine; only your license key is checked with the backend.
+- **Local Option**: `mcp-prompt-optimizer-local` processes prompts on your machine. The free tier needs no key and makes no network calls; with a license key, only the key is checked with the backend.
 
 ---
 
