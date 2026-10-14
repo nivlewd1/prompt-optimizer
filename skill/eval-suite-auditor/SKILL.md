@@ -1,6 +1,6 @@
 ---
 name: "eval-suite-auditor"
-description: "Audits an existing evaluation pipeline (LLM judges, assertions, scorers, repair or regression gates) for silent failure by actively probing it, not by reading the code. Use when a prompt eval suite, LLM-as-judge setup, or score-gated workflow already exists and the question is whether its numbers can be trusted, especially when a dead judge, a partial failure, or a noisy score could pass unnoti..."
+description: "Audits an existing evaluation pipeline (LLM judges, assertions, scorers, repair or regression gates) for silent failure by probing it, not by reading the code. Use when a prompt eval suite, LLM-as-judge setup, or score-gated workflow already exists and the question is whether its numbers can be trusted, especially when a dead judge, a partial failure, or a noisy score could pass unnoticed."
 ---
 
 # Eval Suite Auditor
