@@ -12,17 +12,17 @@
 
 Prompt Optimizer is more than just a server; it's a complete ecosystem for high-performance AI interaction.
 
-### 1. ☁️ Cloud Pro (v3.7.5)
+### 1. ☁️ Cloud Pro (v3.8.6)
 The flagship MCP server. Routes complex prompts through a sophisticated LLM rewriting pipeline with **Bayesian tuning** and **AG-UI** real-time streaming. Includes team collaboration and shared quotas.
 
-### 2. 🔒 Local Core (v4.1.2)
+### 2. 🔒 Local Core (v4.1.10)
 A privacy-first, 100% offline version. Uses a library of **120+ domain-specific rules** and platform-specific binaries for zero-latency, secure optimization on your own machine.
 
 ### 3. 🖥️ Web Dashboard
 The command center at [promptoptimizer.xyz](https://promptoptimizer.xyz). Manage API keys, configure **Personal Model Choice** (via OpenRouter), track analytics, and run A/B evaluations.
 
 ### 4. ⚡ Claude Code Skills (MIT, zero-friction)
-Free Claude Code Skills distilling this platform's methodology into pure in-context instructions. No npm install, no API key, no license key, no external process — copy the `SKILL.md` you want into `.claude/skills/<name>/` and Claude Code loads it directly. Each is MIT-licensed, separate from this repo's Commercial license covering the backend and MCP packages — see [`skill/LICENSE`](./skill/LICENSE).
+Free Claude Code Skills distilling this platform's methodology into pure in-context instructions. No npm install, no API key, no license key, no external process — copy the `SKILL.md` you want into `.claude/skills/<name>/` and Claude Code loads it directly. Each is MIT-licensed, separate from this repo's Commercial license covering the backend and MCP packages — see [`skill/LICENSE`](./skill/LICENSE). Install steps and a one-line summary of each skill: [`skill/README.md`](./skill/README.md).
 
 - **[`skill/prompt-optimizer/SKILL.md`](./skill/prompt-optimizer/SKILL.md)** — this platform's optimization methodology (context classification, sophistication assessment, optimization moves, parameter preservation). A weaker sibling to Cloud Pro and Local Core (no LLM-based optimization tier, no persistent history/quota/templates, no Bayesian tuning), positioned as the zero-account entry point.
 - **[`skill/context-cartographer/SKILL.md`](./skill/context-cartographer/SKILL.md)** — assembles high-signal repository context before non-trivial implementation, debugging, or review work.
