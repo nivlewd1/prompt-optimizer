@@ -1,6 +1,6 @@
 # Claude Code Skills
 
-Ten free skills for Claude Code. Each one is a single `SKILL.md` that Claude loads when your request matches its description. No account, no signup, no API key, no install step. MIT licensed (see [`LICENSE`](./LICENSE)).
+Eleven free skills for Claude Code. Each one is a single `SKILL.md` that Claude loads when your request matches its description. No account, no signup, no API key, no install step. MIT licensed (see [`LICENSE`](./LICENSE)).
 
 ## Install a skill
 
@@ -13,6 +13,7 @@ Ten free skills for Claude Code. Each one is a single `SKILL.md` that Claude loa
 | Skill | What it does |
 |---|---|
 | [`agent-prompt-architect`](./agent-prompt-architect/SKILL.md) | Architects the system prompt, context budget, and tool contract of an AI agent as one system. |
+| [`ambition-calibrator`](./ambition-calibrator/SKILL.md) | Decides whether a task should be made more ambitious, then rewrites it deeper rather than bigger: goal ladder, raw inputs and methods, borrowed fields, and a judge other than the model. |
 | [`context-cartographer`](./context-cartographer/SKILL.md) | Assembles high-signal repository context before non-trivial implementation, debugging, or review work. |
 | [`context-drift-auditor`](./context-drift-auditor/SKILL.md) | Audits whether a prompt or agent run has drifted from its original contract across turns, retrieved sources, edits, and decisions. |
 | [`empirical-diagnostician`](./empirical-diagnostician/SKILL.md) | Evidence-based debugging: log extraction first, a hypothesis matrix for anything complex, and a root-cause contract before any edit. |

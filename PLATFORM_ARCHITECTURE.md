@@ -24,7 +24,7 @@ Connect the platform to your developer tools (Claude Desktop, Cursor, etc.).
 - **`mcp-prompt-optimizer-local` (Local)**: Optimizes prompts on your machine with 129 built-in rules. The free tier needs no key and makes no network calls; with a license key, only the key is sent to the backend, to validate it and read your quota.
 
 ### 4. Claude Code Skills
-Ten in-context Claude Code skills. No backend call, no account, no external process. Most were produced with the Context Engineer. See [`skill/README.md`](./skill/README.md) for the index and install steps.
+Eleven in-context Claude Code skills. No backend call, no account, no external process. Most were produced with the Context Engineer. See [`skill/README.md`](./skill/README.md) for the index and install steps.
 
 ---
 
