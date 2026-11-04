@@ -1,6 +1,6 @@
 # Claude Code Skills
 
-Eleven free skills for Claude Code. Each one is a single `SKILL.md` that Claude loads when your request matches its description. No account, no signup, no API key, no install step. MIT licensed (see [`LICENSE`](./LICENSE)).
+Twelve free skills for Claude Code. Each one is a single `SKILL.md` that Claude loads when your request matches its description. No account, no signup, no API key, no install step. MIT licensed (see [`LICENSE`](./LICENSE)).
 
 ## Install a skill
 
@@ -16,6 +16,7 @@ Eleven free skills for Claude Code. Each one is a single `SKILL.md` that Claude 
 | [`ambition-calibrator`](./ambition-calibrator/SKILL.md) | Decides whether a task should be made more ambitious, then rewrites it deeper rather than bigger: goal ladder, raw inputs and methods, borrowed fields, and a judge other than the model. |
 | [`context-cartographer`](./context-cartographer/SKILL.md) | Assembles high-signal repository context before non-trivial implementation, debugging, or review work. |
 | [`context-drift-auditor`](./context-drift-auditor/SKILL.md) | Audits whether a prompt or agent run has drifted from its original contract across turns, retrieved sources, edits, and decisions. |
+| [`done-means-checkable`](./done-means-checkable/SKILL.md) | Writes acceptance criteria before work that has no tests, runs a judge other than the model, and lists what stayed unverified. |
 | [`empirical-diagnostician`](./empirical-diagnostician/SKILL.md) | Evidence-based debugging: log extraction first, a hypothesis matrix for anything complex, and a root-cause contract before any edit. |
 | [`eval-suite-auditor`](./eval-suite-auditor/SKILL.md) | Audits an existing evaluation pipeline (LLM judges, assertions, scorers, gates) for silent failure by probing it, not by reading the code. |
 | [`prompt-complexity-triage`](./prompt-complexity-triage/SKILL.md) | Decides how much a prompt needs to change before rewriting it, then applies only the moves for that tier. |
