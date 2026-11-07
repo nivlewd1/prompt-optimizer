@@ -14,7 +14,7 @@ Send your API key in the `X-API-Key` header:
 X-API-Key: sk-opt-your-api-key-here
 ```
 
-API keys follow the format: `sk-opt-*`, `sk-team-*`, or `sk-local-*`.
+API keys follow the format: `sk-opt-*` or `sk-team-*`.
 
 ---
 

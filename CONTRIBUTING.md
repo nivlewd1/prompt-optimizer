@@ -53,7 +53,7 @@ We welcome several types of contributions:
 
 ### Setting Up Development Environment
 
-The current source of the MCP package is [nivlewd1/mcp-prompt-optimizer-npm](https://github.com/nivlewd1/mcp-prompt-optimizer-npm). This repository holds the documentation and the skills; its `mcp-package/` folder is an older snapshot (v3.1.1). Code contributions to the package go to the package repository.
+The source of the MCP package is [nivlewd1/mcp-prompt-optimizer-npm](https://github.com/nivlewd1/mcp-prompt-optimizer-npm). This repository holds the documentation and the skills; Code contributions to the package go to the package repository.
 
 1. **Fork the Repository**
    ```bash

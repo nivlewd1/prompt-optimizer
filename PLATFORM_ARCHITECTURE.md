@@ -1,8 +1,8 @@
 # Platform Architecture Overview: Prompt Optimizer
 
-Prompt Optimizer is an ecosystem for prompt engineering, agentic scaffolding and deployment: a cloud backend, a web dashboard, two MCP packages and a set of in-context Claude Code skills.
+Prompt Optimizer is an ecosystem for prompt engineering, agentic scaffolding and deployment: a cloud backend, a web dashboard, an MCP package and a set of in-context Claude Code skills.
 
-## The Four-Tier Ecosystem
+## The Ecosystem
 
 ### 1. Backend (FastAPI)
 The central service, built with **FastAPI** for asynchronous request handling.
@@ -18,10 +18,9 @@ The central service, built with **FastAPI** for asynchronous request handling.
 - **Model Personalization**: On Pro, configure your own **OpenRouter** key to choose the model used for your optimizations.
 - **Template Library**: Browse, search and manage your saved optimization templates.
 
-### 3. MCP Packages
-Connect the platform to your developer tools (Claude Desktop, Cursor, etc.).
-- **`mcp-prompt-optimizer` (Cloud)**: Connects to the backend for LLM-based optimization.
-- **`mcp-prompt-optimizer-local` (Local)**: Optimizes prompts on your machine with 129 built-in rules. The free tier needs no key and makes no network calls; with a license key, only the key is sent to the backend, to validate it and read your quota.
+### 3. MCP Package
+Connects the platform to your developer tools (Claude Desktop, Cursor, etc.).
+- **`mcp-prompt-optimizer`**: Connects to the backend for LLM-based optimization.
 
 ### 4. Claude Code Skills
 Eleven in-context Claude Code skills. No backend call, no account, no external process. Most were produced with the Context Engineer. See [`skill/README.md`](./skill/README.md) for the index and install steps.
@@ -30,7 +29,7 @@ Eleven in-context Claude Code skills. No backend call, no account, no external p
 
 ## Repository Organization
 
-This public repository contains the documentation, the skills (`skill/`) and an **older snapshot** of the MCP package (`mcp-package/`, v3.1.1). The backend and the web app live in private repositories. The current source of the cloud MCP package is [`nivlewd1/mcp-prompt-optimizer-npm`](https://github.com/nivlewd1/mcp-prompt-optimizer-npm).
+This public repository contains the documentation, the skills (`skill/`). The backend and the web app live in private repositories. The source of the MCP package is [`nivlewd1/mcp-prompt-optimizer-npm`](https://github.com/nivlewd1/mcp-prompt-optimizer-npm).
 
 In the private backend repository:
 - `/app/api`: routers for optimization, analytics, and management.
@@ -58,10 +57,10 @@ In the private backend repository:
 
 ## Security & Data Flow
 
-1. **Authentication**: Requests are validated using API keys (`sk-opt-*`, `sk-team-*`, `sk-local-*`).
+1. **Authentication**: Requests are validated using API keys (`sk-opt-*`, `sk-team-*`).
 2. **Encryption**: TLS (1.2 or newer) for data in transit.
-3. **Privacy**: Optimizations that produce a result are saved to your own scoped template library (Supabase Postgres, encrypted at rest by the provider). They are not shared across users or used for model training.
-4. **Local package**: Prompts are processed on your machine. The free tier makes no network calls; with a license key, only the key is sent to the backend.
+3. **Privacy**: Optimizations that produce a result are saved to your own scoped template library (Supabase Postgres, encrypted at rest by the provider). They are not shared across accounts, and we do not use your prompts to train our own models. LLM-based optimization sends the prompt to third-party model providers through OpenRouter, each under its own terms; see the [privacy policy](https://promptoptimizer.xyz/privacy).
+4. **Offline fallback**: If the backend is unreachable, the npm package applies a limited optimization on your machine.
 
 ---
 **Version:** see the backend [`/status`](https://p01--project-optimizer--fvmrdk8m9k9j.code.run/status) endpoint for the current deployed version.

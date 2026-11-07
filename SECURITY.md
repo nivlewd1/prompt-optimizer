@@ -7,8 +7,7 @@ We support the latest published version of each component with security updates:
 | Component | Version | Supported |
 | --- | --- | --- |
 | Backend | production-v2.3.0 | :white_check_mark: |
-| `mcp-prompt-optimizer` (Cloud) | 3.8.6 | :white_check_mark: |
-| `mcp-prompt-optimizer-local` | 4.1.10 | :white_check_mark: |
+| `mcp-prompt-optimizer` | 3.8.11 | :white_check_mark: |
 | Older releases | — | :x: |
 
 ## Reporting a Vulnerability
@@ -125,7 +124,7 @@ We are a small, independently-operated product — if formal certification (e.g.
 
 ## Security Updates
 
-Fixes ship as new versions: the backend is deployed continuously, and the npm packages are published to npm. The packages do not update themselves; update with `npm install -g mcp-prompt-optimizer@latest` (or `mcp-prompt-optimizer-local@latest`). Package changes are listed in each package's changelog.
+Fixes ship as new versions: the backend is deployed continuously, and the npm package is published to npm. The package does not update itself; update with `npm install -g mcp-prompt-optimizer@latest`. Package changes are listed in its changelog.
 
 ## Bug Bounty Program
 

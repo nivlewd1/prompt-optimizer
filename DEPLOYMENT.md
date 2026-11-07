@@ -81,7 +81,7 @@ The MCP package is published to npm and can be installed globally:
 npm install -g mcp-prompt-optimizer
 ```
 
-The current source is [nivlewd1/mcp-prompt-optimizer-npm](https://github.com/nivlewd1/mcp-prompt-optimizer-npm). The `mcp-package/` directory in this repository is an older snapshot (v3.1.1).
+The current source is [nivlewd1/mcp-prompt-optimizer-npm](https://github.com/nivlewd1/mcp-prompt-optimizer-npm).
 
 ### Update Process
 

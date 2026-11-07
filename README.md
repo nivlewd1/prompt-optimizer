@@ -1,32 +1,31 @@
 # Prompt Optimizer: The Universal AI Architect & Scaffolding Platform
 
-An MCP server, a web dashboard, a local rules-based package and a set of free Claude Code skills for prompt optimization and agentic scaffolding.
+An MCP server, a web dashboard and a set of free Claude Code skills for prompt optimization and agentic scaffolding.
+
+The npm package source lives in [nivlewd1/mcp-prompt-optimizer-npm](https://github.com/nivlewd1/mcp-prompt-optimizer-npm). This repository holds the documentation and the skills.
 
 [![NPM Package](https://img.shields.io/npm/v/mcp-prompt-optimizer)](https://www.npmjs.com/package/mcp-prompt-optimizer) [![API Status](https://img.shields.io/badge/API-Production-green)](https://p01--project-optimizer--fvmrdk8m9k9j.code.run/health) [![Dashboard](https://img.shields.io/badge/Dashboard-Live-blue)](https://promptoptimizer.xyz) [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-purple)](https://mcp.so) [![Skills License](https://img.shields.io/badge/skill%2F-MIT-brightgreen)](./skill/LICENSE)
 
-> **License split:** the [`skill/`](./skill/) directory (Claude Code Skills) is free and open-source under MIT — no account, no signup. Everything else in this repo (backend, MCP packages, web dashboard) is Commercial — see the root [`LICENSE`](./LICENSE).
+> **License split:** the [`skill/`](./skill/) directory (Claude Code Skills) is free and open-source under MIT — no account, no signup. Everything else in this repo (backend, MCP package, web dashboard) is Commercial — see the root [`LICENSE`](./LICENSE).
 
 ---
 
-## 🌟 The Four-Tier Ecosystem
+## 🌟 The Ecosystem
 
-Prompt Optimizer has four parts: a cloud MCP server, a local package, a web dashboard, and Claude Code skills.
+Prompt Optimizer has three parts: a cloud MCP server, a web dashboard, and Claude Code skills.
 
-### 1. ☁️ Cloud Pro (v3.8.6)
-The cloud MCP server. Optimizes prompts through an LLM rewriting pipeline with context detection, a template library with version history, and streaming (AG-UI). Pro is a single-user plan; shared quotas and team features are Enterprise.
+### 1. ☁️ Cloud MCP Server
+Optimizes prompts through an LLM rewriting pipeline with context detection, a template library with version history, and streaming (AG-UI). Pro is a single-user plan; shared quotas and team features are Enterprise. Install from npm: [`mcp-prompt-optimizer`](https://www.npmjs.com/package/mcp-prompt-optimizer).
 
-### 2. 🔒 Local Core (v4.1.10)
-A rules-based version that optimizes prompts on your own machine using 129 built-in rules, with no prompt text sent to the backend. The free tier needs no key and makes no network calls; a Basic or Pro license key is validated against the backend.
-
-### 3. 🖥️ Web Dashboard
+### 2. 🖥️ Web Dashboard
 The command center at [promptoptimizer.xyz](https://promptoptimizer.xyz). Manage API keys, configure **Personal Model Choice** (via OpenRouter), track analytics, and run evaluations (quick evaluate, datasets, cross-model comparison).
 
-### 4. ⚡ Claude Code Skills (MIT, zero-friction)
-Free Claude Code Skills distilling this platform's methodology into pure in-context instructions. No npm install, no API key, no license key, no external process — copy the `SKILL.md` you want into `.claude/skills/<name>/` and Claude Code loads it directly. Each is MIT-licensed, separate from this repo's Commercial license covering the backend and MCP packages — see [`skill/LICENSE`](./skill/LICENSE). Install steps and a one-line summary of each skill: [`skill/README.md`](./skill/README.md).
+### 3. ⚡ Claude Code Skills (MIT, zero-friction)
+Free Claude Code Skills distilling this platform's methodology into pure in-context instructions. No npm install, no API key, no license key, no external process — copy the `SKILL.md` you want into `.claude/skills/<name>/` and Claude Code loads it directly. Each is MIT-licensed, separate from this repo's Commercial license covering the backend and MCP package — see [`skill/LICENSE`](./skill/LICENSE). Install steps and a one-line summary of each skill: [`skill/README.md`](./skill/README.md).
 
 **Want the optimization to run as a server instead of instructions?** The skills are static; the hosted optimizer adds the rewrite pipeline, history and evals. [Try one optimization with no account](https://promptoptimizer.xyz/demo?utm_source=github&utm_medium=readme&utm_campaign=skills-bridge), or [start free](https://promptoptimizer.xyz/pricing?utm_source=github&utm_medium=readme&utm_campaign=skills-bridge): 20 optimizations a month, no card.
 
-- **[`skill/prompt-optimizer/SKILL.md`](./skill/prompt-optimizer/SKILL.md)** — this platform's optimization methodology (context classification, sophistication assessment, optimization moves, parameter preservation). A weaker sibling to Cloud Pro and Local Core (no LLM-based optimization tier, no persistent history/quota/templates), positioned as the zero-account entry point.
+- **[`skill/prompt-optimizer/SKILL.md`](./skill/prompt-optimizer/SKILL.md)** — this platform's optimization methodology (context classification, sophistication assessment, optimization moves, parameter preservation). A weaker sibling to the cloud MCP server (no LLM-based optimization tier, no persistent history/quota/templates), positioned as the zero-account entry point.
 - **[`skill/context-cartographer/SKILL.md`](./skill/context-cartographer/SKILL.md)** — assembles high-signal repository context before non-trivial implementation, debugging, or review work.
 - **[`skill/empirical-diagnostician/SKILL.md`](./skill/empirical-diagnostician/SKILL.md)** — forces evidence-based debugging: mandatory log extraction, a Fast-Track bypass for unambiguous single-token defects, a hypothesis matrix for anything more complex, and a Root-Cause Contract before any edit. Validated against a fixed behavioral benchmark (6/6 disposable-repo runs, independent pytest oracle).
 - **[`skill/prompt-evaluation-engineer/SKILL.md`](./skill/prompt-evaluation-engineer/SKILL.md)** — turns prompts into reproducible evaluation protocols: contracts, balanced test matrices, deterministic checks before semantic rubrics, evidence preservation, and regression-safe comparisons.
@@ -52,7 +51,7 @@ npm install -g mcp-prompt-optimizer
 ### Step 2: Get Your API Key
 1. Visit [promptoptimizer.xyz/pricing](https://promptoptimizer.xyz/pricing)
 2. Choose your tier (Free tier includes 20 optimizations/month, no credit card required).
-3. API keys follow the format: `sk-opt-*`, `sk-team-*`, or `sk-local-*`.
+3. API keys follow the format: `sk-opt-*` or `sk-team-*`.
 
 ### Step 3: Configure Your MCP Client
 Run `npx mcp-prompt-optimizer connect` to have the package write this into your MCP client's config, or add it yourself. Claude Desktop reads `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS), `%APPDATA%\Claude\claude_desktop_config.json` (Windows) or `~/.config/Claude/claude_desktop_config.json` (Linux):
@@ -91,8 +90,14 @@ Transform vague goals into production-ready agentic scaffolding directly in your
 
 ## 🛠️ Available MCP Tools
 
+The server exposes 24 tools. A few of the main ones:
+
 | Tool | Description |
-|---|---|
+|
+
+See the [package README](https://github.com/nivlewd1/mcp-prompt-optimizer-npm#readme) for the full list.
+
+---|---|
 | `optimize_prompt` | Optimize a prompt with context-aware techniques. |
 | `detect_ai_context` | Automatically detect intent (Code, Image, Research, etc.). |
 | `search_templates` | Browse your history and reusable optimization patterns. |
@@ -128,8 +133,9 @@ Don't be locked into one model. On Pro, configure your own **OpenRouter** key in
 
 ## 🔒 Security & Privacy
 - **Encrypted Transmission**: All traffic uses HTTPS (TLS 1.2 or newer, with HSTS).
-- **Scoped Retention**: Optimizations that produce a result are saved to your own template library, stored in Supabase Postgres (encrypted at rest by the provider). They are not shared across users or used to train models.
-- **Local Option**: `mcp-prompt-optimizer-local` processes prompts on your machine. The free tier needs no key and makes no network calls; with a license key, only the key is checked with the backend.
+- **Stored history**: Prompts you optimize and the results are sent to the Prompt Optimizer API over HTTPS and stored in your account's optimization history. You can delete that history and your saved templates in the dashboard, or request account deletion. See the [privacy policy](https://promptoptimizer.xyz/privacy).
+- **Third-party providers**: LLM-based optimization sends your prompt to third-party model providers through OpenRouter. Each provider has its own terms, and some may keep prompts. We do not use your prompts to train our own models.
+- **Offline fallback**: If the backend is unreachable, the npm package falls back to a limited optimization that runs on your machine.
 
 ---
 

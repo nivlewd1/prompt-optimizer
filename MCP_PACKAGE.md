@@ -9,7 +9,7 @@ The **mcp-prompt-optimizer** package connects MCP clients to the Prompt Optimize
 **Package**: [`mcp-prompt-optimizer`](https://www.npmjs.com/package/mcp-prompt-optimizer)  
 **Version**: Latest (see npm)  
 **License**: Commercial Subscription  
-**Source**: [nivlewd1/mcp-prompt-optimizer-npm](https://github.com/nivlewd1/mcp-prompt-optimizer-npm). The `mcp-package/` directory in this repository is an older snapshot (v3.1.1) and does not match the commands below.  
+**Source**: [nivlewd1/mcp-prompt-optimizer-npm](https://github.com/nivlewd1/mcp-prompt-optimizer-npm).  
 **Homepage**: [promptoptimizer.xyz](https://promptoptimizer.xyz)
 
 ## Quick Installation
@@ -243,7 +243,7 @@ npm config get prefix
 
 #### "Invalid API key" Error
 1. Run `npx mcp-prompt-optimizer validate-key`.
-2. Check that your key starts with `sk-opt-`, `sk-team-` or `sk-local-`.
+2. Check that your key starts with `sk-opt-` or `sk-team-`.
 3. Check your plan at [promptoptimizer.xyz/dashboard](https://promptoptimizer.xyz/dashboard).
 
 #### MCP Client Not Connecting
